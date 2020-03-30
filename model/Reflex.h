@@ -13,7 +13,7 @@ class Reflex:virtual public Product{
         bool tropicalizzazione;
     public:
         //costruttore
-        Reflex(string="No data",string="No data",double=0.0,unsigned int=100,unsigned int=150,unsigned int=3,tipo=DSLR,bool=false);
+        Reflex(string="No data",string="No data",float=0.0,unsigned int=100,unsigned int=150,unsigned int=3,tipo=DSLR,bool=false);
         //metodi_accessori_e_modificatori
         unsigned int getISOmin() const;
         void setISOmin(unsigned int);

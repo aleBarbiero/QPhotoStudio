@@ -1,7 +1,7 @@
 #include "Reflex.h"
 using namespace std;
 
-Reflex::Reflex(string newM,string newNM,double newP,unsigned int min,unsigned int max,unsigned int pixel,tipo newType,bool newTrop):Product(newM,newNM,newP),ISOmin(min),ISOmax(max),px(pixel),formato(newType),tropicalizzazione(newTrop){
+Reflex::Reflex(string newM,string newNM,float newP,unsigned int min,unsigned int max,unsigned int pixel,tipo newType,bool newTrop):Product(newM,newNM,newP),ISOmin(min),ISOmax(max),px(pixel),formato(newType),tropicalizzazione(newTrop){
     if(ISOmax<ISOmin){
         setISOmax(min);
         setISOmin(max);}
@@ -21,13 +21,16 @@ unsigned int Reflex::getPX() const{
 }//getPX
 
 string Reflex::getFormato() const{
-    if(formato==DSLR)
-        return "DSLR";
-    else if(formato==FF)
-        return "FullFrame";
-    else if(formato==ML)
-        return "Mirrorless";
-    else return "No data";
+    switch(formato){
+        case DSLR:
+            return "DSLR";
+        case FF:
+            return "FullFrame";
+        case ML:
+            return "Mirrorless";
+        case UND:
+            return "No data";
+    }//switch
 }//getFormato
 
 bool Reflex::isTropicalizzato() const{

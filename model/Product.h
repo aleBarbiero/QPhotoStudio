@@ -9,10 +9,10 @@ class Product{
 	private:
 		string marca;
 		string nomeModello;
-        double prezzo;
+        float prezzo;
 	public:
 		//costruttori_e_distruttore
-        Product(string="No data",string="No data",double=0.00);
+        Product(string="No data",string="No data",float=0.00);
 		Product(const Product&) = default;
 		virtual ~Product() = default;
 		
@@ -31,8 +31,8 @@ class Product{
 		void setMarca(string newM);
         string getNomeModello() const;
 		void setNomeModello(string newNM);
-        double getPrezzo() const;
-        void setPrezzo(double newP);
+        float getPrezzo() const;
+        void setPrezzo(float newP);
 		//virtuali
         virtual string print() const;
 		virtual string getType() const=0;

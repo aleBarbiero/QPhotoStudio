@@ -14,7 +14,7 @@ class Lens:virtual public Product{
        unsigned int diametro;
     public:
        //costruttore
-       Lens(string="No data",string="No data",double=0.0,unsigned int=0,float=0.0,string="No data",bool=false,bool=false,float=0.0,unsigned int=0);
+       Lens(string="No data",string="No data",float=0.0,unsigned int=0,float=0.0,string="No data",bool=false,bool=false,float=0.0,unsigned int=0);
        //accessori_e_modificatori
        unsigned int getLung() const;
        void setLung(unsigned int);
