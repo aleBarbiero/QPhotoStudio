@@ -24,7 +24,7 @@ class Product{
 		bool operator>=(const Product&);
 		bool operator<(const Product&);
         bool operator<=(const Product&);
-        //friend ostream& operator<<(ostream&,const Product&);
+        friend ostream& operator<<(ostream&,const Product&);
 
 		//metodi_accessori_e_modificatori
         string getMarca() const;
@@ -40,11 +40,11 @@ class Product{
         virtual void XML(QXmlStreamWriter&)const;
 };//Product
 
-/*ostream& operator<<(ostream& os,const Product& p){;
-    os<<"Marca: "<<p.marca<<"\n";
-    os<<"Modello: "<<p.nomeModello<<"\n";
-    os<<"Prezzo: "<<p.prezzo<<"\n";
+ostream& operator<<(ostream& os,const Product& el){
+    os<<"Marca: "<<el.marca<<"\n";
+    os<<"Modello: "<<el.nomeModello<<"\n";
+    os<<"Prezzo: "<<el.prezzo<<"\n";
     return os;
-}//operator<<*/
+}//operator<<
 
 #endif

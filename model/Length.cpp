@@ -53,7 +53,7 @@ string Length::getType() const{
 
 //XML
 void Length::XML(QXmlStreamWriter& x) const{
-    x.writeStartElement(QString::fromStdString("ObiettivoFocaleFissa"));
+    x.writeStartElement(QString::fromStdString("ObiettivoLunghezzaFissa"));
         Lens::XML(x);
         x.writeStartElement("FocaleMax");
         x.writeCharacters(QString::number(static_cast<double>(focaleMax)));

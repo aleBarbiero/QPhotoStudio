@@ -23,12 +23,15 @@ class Reflex:virtual public Product{
         void setPX(unsigned int);
         string getFormato() const;
         void setFormato(string);
+        void setFormato(tipo);
         bool isTropicalizzato() const;
         void setTropicalizzazione(bool);
         //virtual
         Reflex* clone() const;
         string print() const;
         string getType() const;
+        //ausiliari
+        tipo fromStrToType(string) const;
         //XML
         void XML(QXmlStreamWriter&) const;
 };

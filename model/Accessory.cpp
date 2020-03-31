@@ -2,16 +2,7 @@
 using namespace std;
 
 //costruttore
-Accessory::Accessory(string newM,string newNM,float newP,string newT,string newComp,string newInfo):Product(newM,newNM,newP),compatibilita(newComp),info(newInfo){
-    if(newT=="MemoryCard")
-        tipologia=MC;
-    else if(newT=="Zaini e borse")
-        tipologia=ZA;
-    else if(newT=="Filtri")
-        tipologia=FIL;
-    else if(newT=="Treppiedi")
-        tipologia=TREP;
-    else tipologia=ALTRO;
+Accessory::Accessory(string newM,string newNM,float newP,tipoA newT,string newComp,string newInfo):Product(newM,newNM,newP),tipologia(newT),compatibilita(newComp),info(newInfo){
 }//Accessory
 
 //accessori_e_modificatori
@@ -28,6 +19,7 @@ string Accessory::getTipologia() const{
         case ALTRO:
             return "Altro";
     }//switch
+    return "No data";
 }//getTipologia
 
 string Accessory::getCompatibilita() const{
@@ -48,6 +40,10 @@ void Accessory::setTipologia(string t){
     else if(t=="Filtri")
         tipologia=FIL;
     else tipologia=ALTRO;
+}//setTipologia
+
+void Accessory::setTipologia(tipoA t){
+    tipologia=t;
 }//setTipologia
 
 void Accessory::setCompatibilita(string c){
@@ -92,3 +88,16 @@ void Accessory::XML(QXmlStreamWriter& x) const{
         x.writeEndElement();
     x.writeEndElement();
 }//XML
+
+//ausiliari
+tipoA Accessory::fromStrToType(string s) const{
+    if(s=="MemoryCard")
+        return MC;
+    if(s=="Zaini e borse")
+        return ZA;
+    if(s=="Filtri")
+        return FIL;
+    if(s=="Treppiedi")
+        return TREP;
+    else return ALTRO;
+}//fromStrToType

@@ -31,6 +31,7 @@ string Reflex::getFormato() const{
         case UND:
             return "No data";
     }//switch
+    return "No data";
 }//getFormato
 
 bool Reflex::isTropicalizzato() const{
@@ -61,6 +62,10 @@ void Reflex::setFormato(string f){
     else if(f=="Mirrorless")
         formato=ML;
     else formato=UND;
+}//setFormato
+
+void Reflex::setFormato(tipo f){
+    formato=f;
 }//setFormato
 
 void Reflex::setTropicalizzazione(bool t){
@@ -94,13 +99,13 @@ void Reflex::XML(QXmlStreamWriter& x) const{
         x.writeCharacters(QString::fromStdString(getFormato()));
         x.writeEndElement();
         x.writeStartElement("ISO min");
-        x.writeCharacters(QString::number(getISOmin()));
+        x.writeCharacters(QString::number(ISOmin));
         x.writeEndElement();
         x.writeStartElement("ISO max");
-        x.writeCharacters(QString::number(getISOmax()));
+        x.writeCharacters(QString::number(ISOmax));
         x.writeEndElement();
         x.writeStartElement("Pixel");
-        x.writeCharacters(QString::number(getPX()));
+        x.writeCharacters(QString::number(px));
         x.writeEndElement();
         x.writeStartElement("Tropicalizzazione");
         if(isTropicalizzato())
@@ -110,3 +115,14 @@ void Reflex::XML(QXmlStreamWriter& x) const{
         x.writeEndElement();
     x.writeEndElement();
 }//XML
+
+//ausiliario
+tipo Reflex::fromStrToType(string s) const{
+    if(s=="FullFrame")
+        return FF;
+    if(s=="Mirrorless")
+        return ML;
+    if(s=="DSLR")
+        return DSLR;
+    return UND;
+}//fromStrToType

@@ -1,36 +1,77 @@
 #include "Product.h"
 #include <cmath>
 #include <limits>
+#include <string.h>
 using namespace std;
 
 Product::Product(string newM,string newNM,float newP):marca(newM),nomeModello(newNM),prezzo(newP){
-    if(prezzo<0.0) setPrezzo(0.0);
-    else setPrezzo(round(prezzo*100)/100);
+    if(prezzo<0.0f) setPrezzo(0.0f);
+    else setPrezzo(roundf(prezzo*100)/100);
 };
 
 //operatori
 bool Product::operator==(const Product& p){
-    return (marca==p.getMarca() && nomeModello==p.getNomeModello() && (fabsf(prezzo - p.getPrezzo()) < numeric_limits<float>::epsilon()));
+    return (marca==p.getMarca() && nomeModello==p.getNomeModello());
 }//==
 
 bool Product::operator!=(const Product& p){
-    return !(*this==p);
+    return !(Product::operator==(p));
 }//!=
 
 bool Product::operator>(const Product& p){
-    return prezzo>p.getPrezzo();
+    int result=strcmp(marca.c_str(),p.marca.c_str());
+    if(result<0)
+        return false;
+    if(result>0)
+        return true;
+    result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
+    if(result<0)
+        return false;
+    if(result>0)
+        return true;
+    return false;
 }//>
 
 bool Product::operator>=(const Product& p){
-    return prezzo>=p.getPrezzo();
+    int result=strcmp(marca.c_str(),p.marca.c_str());
+    if(result<0)
+        return false;
+    if(result>0)
+        return true;
+    result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
+    if(result<0)
+        return false;
+    if(result>0)
+        return true;
+    return true;
 }//>=
 
 bool Product::operator<(const Product& p){
-    return prezzo<p.getPrezzo();
+    int result=strcmp(marca.c_str(),p.marca.c_str());
+    if(result<0)
+        return true;
+    if(result>0)
+        return false;
+    result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
+    if(result<0)
+        return true;
+    if(result>0)
+        return false;
+    return false;
 }//<
 
 bool Product::operator<=(const Product& p){
-    return prezzo<=p.getPrezzo();
+    int result=strcmp(marca.c_str(),p.marca.c_str());
+    if(result<0)
+        return true;
+    if(result>0)
+        return false;
+    result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
+    if(result<0)
+        return true;
+    if(result>0)
+        return false;
+    return true;
 }//<=
 
 string Product::getMarca() const{

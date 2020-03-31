@@ -96,7 +96,6 @@ string Lens::print() const{
 }//print
 
 void Lens::XML(QXmlStreamWriter& x) const{
-    x.writeStartElement(QString::fromStdString("ObiettivoFisso"));
         Product::XML(x);
         x.writeStartElement("Lunghezza");
         x.writeCharacters(QString::number(getLung()));
@@ -125,5 +124,4 @@ void Lens::XML(QXmlStreamWriter& x) const{
         x.writeStartElement("Compatibilita");
         x.writeCharacters(QString::fromStdString(getComp()));
         x.writeEndElement();
-    x.writeEndElement();
 }//XML
