@@ -31,7 +31,7 @@ class Reflex:virtual public Product{
         string print() const;
         string getType() const;
         //ausiliari
-        tipo fromStrToType(string) const;
+        static tipo fromStrToType(string);
         //XML
         void XML(QXmlStreamWriter&) const;
 };

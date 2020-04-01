@@ -2,7 +2,7 @@
 
 //costruttore
 Zoom::Zoom(string newM,string newNM,float newP,unsigned int newLungMin,unsigned int newLungMax,float newFMin,float newFMax,string newComp,bool newStab,bool newAF,float newAngMin,float newAngMax,unsigned int newDiam,bool newMolt):
-    Aperture(newM,newNM,newP,newLungMin,newLungMax,newFMin,newComp,newStab,newAF,newAngMin,newAngMax,newDiam),Length(newM,newNM,newP,newLungMin,newFMin,newFMax,newComp,newStab,newAF,newAngMin,newDiam),moltiplicatore(newMolt){
+    Product(newM,newNM,newP),Aperture(newM,newNM,newP,newLungMin,newLungMax,newFMin,newComp,newStab,newAF,newAngMin,newAngMax,newDiam),Length(newM,newNM,newP,newLungMin,newFMin,newFMax,newComp,newStab,newAF,newAngMin,newDiam),moltiplicatore(newMolt){
 }//Zoom
 
 bool Zoom::hasMoltiplicatore() const{
@@ -57,9 +57,11 @@ void Zoom::XML(QXmlStreamWriter& x) const{
         x.writeStartElement("FocaleMax");
         x.writeCharacters(QString::number(static_cast<double>(Length::getFocaleMax())));
         x.writeEndElement();
+        x.writeStartElement("Moltiplicatore");
         if(Zoom::hasMoltiplicatore())
            x.writeCharacters(QString::fromStdString("SI"));
         else
             x.writeCharacters(QString::fromStdString("NO"));
+        x.writeEndElement();
     x.writeEndElement();
 }//XML

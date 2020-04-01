@@ -28,7 +28,7 @@ class Accessory:virtual public Product{
         //XML
         void XML(QXmlStreamWriter&) const;
         //ausiliario
-        tipoA fromStrToType(string) const;
+        static tipoA fromStrToType(string);
 };
 
 #endif

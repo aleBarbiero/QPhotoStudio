@@ -13,7 +13,7 @@ class Length:public Lens{
         float getFocaleMax() const;
         void setFocaleMax(float);
         //virtual
-        Length* clone() const;
+        virtual Length* clone() const;
         string print() const;
         string getType() const;
         //XML

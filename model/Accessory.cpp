@@ -90,7 +90,7 @@ void Accessory::XML(QXmlStreamWriter& x) const{
 }//XML
 
 //ausiliari
-tipoA Accessory::fromStrToType(string s) const{
+tipoA Accessory::fromStrToType(string s){
     if(s=="MemoryCard")
         return MC;
     if(s=="Zaini e borse")

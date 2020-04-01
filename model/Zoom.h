@@ -14,7 +14,7 @@ class Zoom:public Aperture, public Length{
         bool hasMoltiplicatore() const;
         void setMoltiplicatore(bool);
         //virtual
-        Zoom* clone() const;
+        virtual Zoom* clone() const;
         string getType() const;
         string print() const;
         //XML

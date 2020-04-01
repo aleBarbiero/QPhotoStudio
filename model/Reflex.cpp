@@ -98,10 +98,10 @@ void Reflex::XML(QXmlStreamWriter& x) const{
         x.writeStartElement("Formato");
         x.writeCharacters(QString::fromStdString(getFormato()));
         x.writeEndElement();
-        x.writeStartElement("ISO min");
+        x.writeStartElement("ISOmin");
         x.writeCharacters(QString::number(ISOmin));
         x.writeEndElement();
-        x.writeStartElement("ISO max");
+        x.writeStartElement("ISOmax");
         x.writeCharacters(QString::number(ISOmax));
         x.writeEndElement();
         x.writeStartElement("Pixel");
@@ -117,8 +117,8 @@ void Reflex::XML(QXmlStreamWriter& x) const{
 }//XML
 
 //ausiliario
-tipo Reflex::fromStrToType(string s) const{
-    if(s=="FullFrame")
+tipo Reflex::fromStrToType(string s){
+    if(s=="Fullframe")
         return FF;
     if(s=="Mirrorless")
         return ML;

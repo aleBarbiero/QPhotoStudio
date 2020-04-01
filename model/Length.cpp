@@ -2,7 +2,7 @@
 using namespace std;
 
 //costruttore
-Length::Length(string newM,string newNM,float newP,unsigned int newLung,float newFMin,float newFMax,string newComp,bool newStab,bool newAF,float newAng,unsigned int newDiam):Lens(newM,newNM,newP,newLung,newFMin,newComp,newStab,newAF,newAng,newDiam),
+Length::Length(string newM,string newNM,float newP,unsigned int newLung,float newFMin,float newFMax,string newComp,bool newStab,bool newAF,float newAng,unsigned int newDiam):Product(newM,newNM,newP),Lens(newM,newNM,newP,newLung,newFMin,newComp,newStab,newAF,newAng,newDiam),
     focaleMax(newFMax){
     if(newFMax<newFMin){
         focaleMax=newFMin;

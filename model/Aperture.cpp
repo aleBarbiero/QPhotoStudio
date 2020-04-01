@@ -1,7 +1,7 @@
 #include "Aperture.h"
 using namespace std;
 
-Aperture::Aperture(string newM,string newNM,float newP,unsigned int newLungMin,unsigned int newLungMax,float newF,string newComp,bool newStab,bool newAF,float newAngMin,float newAngMax,unsigned int newDiam):Lens(newM,newNM,newP,newLungMin,newF,newComp,newStab,newAF,newAngMin,newDiam),
+Aperture::Aperture(string newM,string newNM,float newP,unsigned int newLungMin,unsigned int newLungMax,float newF,string newComp,bool newStab,bool newAF,float newAngMin,float newAngMax,unsigned int newDiam):Product(newM,newNM,newP),Lens(newM,newNM,newP,newLungMin,newF,newComp,newStab,newAF,newAngMin,newDiam),
             lungMax(newLungMax),angoloMax(newAngMax){
     if(newLungMax<newLungMin){
         lungMax=newLungMin;
