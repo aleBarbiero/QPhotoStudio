@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/icon.png</file>
+        <file>images/accessory.png</file>
+        <file>images/camera.png</file>
+        <file>images/image.png</file>
+        <file>images/lens.png</file>
+        <file>images/title.png</file>
+        <file>qphotostudio.xml</file>
+        <file>GUI/style.qss</file>
+    </qresource>
+</RCC>

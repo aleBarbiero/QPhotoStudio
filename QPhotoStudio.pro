@@ -15,7 +15,7 @@ TEMPLATE = app
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
-DEFINES += QT_DEPRECATED_WARNINGS
+
 
 # You can also make your code fail to compile if you use deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -25,25 +25,53 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        container/Container.cpp \
+        model/Product.cpp \
+        model/Reflex.cpp \
+        model/Accessory.cpp \
+        model/Lens.cpp \
+        model/Length.cpp \
+        model/Aperture.cpp \
+        model/Zoom.cpp \
         container/DeepPtr.cpp \
+        container/Container.cpp \
+        GUI/Add.cpp \
+        GUI/Index.cpp \
+        GUI/Model.cpp \
+        GUI/MyXml.cpp \
         main.cpp \
         mainwindow.cpp \
-        model/Product.cpp \
-        model/Reflex.cpp
 
 HEADERS += \
-        container/Container.h \
-        container/DeepPtr.h \
-        mainwindow.h \
-        model/Lens.h \
         model/Product.h \
-        model/Reflex.h
+        model/Reflex.h \
+        model/Accessory.h \
+        model/Lens.h \
+        model/Length.h \
+        model/Aperture.h \
+        model/Zoom.h \
+        container/DeepPtr.h \
+        container/Container.h \
+        GUI/Add.h \
+        GUI/Index.h \
+        GUI/Model.h \
+        GUI/MyXml.h \
+        mainwindow.h \
 
-FORMS += \
-        mainwindow.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    GUI/style.qss \
+    icon/icon.png \
+    images/accessory.png \
+    images/camera.png \
+    images/image.png \
+    images/lens.png \
+    images/title.png
+
+RESOURCES += \
+    source.qrc
