@@ -6,12 +6,15 @@
 #include <QIntValidator>
 #include <QDoubleValidator>
 
-Add::Add(QWidget* wid):QWidget(wid),qfl(new QFormLayout()),qgb(new QGroupBox("Aggiunta nuova prodotto")),img(new QHBoxLayout()),button(new QHBoxLayout()),marcaL(new QLabel("Marca")),modelloL(new QLabel("Modello")),tipoProdL(new QLabel("Tipologia prodotto")),compL(new QLabel("Compatibilità")),
-    ISOminL(new QLabel("ISO (min)")),ISOmaxL(new QLabel("ISO (max)")),pxL(new QLabel("Pixel")),formatoL(new QLabel("Formato")),tropL(new QLabel("Tropicalizzazione")),
-    tipoAccL(new QLabel("Tipologia accessorio")),infoL(new QLabel("Note")),tipoObL(new QLabel("Tipologia obiettivo")),lungMinL(new QLabel("Lunghezza focale")),lungMaxL(new QLabel("Lunghezza focale (max)")),
-    fMinL(new QLabel("f/")),fMaxL(new QLabel("(max) f/")),stabL(new QLabel("Stabilizzazione")),AFL(new QLabel("Automatic focus")),angMinL(new QLabel("Angolo")),angMaxL(new QLabel("Angolo (max)")),
-    diamL(new QLabel("Diametro lente")),moltL(new QLabel("Compatibilità moltiplicatore")),imgL(new QLabel(this)),add(new QPushButton("Aggiungi",this)),del(new QPushButton("Azzera form",this)){
+Add::Add(QWidget* wid):QWidget(wid),qfl(new QFormLayout()),qgb(new QGroupBox("Aggiunta nuovo prodotto")),img(new QHBoxLayout()),button(new QHBoxLayout()),marcaL(new QLabel("Marca")),modelloL(new QLabel("Modello")),tipoProdL(new QLabel("Tipologia prodotto")),compL(new QLabel("Compatibilità")),
+        prezzoL(new QLabel("Prezzo (in €)")),ISOminL(new QLabel("ISO (min)")),ISOmaxL(new QLabel("ISO (max)")),pxL(new QLabel("Pixel")),formatoL(new QLabel("Formato")),tropL(new QLabel("Tropicalizzazione")),tipoAccL(new QLabel("Tipologia accessorio")),infoL(new QLabel("Note (opzionali)")),tipoObL(new QLabel("Tipologia obiettivo")),
+        lungMinL(new QLabel("Lunghezza focale")),lungMaxL(new QLabel("Lunghezza focale (max)")),fMinL(new QLabel("f/")),fMaxL(new QLabel("(max) f/")),stabL(new QLabel("Stabilizzazione")),AFL(new QLabel("Automatic focus")),angMinL(new QLabel("Angolo")),angMaxL(new QLabel("Angolo (max)")),
+        diamL(new QLabel("Diametro lente")),moltL(new QLabel("Compatibilità moltiplicatore")),marcaValue(new QLineEdit(this)),modelloValue(new QLineEdit(this)),tipoProdValue(new QComboBox(this)),compValue(new QLineEdit(this)),prezzoValue(new QLineEdit(this)),ISOminValue(new QLineEdit(this)),ISOmaxValue(new QLineEdit(this)),
+        pxValue(new QLineEdit(this)),formatoValue(new QComboBox(this)),tropValue(new QCheckBox(this)),tipoAccValue(new QComboBox(this)),infoValue(new QLineEdit(this)),tipoObValue(new QComboBox(this)),lungMinValue(new QLineEdit(this)),lungMaxValue(new QLineEdit(this)),
+        fMinValue(new QLineEdit(this)),fMaxValue(new QLineEdit(this)),stabValue(new QCheckBox(this)),AFValue(new QCheckBox(this)),angMinValue(new QLineEdit(this)),angMaxValue(new QLineEdit(this)),diamValue(new QLineEdit(this)),
+        moltValue(new QCheckBox(this)),imgL(new QLabel(this)),add(new QPushButton("Aggiungi",this)),del(new QPushButton("Azzera form",this)){
     //controlli_input
+    prezzoValue->setValidator(new QDoubleValidator(1.00,15000.00,2,this));
     ISOminValue->setValidator(new QIntValidator(0,100000,this));
     ISOmaxValue->setValidator(new QIntValidator(0,100000,this));
     pxValue->setValidator(new QIntValidator(0,1000,this));
@@ -40,6 +43,8 @@ Add::Add(QWidget* wid):QWidget(wid),qfl(new QFormLayout()),qgb(new QGroupBox("Ag
     qfl->addRow(marcaL,marcaValue);
     qfl->addRow(modelloL,modelloValue);
     qfl->addRow(tipoProdL,tipoProdValue);
+    qfl->addRow(prezzoL,prezzoValue);
+    qgb->setLayout(qfl);
     //main_layout
     QVBoxLayout* mainLayout=new QVBoxLayout(this);
     mainLayout->addWidget(qgb);
@@ -73,6 +78,7 @@ void Add::modify(QString type){
         tropL->setVisible(true);
         tropValue->setVisible(true);
         QPixmap imm=QPixmap(":/images/camera.png");
+        imgL->setFixedSize(250,250);
         imm=imm.scaled(imgL->size(),Qt::KeepAspectRatio);
         imgL->setPixmap(imm);
         img->addWidget(imgL);
@@ -88,15 +94,47 @@ void Add::modify(QString type){
         infoL->setVisible(true);
         infoValue->setVisible(true);
         QPixmap imm=QPixmap(":/images/accessory.png");
+        imgL->setFixedSize(250,250);
         imm=imm.scaled(imgL->size(),Qt::KeepAspectRatio);
         imgL->setPixmap(imm);
         img->addWidget(imgL);
     }else{
         delForm();
         qfl->addRow(tipoObL,tipoObValue);
+        qfl->addRow(compL,compValue);
         tipoObL->setVisible(true);
         tipoObValue->setVisible(true);
+        compL->setVisible(true);
+        compValue->setVisible(true);
+        qfl->addRow(tipoObL,tipoObValue);
+        qfl->addRow(lungMinL,lungMinValue);
+        qfl->addRow(lungMaxL,lungMaxValue);
+        qfl->addRow(fMinL,fMinValue);
+        qfl->addRow(stabL,stabValue);
+        qfl->addRow(AFL,AFValue);
+        qfl->addRow(angMinL,angMinValue);
+        qfl->addRow(angMaxL,angMaxValue);
+        qfl->addRow(diamL,diamValue);
+        tipoObL->setVisible(true);
+        tipoObValue->setVisible(true);
+        lungMinL->setVisible(true);
+        lungMinValue->setVisible(true);
+        lungMaxL->setVisible(true);
+        lungMaxValue->setVisible(true);
+        fMinL->setVisible(true);
+        fMinValue->setVisible(true);
+        stabL->setVisible(true);
+        stabValue->setVisible(true);
+        AFL->setVisible(true);
+        AFValue->setVisible(true);
+        angMinL->setVisible(true);
+        angMinValue->setVisible(true);
+        angMaxL->setVisible(true);
+        angMaxValue->setVisible(true);
+        diamL->setVisible(true);
+        diamValue->setVisible(true);
         QPixmap imm=QPixmap(":/images/lens.png");
+        imgL->setFixedSize(150,150);
         imm=imm.scaled(imgL->size(),Qt::KeepAspectRatio);
         imgL->setPixmap(imm);
         img->addWidget(imgL);
@@ -104,6 +142,7 @@ void Add::modify(QString type){
     if(type=="Focale fissa"){
         delForm();
         qfl->addRow(tipoObL,tipoObValue);
+        qfl->addRow(compL,compValue);
         qfl->addRow(lungMinL,lungMinValue);
         qfl->addRow(lungMaxL,lungMaxValue);
         qfl->addRow(fMinL,fMinValue);
@@ -112,6 +151,8 @@ void Add::modify(QString type){
         qfl->addRow(angMinL,angMinValue);
         qfl->addRow(angMaxL,angMaxValue);
         qfl->addRow(diamL,diamValue);
+        compL->setVisible(true);
+        compValue->setVisible(true);
         tipoObL->setVisible(true);
         tipoObValue->setVisible(true);
         lungMinL->setVisible(true);
@@ -131,12 +172,14 @@ void Add::modify(QString type){
         diamL->setVisible(true);
         diamValue->setVisible(true);
         QPixmap imm=QPixmap(":/images/lens.png");
+        imgL->setFixedSize(150,150);
         imm=imm.scaled(imgL->size(),Qt::KeepAspectRatio);
         imgL->setPixmap(imm);
         img->addWidget(imgL);
     }else if(type=="Lunghezza fissa"){
         delForm();
         qfl->addRow(tipoObL,tipoObValue);
+        qfl->addRow(compL,compValue);
         qfl->addRow(lungMinL,lungMinValue);
         qfl->addRow(fMinL,fMinValue);
         qfl->addRow(fMaxL,fMaxValue);
@@ -144,6 +187,8 @@ void Add::modify(QString type){
         qfl->addRow(AFL,AFValue);
         qfl->addRow(angMinL,angMinValue);
         qfl->addRow(diamL,diamValue);
+        compL->setVisible(true);
+        compValue->setVisible(true);
         tipoObL->setVisible(true);
         tipoObValue->setVisible(true);
         lungMinL->setVisible(true);
@@ -161,12 +206,14 @@ void Add::modify(QString type){
         diamL->setVisible(true);
         diamValue->setVisible(true);
         QPixmap imm=QPixmap(":/images/lens.png");
+        imgL->setFixedSize(150,150);
         imm=imm.scaled(imgL->size(),Qt::KeepAspectRatio);
         imgL->setPixmap(imm);
         img->addWidget(imgL);
     }else if(type=="Zoom variabile"){
         delForm();
         qfl->addRow(tipoObL,tipoObValue);
+        qfl->addRow(compL,compValue);
         qfl->addRow(lungMinL,lungMinValue);
         qfl->addRow(lungMaxL,lungMaxValue);
         qfl->addRow(fMinL,fMinValue);
@@ -176,6 +223,9 @@ void Add::modify(QString type){
         qfl->addRow(angMinL,angMinValue);
         qfl->addRow(angMaxL,angMaxValue);
         qfl->addRow(diamL,diamValue);
+        qfl->addRow(moltL,moltValue);
+        compL->setVisible(true);
+        compValue->setVisible(true);
         tipoObL->setVisible(true);
         tipoObValue->setVisible(true);
         lungMinL->setVisible(true);
@@ -196,7 +246,10 @@ void Add::modify(QString type){
         angMaxValue->setVisible(true);
         diamL->setVisible(true);
         diamValue->setVisible(true);
+        moltL->setVisible(true);
+        moltValue->setVisible(true);
         QPixmap imm=QPixmap(":/images/lens.png");
+        imgL->setFixedSize(150,150);
         imm=imm.scaled(imgL->size(),Qt::KeepAspectRatio);
         imgL->setPixmap(imm);
         img->addWidget(imgL);
@@ -206,19 +259,16 @@ void Add::modify(QString type){
 void Add::delElement() const{
     marcaValue->clear();
     modelloValue->clear();
-    tipoProdValue->clear();
     compValue->clear();
+    prezzoValue->clear();
     //reflex
     ISOminValue->clear();
     ISOmaxValue->clear();
     pxValue->clear();
-    formatoValue->clear();
     tropValue->setChecked(false);
     //accessori
-    tipoAccValue->clear();
     infoValue->clear();
     //obiettivi
-    tipoObValue->clear();
     lungMinValue->clear();
     lungMaxValue->clear();
     fMinValue->clear();
@@ -279,6 +329,7 @@ void Add::delForm() const{
     tipoAccL->setVisible(false);
     infoL->setVisible(false);
     tipoObL->setVisible(false);
+    tipoObValue->setVisible(false);
     lungMinL->setVisible(false);
     lungMaxL->setVisible(false);
     fMinL->setVisible(false);
@@ -410,6 +461,14 @@ void Add::setTipoProd(QString s){
     tipoProdValue->setCurrentText(s);
 }//setTipoAcc
 
+void Add::setPrezzo(QString s){
+    prezzoValue->setText(s);
+}//setPrezzo
+
+float Add::getPrezzo() const{
+    return prezzoValue->text().toFloat();
+}//getPrezzo
+
 string Add::getMarca() const{
      return marcaValue->text().toStdString();
 }//getMarca
@@ -463,7 +522,7 @@ unsigned int Add::getLungMin() const{
 }//getLungMin
 
 unsigned int Add::getLungMax() const{
-    return static_cast<unsigned int>(lungMinValue->text().toInt());
+    return static_cast<unsigned int>(lungMaxValue->text().toInt());
 }//getLungMax
 
 float Add::getFMin() const{

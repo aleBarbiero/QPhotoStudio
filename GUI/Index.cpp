@@ -13,8 +13,8 @@ Index::Index(QWidget* q):
     titleLimit(QPixmap(":/images/title.png")),
     imgLimit(QPixmap(":/images/image.png")),
     insert(new QPushButton("Inserisci",this)),
-    remove(new QPushButton("Listino",this)),
-    alter(new QPushButton("Modifica/Rimuovi",this)){
+    remove(new QPushButton("Ricerca",this)),
+    alter(new QPushButton("Listino",this)){
         QGridLayout* indexL=new QGridLayout(this);
         QVBoxLayout* buttonL=new QVBoxLayout();
         //immagine
@@ -39,7 +39,6 @@ Index::Index(QWidget* q):
         indexL->addWidget(img,0,4,5,5);
         indexL->addLayout(buttonL,3,0,1,3);
         //connect
-        connect(insert,SIGNAL(clicked(bool)),q,SLOT(insertSet()));
-        connect(remove,SIGNAL(clicked(bool)),q,SLOT(removeSet()));
-        connect(alter,SIGNAL(clicked(bool)),q,SLOT(battleSet()));
+        connect(insert,SIGNAL(clicked(bool)),q,SLOT(addSet()));
+        //connect(remove,SIGNAL(clicked(bool)),q,SLOT(removeSet()));
 }//index

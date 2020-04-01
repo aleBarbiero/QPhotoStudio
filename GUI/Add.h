@@ -1,7 +1,12 @@
 #ifndef ADD_H
 #define ADD_H
+#include "model/Product.h"
 #include "model/Reflex.h"
 #include "model/Accessory.h"
+#include "model/Lens.h"
+#include "model/Aperture.h"
+#include "model/Length.h"
+#include "model/Zoom.h"
 #include <QWidget>
 #include <QFormLayout>
 #include <QGroupBox>
@@ -25,6 +30,7 @@ class Add:public QWidget{
         QLabel* modelloL;
         QLabel* tipoProdL;
         QLabel* compL;
+        QLabel* prezzoL;
             //reflex
         QLabel* ISOminL;
         QLabel* ISOmaxL;
@@ -51,6 +57,7 @@ class Add:public QWidget{
         QLineEdit* modelloValue;
         QComboBox* tipoProdValue;
         QLineEdit* compValue;
+        QLineEdit* prezzoValue;
             //reflex
         QLineEdit* ISOminValue;
         QLineEdit* ISOmaxValue;
@@ -85,6 +92,7 @@ class Add:public QWidget{
         string getModello() const;
         string getTipoProd() const;
         string getComp() const;
+        float getPrezzo() const;
         unsigned int getISOMin() const;
         unsigned int getISOMax() const;
         unsigned int getPX() const;
@@ -110,6 +118,7 @@ class Add:public QWidget{
         void setModello(QString);
         void setTipoProd(QString);
         void setComp(QString);
+        void setPrezzo(QString);
         void setISOMin(QString);
         void setISOMax(QString);
         void setPX(QString);

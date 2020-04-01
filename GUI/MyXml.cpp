@@ -29,6 +29,8 @@ Container<DeepPtr<Product>> MyXml::load(const QString& file) const{
         while(read.readNextStartElement()){
           QStringRef type=read.name();
           read.readNextStartElement();
+          if(type==QString::fromStdString("ObiettivoZoom"))
+              read.readNextStartElement();
           std::string marca=read.readElementText().toStdString();
           read.readNextStartElement();
           std::string modello=read.readElementText().toStdString();
@@ -50,8 +52,7 @@ Container<DeepPtr<Product>> MyXml::load(const QString& file) const{
                 trop=true;
             else
                 trop=false;
-            Reflex ref(marca,modello,prezzo,ISOmin,ISOmax,px,UND,trop);
-            ref.Reflex::setFormato(ref.Reflex::fromStrToType(formato));
+            Reflex ref(marca,modello,prezzo,ISOmin,ISOmax,px,Reflex::fromStrToType(formato),trop);
             temp.pushLast(&ref);
           }else if(type==QString::fromStdString("Accessorio")){
               read.readNextStartElement();
@@ -60,9 +61,7 @@ Container<DeepPtr<Product>> MyXml::load(const QString& file) const{
               std::string compat=read.readElementText().toStdString();
               read.readNextStartElement();
               std::string note=read.readElementText().toStdString();
-              read.readNextStartElement();
-              Accessory acc(marca,modello,prezzo,ALTRO,compat,note);
-              acc.Accessory::setTipologia(acc.Accessory::fromStrToType(tipo));
+              Accessory acc(marca,modello,prezzo,Accessory::fromStrToType(tipo),compat,note);
               temp.pushLast(&acc);
           }else{
             read.readNextStartElement();
@@ -106,8 +105,7 @@ Container<DeepPtr<Product>> MyXml::load(const QString& file) const{
                 unsigned int lungMax=static_cast<unsigned int>(read.readElementText().toInt());
                 read.readNextStartElement();
                 float angoloMax=read.readElementText().toFloat();
-                Aperture ap(marca,modello,prezzo,lung,lungMax,focale,compat,stab,af,angolo,angoloMax,diam);
-                temp.pushLast(&ap);
+                read.readNextStartElement();
                 read.readNextStartElement();
                 float focaleMax=read.readElementText().toFloat();
                 read.readNextStartElement();
@@ -128,3 +126,4 @@ Container<DeepPtr<Product>> MyXml::load(const QString& file) const{
     saveFile.close();
     return temp;
 }//load
+

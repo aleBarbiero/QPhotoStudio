@@ -10,7 +10,6 @@
 #include "model/Aperture.h"
 #include "model/Length.h"
 #include "model/Zoom.h"
-
 #include <QFile>
 #include <QSaveFile>
 #include <QString>
@@ -25,4 +24,4 @@ class MyXml{
         void save(const QString&,const Container<DeepPtr<Product>>&) const;
 };//myXml
 
-#endif // YML_H
+#endif
