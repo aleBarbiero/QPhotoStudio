@@ -1,12 +1,6 @@
 #ifndef ADD_H
 #define ADD_H
-#include "model/Product.h"
-#include "model/Reflex.h"
-#include "model/Accessory.h"
-#include "model/Lens.h"
-#include "model/Aperture.h"
-#include "model/Length.h"
-#include "model/Zoom.h"
+#include "Model.h"
 #include <QWidget>
 #include <QFormLayout>
 #include <QGroupBox>
@@ -24,7 +18,6 @@ class Add:public QWidget{
         QFormLayout* qfl;
         QGroupBox* qgb;
         QHBoxLayout* img;
-        QHBoxLayout* button;
         //etichette
         QLabel* marcaL;
         QLabel* modelloL;

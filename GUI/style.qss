@@ -5,11 +5,21 @@
     color:#000000;
 }
 
-QPushButton {
+QPushButton{
+    width:77px;
+    padding:10px;
+    background:#E17B02;
+    border:none;
+    border-radius:6px;
+    color:#FFFFFF;
+}
+
+QPushButton:hover{
     background:#FF8A01;
 }
 
-MainWindow>QMenuBar {
+
+MainWindow>QMenuBar{
     padding:5px 0;
     color:#FFFFFF;
 }
@@ -19,7 +29,7 @@ MainWindow>QMenuBar:hover{
 }
 
 
-MainWindow>QMenuBar>QMenu {
+MainWindow>QMenuBar>QMenu{
     background:#333131;
     color:#FFFFFF;
 }
@@ -46,59 +56,63 @@ MainWindow>QMenuBar::item:pressed{
 
 Index>QPushButton{
     width:160px;
-    padding:10px;
+}
 
-    background:#E17B02;
-    border:none;
-    border-radius:6px;
-
+QGroupBox{
     color:#FFFFFF;
 }
 
-Index>QPushButton:hover{
-    background:#FF8A01;
-}
-
-Insert>QGroupBox{
+Add>QFormLayout>QLabel{
     color:#FFFFFF;
 }
 
-Insert>QFormLayout>QLabel{
-    color:#FFFFFF;
+Listino>QGroupBox{
+    color: #FFFFFF;
 }
 
 QLabel{
     color:#FFFFFF;
 }
 
-
-QComboBox {
+QComboBox{
+    background:#E17B02;
+    border:none;
+    border-radius:6px;
     background-color:#E17B02;
     color:#000000;
 }
 
-QComboBox:!enabled {
+Search>QComboBox{
+    width: 80px;
+    padding: 5px;
+}
+
+Search>QPushButton{
+    padding: 5px;
+}
+
+QComboBox:!enabled{
     background-color:#FF9C29;
     color:#000000;
 }
 
-QComboBox QAbstractItemView {
+QComboBox QAbstractItemView{
     background-color:#FF8A01;
 }
 
-QLineEdit {
+QLineEdit{
     background-color:#FFFFFF;
 }
 
-QTableWidget {
+QTableWidget{
     background-color:#FFFFFF;
     color:#000000;
 }
 
-QHeaderView::section:selected {
+QHeaderView::section:selected{
     background-color:#FF8A01;
 }
 
-QHeaderView::section {
+QHeaderView::section{
     background-color:#FF8A01;
 }

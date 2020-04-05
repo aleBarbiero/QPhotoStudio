@@ -16,8 +16,8 @@ class Index:public QWidget{
         QPixmap titleLimit;
         QPixmap imgLimit;
         QPushButton* insert;
-        QPushButton* remove;
-        QPushButton* alter;
+        QPushButton* search;
+        QPushButton* listino;
 };//index
 
 #endif

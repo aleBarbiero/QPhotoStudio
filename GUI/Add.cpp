@@ -6,13 +6,13 @@
 #include <QIntValidator>
 #include <QDoubleValidator>
 
-Add::Add(QWidget* wid):QWidget(wid),qfl(new QFormLayout()),qgb(new QGroupBox("Aggiunta nuovo prodotto")),img(new QHBoxLayout()),button(new QHBoxLayout()),marcaL(new QLabel("Marca")),modelloL(new QLabel("Modello")),tipoProdL(new QLabel("Tipologia prodotto")),compL(new QLabel("Compatibilità")),
+Add::Add(QWidget* wid):QWidget(wid),qfl(new QFormLayout()),qgb(new QGroupBox("Aggiunta nuovo prodotto")),img(new QHBoxLayout()),marcaL(new QLabel("Marca")),modelloL(new QLabel("Modello")),tipoProdL(new QLabel("Tipologia prodotto")),compL(new QLabel("Compatibilità")),
         prezzoL(new QLabel("Prezzo (in €)")),ISOminL(new QLabel("ISO (min)")),ISOmaxL(new QLabel("ISO (max)")),pxL(new QLabel("Pixel")),formatoL(new QLabel("Formato")),tropL(new QLabel("Tropicalizzazione")),tipoAccL(new QLabel("Tipologia accessorio")),infoL(new QLabel("Note (opzionali)")),tipoObL(new QLabel("Tipologia obiettivo")),
         lungMinL(new QLabel("Lunghezza focale")),lungMaxL(new QLabel("Lunghezza focale (max)")),fMinL(new QLabel("f/")),fMaxL(new QLabel("(max) f/")),stabL(new QLabel("Stabilizzazione")),AFL(new QLabel("Automatic focus")),angMinL(new QLabel("Angolo")),angMaxL(new QLabel("Angolo (max)")),
         diamL(new QLabel("Diametro lente")),moltL(new QLabel("Compatibilità moltiplicatore")),marcaValue(new QLineEdit(this)),modelloValue(new QLineEdit(this)),tipoProdValue(new QComboBox(this)),compValue(new QLineEdit(this)),prezzoValue(new QLineEdit(this)),ISOminValue(new QLineEdit(this)),ISOmaxValue(new QLineEdit(this)),
         pxValue(new QLineEdit(this)),formatoValue(new QComboBox(this)),tropValue(new QCheckBox(this)),tipoAccValue(new QComboBox(this)),infoValue(new QLineEdit(this)),tipoObValue(new QComboBox(this)),lungMinValue(new QLineEdit(this)),lungMaxValue(new QLineEdit(this)),
         fMinValue(new QLineEdit(this)),fMaxValue(new QLineEdit(this)),stabValue(new QCheckBox(this)),AFValue(new QCheckBox(this)),angMinValue(new QLineEdit(this)),angMaxValue(new QLineEdit(this)),diamValue(new QLineEdit(this)),
-        moltValue(new QCheckBox(this)),imgL(new QLabel(this)),add(new QPushButton("Aggiungi",this)),del(new QPushButton("Azzera form",this)){
+        moltValue(new QCheckBox(this)),imgL(new QLabel(this)),add(new QPushButton("Aggiungi prodotto",this)),del(new QPushButton("Azzera form",this)){
     //controlli_input
     prezzoValue->setValidator(new QDoubleValidator(1.00,15000.00,2,this));
     ISOminValue->setValidator(new QIntValidator(0,100000,this));
@@ -49,12 +49,13 @@ Add::Add(QWidget* wid):QWidget(wid),qfl(new QFormLayout()),qgb(new QGroupBox("Ag
     QVBoxLayout* mainLayout=new QVBoxLayout(this);
     mainLayout->addWidget(qgb);
     mainLayout->addLayout(img);
-    mainLayout->addWidget(del);
-    mainLayout->addWidget(add);
+    QHBoxLayout* buttonL=new QHBoxLayout();
+    buttonL->addWidget(del);
+    buttonL->addWidget(add);
+    mainLayout->addLayout(buttonL);
     //connect
     connect(tipoProdValue,SIGNAL(currentTextChanged(QString)),this,SLOT(modify(QString)));
     connect(tipoObValue,SIGNAL(currentTextChanged(QString)),this,SLOT(modify(QString)));
-    connect(del,SIGNAL(clicked()),this,SLOT(delElement()));
     //emit
     emit(tipoProdValue->currentTextChanged(tipoProdValue->currentText()));
 }//Add

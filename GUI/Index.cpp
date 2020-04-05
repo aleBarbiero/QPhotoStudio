@@ -13,8 +13,8 @@ Index::Index(QWidget* q):
     titleLimit(QPixmap(":/images/title.png")),
     imgLimit(QPixmap(":/images/image.png")),
     insert(new QPushButton("Inserisci",this)),
-    remove(new QPushButton("Ricerca",this)),
-    alter(new QPushButton("Listino",this)){
+    search(new QPushButton("Ricerca",this)),
+    listino(new QPushButton("Listino",this)){
         QGridLayout* indexL=new QGridLayout(this);
         QVBoxLayout* buttonL=new QVBoxLayout();
         //immagine
@@ -29,16 +29,17 @@ Index::Index(QWidget* q):
         title->setAlignment(Qt::AlignLeft);
         //bottone
         buttonL->addWidget(insert);
-        buttonL->addWidget(remove);
-        buttonL->addWidget(alter);
+        buttonL->addWidget(search);
+        buttonL->addWidget(listino);
         buttonL->setAlignment(insert,Qt::AlignLeft);
-        buttonL->setAlignment(remove,Qt::AlignLeft);
-        buttonL->setAlignment(alter,Qt::AlignLeft);
+        buttonL->setAlignment(search,Qt::AlignLeft);
+        buttonL->setAlignment(listino,Qt::AlignLeft);
         //impostare_pagina
         indexL->addWidget(title);
         indexL->addWidget(img,0,4,5,5);
         indexL->addLayout(buttonL,3,0,1,3);
         //connect
         connect(insert,SIGNAL(clicked(bool)),q,SLOT(addSet()));
-        //connect(remove,SIGNAL(clicked(bool)),q,SLOT(removeSet()));
+        connect(listino,SIGNAL(clicked(bool)),q,SLOT(listSet()));
+        connect(search,SIGNAL(clicked(bool)),q,SLOT(searchSet()));
 }//index
