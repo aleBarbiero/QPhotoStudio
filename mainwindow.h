@@ -3,6 +3,9 @@
 
 #include "GUI/Add.h"
 #include "GUI/Index.h"
+#include "GUI/Listino.h"
+#include "GUI/Search.h"
+#include "GUI/Details.h"
 #include "GUI/Model.h"
 #include <QMainWindow>
 #include <QWidget>
@@ -19,6 +22,9 @@ class MainWindow:public QWidget{
         QString file;
         Index* index;
         Add* add;
+        Listino* list;
+        Search* search;
+        Details* det;
         virtual void closeEvent(QCloseEvent*) override;
     public:
         //costruttore/distruttore
@@ -28,8 +34,10 @@ class MainWindow:public QWidget{
         void indexSet() const;
         void addSet() const;
         void addEl();
-        //void delEl();
-        //void searchEl();
+        void listSet() const;
+        void searchSet() const;
+        void searchEl() const;
+        void showDet(int,int) const;
         void save();
         void load();
 };//MainWindow

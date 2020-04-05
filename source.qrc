@@ -8,5 +8,6 @@
         <file>images/title.png</file>
         <file>qphotostudio.xml</file>
         <file>GUI/style.qss</file>
+        <file>GUI/font.ttf</file>
     </qresource>
 </RCC>

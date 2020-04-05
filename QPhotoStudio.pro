@@ -25,6 +25,9 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += \
+    GUI/Details.cpp \
+    GUI/Listino.cpp \
+    GUI/Search.cpp \
         model/Product.cpp \
         model/Reflex.cpp \
         model/Accessory.cpp \
@@ -42,6 +45,9 @@ SOURCES += \
         mainwindow.cpp \
 
 HEADERS += \
+    GUI/Details.h \
+    GUI/Listino.h \
+    GUI/Search.h \
         model/Product.h \
         model/Reflex.h \
         model/Accessory.h \
@@ -65,6 +71,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    GUI/font.ttf \
     GUI/style.qss \
     icon/icon.png \
     images/accessory.png \

@@ -4,7 +4,7 @@
         <Marca>Canon</Marca>
         <Modello>6D Mark II</Modello>
         <Prezzo>1200</Prezzo>
-        <Formato>Fullframe</Formato>
+        <Formato>FullFrame</Formato>
         <ISOmin>150</ISOmin>
         <ISOmax>128000</ISOmax>
         <Pixel>24</Pixel>
@@ -36,7 +36,7 @@
         <FocaleMax>5.6</FocaleMax>
         <Moltiplicatore>SI</Moltiplicatore>
     </ObiettivoZoom>
-	<ObiettivoFocaleFissa>
+    <ObiettivoFocaleFissa>
         <Marca>Tamron</Marca>
         <Modello>70-200 Di Vc USD</Modello>
         <Prezzo>950</Prezzo>
@@ -70,5 +70,18 @@
         <Diametro>92</Diametro>
         <Compatibilita>Canon</Compatibilita>
         <FocaleMax>3.6</FocaleMax>
+    </ObiettivoLunghezzaFissa>
+    <ObiettivoLunghezzaFissa>
+        <Marca>Canon</Marca>
+        <Modello>105mm f/2.8 L USD</Modello>
+        <Prezzo>1400</Prezzo>
+        <Lunghezza>105</Lunghezza>
+        <Apertura>1.4</Apertura>
+        <Stabilizzazione>SI</Stabilizzazione>
+        <AF>SI</AF>
+        <Angolo>75</Angolo>
+        <Diametro>82</Diametro>
+        <Compatibilita>Canon</Compatibilita>
+        <FocaleMax>2.8</FocaleMax>
     </ObiettivoLunghezzaFissa>
 </Product>
