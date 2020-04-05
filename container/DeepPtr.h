@@ -19,4 +19,4 @@ template<class T> class DeepPtr{
         DeepPtr* clone() const;
         virtual T& getT() const;
 };//DeepPtr
-#endif // DEEPPTR_H
+#endif
