@@ -106,6 +106,7 @@ template<class T> class Container{
         Iterator deletePos(Iterator);//elimina_in_posizione_specificata
         void deleteThis(const T&);//elimina_tutti_gli_elementi_con_il_campo_dati_specificato
         void deleteAll();//elimina_tutti_gli_elementi
+        void sortC();//ordina
 };//Container
 
 //IMPLEMENTAZIONE DEI METODI DI NODE,ITERATOR e CONST_ITERATOR

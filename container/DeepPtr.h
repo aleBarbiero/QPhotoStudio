@@ -15,6 +15,10 @@ template<class T> class DeepPtr{
         T* operator->() const;
         bool operator==(const DeepPtr&) const;
         bool operator!=(const DeepPtr&) const;
+        bool operator>(const DeepPtr&) const;
+        bool operator>=(const DeepPtr&) const;
+        bool operator<(const DeepPtr&) const;
+        bool operator<=(const DeepPtr&) const;
         //metodi
         DeepPtr* clone() const;
         virtual T& getT() const;

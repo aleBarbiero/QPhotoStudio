@@ -1,4 +1,6 @@
 #include "Container.h"
+#include <sstream>
+using namespace std;
 
 //costruttori/distruttore
 template<class T> Container<T>::Container():first(nullptr),last(nullptr),size(0){}//Container
@@ -195,19 +197,37 @@ template<class T> void Container<T>::deleteThis(const T& el){
         deleteLast();
 }//deleteThis
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+template<class T> void Container<T>::sortC(){
+    Node* tempH=first;
+    Node* tempLast=NULL;
+    T temp;
+    int swap;
+    /*for(int i=0;i<getSize();i++){
+        while(tempH->next){
+            if(tempH->info<tempH->next->info){
+                temp=tempH->info;
+                tempH->info=tempH->next->info;
+                tempH->next->info=temp;
+                tempH=tempH->next;
+            }else
+                tempH=tempH->next;
+        }//while
+        tempH=first;
+    }//for*/
+    if(first==NULL)
+        return;
+    do{
+        swap=0;
+        tempH=first;
+        while(tempH->next!=tempLast){
+            if(tempH->info > tempH->next->info){
+                temp=tempH->info;
+                tempH->info=tempH->next->info;
+                tempH->next->info=temp;
+                swap=1;
+            }
+            tempH=tempH->next;
+        }
+        tempLast=tempH;
+    }while(swap);
+}//sort

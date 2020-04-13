@@ -32,12 +32,28 @@ template<class T> T* DeepPtr<T>::operator->() const{
 }//->
 
 template<class T> bool DeepPtr<T>::operator==(const DeepPtr& newEl) const{
-    return el==newEl.el;
+    return el->Product::operator==(*newEl.el);
 }//==
 
 template<class T> bool DeepPtr<T>::operator!=(const DeepPtr& newEl) const{
-    return el!=newEl.el;
+    return el->Product::operator!=(newEl.el);
 }// !=
+
+template<class T> bool DeepPtr<T>::operator>(const DeepPtr& newEl) const{
+    return el->Product::operator>(*newEl.el);
+}//operator>
+
+template<class T> bool DeepPtr<T>::operator>=(const DeepPtr& newEl) const{
+    return el->Product::operator>=(newEl.el);
+}//>=
+
+template<class T> bool DeepPtr<T>::operator<(const DeepPtr& newEl) const{
+    return el->Product::operator<(newEl.el);
+}//operator<
+
+template<class T> bool DeepPtr<T>::operator<=(const DeepPtr& newEl) const{
+    return el->Product::operator<=(newEl.el);
+}//operator<=
 
 //metodo
 template<class T> typename DeepPtr<T>::DeepPtr* DeepPtr<T>::clone() const{
