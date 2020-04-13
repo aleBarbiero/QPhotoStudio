@@ -4,12 +4,23 @@
 
 Details::Details(QWidget* q):QWidget(q),qgb(new QGroupBox()),qfl(new QFormLayout()),marcaL(new QLabel("Marca")),modelloL(new QLabel("Modello")),tipoProdL(new QLabel("Tipologia prodotto")),compL(new QLabel("Compatibilità")),
         prezzoL(new QLabel("Prezzo")),ISOminL(new QLabel("ISO(min)")),ISOmaxL(new QLabel("ISO(max)")),pxL(new QLabel("Pixel")),formatoL(new QLabel("Formato")),tropL(new QLabel("Tropicalizzazione")),tipoAccL(new QLabel("Tipologia accessorio")),infoL(new QLabel("Note(opzionali)")),tipoObL(new QLabel("Tipologia obiettivo")),
-        lungMinL(new QLabel("Lunghezza focale")),lungMaxL(new QLabel("Lunghezza focale(max)")),fMinL(new QLabel("Focale")),fMaxL(new QLabel("Focale(max)")),stabL(new QLabel("Stabilizzazione")),AFL(new QLabel("Automatic focus")),angMinL(new QLabel("Angolo")),angMaxL(new QLabel("Angolo(max)")),
-        diamL(new QLabel("Diametro lente")),moltL(new QLabel("Compatibilità moltiplicatore")),marcaValue(new QLabel("")),modelloValue(new QLabel("")),tipoProdValue(new QLabel("")),compValue(new QLabel("")),prezzoValue(new QLabel("")),ISOminValue(new QLabel("")),ISOmaxValue(new QLabel("")),
-        pxValue(new QLabel("")),formatoValue(new QLabel("")),tropValue(new QLabel("")),tipoAccValue(new QLabel("")),infoValue(new QLabel("")),tipoObValue(new QLabel("")),lungMinValue(new QLabel("")),lungMaxValue(new QLabel("")),
-        fMinValue(new QLabel("")),fMaxValue(new QLabel("")),stabValue(new QLabel("")),AFValue(new QLabel("")),angMinValue(new QLabel("")),angMaxValue(new QLabel("")),diamValue(new QLabel("")),
-        moltValue(new QLabel("")){
-    move(QApplication::desktop()->screen()->rect().center()-rect().center());
+        lungMinL(new QLabel("Lunghezza focale")),lungMaxL(new QLabel("Lunghezza focale(max)")),fMinL(new QLabel("f/")),fMaxL(new QLabel("f/(max)")),stabL(new QLabel("Stabilizzazione")),AFL(new QLabel("Automatic focus")),angMinL(new QLabel("Angolo")),angMaxL(new QLabel("Angolo(max)")),
+        diamL(new QLabel("Diametro lente(mm)")),moltL(new QLabel("Compatibilità moltiplicatore")),marcaValue(new QLabel("")),modelloValue(new QLabel("")),tipoProdValue(new QLabel("")),compValue(new QLineEdit(this)),prezzoValue(new QLineEdit(this)),ISOminValue(new QLineEdit(this)),ISOmaxValue(new QLineEdit(this)),
+        pxValue(new QLineEdit(this)),formatoValue(new QLabel("")),tropValue(new QLineEdit(this)),tipoAccValue(new QLabel("")),infoValue(new QLineEdit(this)),tipoObValue(new QLabel("")),lungMinValue(new QLineEdit(this)),lungMaxValue(new QLineEdit(this)),
+        fMinValue(new QLineEdit(this)),fMaxValue(new QLineEdit(this)),stabValue(new QLineEdit(this)),AFValue(new QLineEdit(this)),angMinValue(new QLineEdit(this)),angMaxValue(new QLineEdit(this)),diamValue(new QLineEdit(this)),
+        moltValue(new QLineEdit(this)),alter(new QPushButton("Modifica")),remove(new QPushButton("Rimuovi")){
+    //controlli_input
+    prezzoValue->setValidator(new QDoubleValidator(1.00,15000.00,2,this));
+    ISOminValue->setValidator(new QIntValidator(0,100000,this));
+    ISOmaxValue->setValidator(new QIntValidator(0,100000,this));
+    pxValue->setValidator(new QIntValidator(0,1000,this));
+    lungMinValue->setValidator(new QIntValidator(5,2000,this));
+    lungMaxValue->setValidator(new QIntValidator(5,2000,this));
+    diamValue->setValidator(new QIntValidator(10,150,this));
+    fMinValue->setValidator(new QDoubleValidator(0.3,50.0,2,this));
+    fMaxValue->setValidator(new QDoubleValidator(0.3,50.0,2,this));
+    angMinValue->setValidator(new QDoubleValidator(5.0,200.0,2,this));
+    angMaxValue->setValidator(new QDoubleValidator(5.0,200.0,2,this));
     setWindowTitle("QPhotoStudio - Dettagli");
     setWindowIcon(QIcon(":/icon/icon.png"));
     qfl->addRow(marcaL,marcaValue);
@@ -25,7 +36,11 @@ Details::Details(QWidget* q):QWidget(q),qgb(new QGroupBox()),qfl(new QFormLayout
     qgb->setLayout(qfl);
     //main_layout
     QVBoxLayout* mainLayout=new QVBoxLayout(this);
+    QHBoxLayout* buttonL=new QHBoxLayout();
+    buttonL->addWidget(alter);
+    buttonL->addWidget(remove);
     mainLayout->addWidget(qgb);
+    mainLayout->addLayout(buttonL);
 }//Details
 
 void Details::setDet(Model* modello,int pos,QList<int> list){
@@ -41,7 +56,7 @@ void Details::setDet(Model* modello,int pos,QList<int> list){
     tipoProdValue->setText(type);
     marcaValue->setText(marca);
     modelloValue->setText(mod);
-    prezzoValue->setText(prezzo+"€");
+    prezzoValue->setText(prezzo);
     if(type=="Reflex"){
         QString ISOmin=QString(QString::number((dynamic_cast<Reflex*>(&(((*modello).getQ().begin()+row)->getT())))->getISOmin()));
         QString ISOmax=QString(QString::number((dynamic_cast<Reflex*>(&(((*modello).getQ().begin()+row)->getT())))->getISOmax()));
@@ -80,6 +95,7 @@ void Details::setDet(Model* modello,int pos,QList<int> list){
         infoL->setVisible(true);
         infoValue->setVisible(true);
     }else{
+        tipoProdValue->setText("Obiettivo - "+tipoProdValue->text());
         qfl->addRow(compL,compValue);
         qfl->addRow(lungMinL,lungMinValue);
         qfl->addRow(lungMaxL,lungMaxValue);
@@ -123,12 +139,12 @@ void Details::setDet(Model* modello,int pos,QList<int> list){
             else
                 af=QString(QString::fromStdString("NO"));
             compValue->setText(comp);
-            lungMinValue->setText(lmin+"mm");
-            fMinValue->setText("f/"+fmin);
-            fMaxValue->setText("f/"+fmax);
+            lungMinValue->setText(lmin);
+            fMinValue->setText(fmin);
+            fMaxValue->setText(fmax);
             stabValue->setText(stab);
-            diamValue->setText(diam+"mm");
-            angMinValue->setText(angmin+"°");
+            diamValue->setText(diam);
+            angMinValue->setText(angmin);
             AFValue->setText(af);
             fMaxL->setVisible(true);
             fMaxValue->setVisible(true);
@@ -141,13 +157,13 @@ void Details::setDet(Model* modello,int pos,QList<int> list){
                 molt=QString(QString::fromStdString("SI"));
             else
                 molt=QString(QString::fromStdString("NO"));
-            angMaxValue->setText(angmax+"°");
+            angMaxValue->setText(angmax);
             angMaxL->setVisible(true);
             angMaxValue->setVisible(true);
             moltValue->setText(molt);
             moltL->setVisible(true);
             moltValue->setVisible(true);
-            lungMaxValue->setText(lmax+"mm");
+            lungMaxValue->setText(lmax);
             lungMaxL->setVisible(true);
             lungMaxValue->setVisible(true);
         }//zoom
@@ -170,13 +186,13 @@ void Details::setDet(Model* modello,int pos,QList<int> list){
             else
                 af=QString(QString::fromStdString("NO"));
             compValue->setText(comp);
-            lungMinValue->setText(lmin+"mm");
-            lungMaxValue->setText(lmax+"mm");
-            fMinValue->setText("f/"+fmin);
+            lungMinValue->setText(lmin);
+            lungMaxValue->setText(lmax);
+            fMinValue->setText(fmin);
             stabValue->setText(stab);
-            diamValue->setText(diam+"mm");
-            angMinValue->setText(angmin+"°");
-            angMaxValue->setText(angmax+"°");
+            diamValue->setText(diam);
+            angMinValue->setText(angmin);
+            angMaxValue->setText(angmax);
             AFValue->setText(af);
             angMaxL->setVisible(true);
             angMaxValue->setVisible(true);
@@ -283,3 +299,105 @@ void Details::delDet() const{
     diamValue->setText("");
     moltValue->setText("");
 }//delDet
+
+//accessori
+QPushButton* Details::getAlter() const{
+    return alter;
+}//getAlter
+
+QPushButton* Details::getRemove() const{
+    return remove;
+}//getRemove
+
+float Details::getPrezzo() const{
+    return prezzoValue->text().toFloat();
+}//getPrezzo
+
+string Details::getMarca() const{
+     return marcaValue->text().toStdString();
+}//getMarca
+
+string Details::getModello() const{
+     return modelloValue->text().toStdString();
+}//getModello
+
+string Details::getTipoProd() const{
+    return tipoProdValue->text().toStdString();
+}//getTipoProdotto
+
+string Details::getComp() const{
+     return compValue->text().toStdString();
+}//getComp
+
+unsigned int Details::getISOMin() const{
+    return static_cast<unsigned int>(ISOminValue->text().toInt());
+}//getISOMin
+
+unsigned int Details::getISOMax() const{
+    return static_cast<unsigned int>(ISOmaxValue->text().toInt());
+}//getISOMax
+
+unsigned int Details::getPX() const{
+    return static_cast<unsigned int>(pxValue->text().toInt());
+}//getPx
+
+string Details::getFormato() const{
+    return formatoValue->text().toStdString();
+}//getFormato
+
+string Details::getTrop() const{
+    return tropValue->text().toStdString();
+}//getTrop
+
+string Details::getTipoAcc() const{
+    return tipoAccValue->text().toStdString();
+}//getTipoAcc
+
+string Details::getInfo() const{
+     return infoValue->text().toStdString();
+}//getInfo
+
+string Details::getTipoOb() const{
+    return tipoObValue->text().toStdString();
+}//getTipoOb
+
+unsigned int Details::getLungMin() const{
+    return static_cast<unsigned int>(lungMinValue->text().toInt());
+}//getLungMin
+
+unsigned int Details::getLungMax() const{
+    return static_cast<unsigned int>(lungMaxValue->text().toInt());
+}//getLungMax
+
+float Details::getFMin() const{
+    return fMinValue->text().toFloat();
+}//getFMin
+
+float Details::getFMax() const{
+    return fMaxValue->text().toFloat();
+}//getFMax
+
+string Details::getStab() const{
+    return stabValue->text().toStdString();
+}//getStab
+
+string Details::getAF() const{
+    return AFValue->text().toStdString();
+}//getAF
+
+float Details::getAngMin() const{
+    return angMinValue->text().toFloat();
+}//getAngMin
+
+float Details::getAngMax() const{
+    return angMaxValue->text().toFloat();
+}//getAngMax
+
+unsigned int Details::getDiam() const{
+    return static_cast<unsigned int>(diamValue->text().toInt());
+}//getDiam
+
+string Details::getMolt() const{
+    return moltValue->text().toStdString();
+}//getMolt
+

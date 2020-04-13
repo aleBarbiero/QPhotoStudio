@@ -27,6 +27,7 @@ class Model{
         //metodi
         void insert(Product*);
         void remove(Product*);
+        void alter(int,Product*);
         void remove(int i);
         int count() const;
         bool search(int i,const QRegExp&,const QString&) const;

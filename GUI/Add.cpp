@@ -8,7 +8,7 @@
 
 Add::Add(QWidget* wid):QWidget(wid),qfl(new QFormLayout()),qgb(new QGroupBox("Aggiunta nuovo prodotto")),img(new QHBoxLayout()),marcaL(new QLabel("Marca")),modelloL(new QLabel("Modello")),tipoProdL(new QLabel("Tipologia prodotto")),compL(new QLabel("Compatibilità")),
         prezzoL(new QLabel("Prezzo (in €)")),ISOminL(new QLabel("ISO (min)")),ISOmaxL(new QLabel("ISO (max)")),pxL(new QLabel("Pixel")),formatoL(new QLabel("Formato")),tropL(new QLabel("Tropicalizzazione")),tipoAccL(new QLabel("Tipologia accessorio")),infoL(new QLabel("Note (opzionali)")),tipoObL(new QLabel("Tipologia obiettivo")),
-        lungMinL(new QLabel("Lunghezza focale")),lungMaxL(new QLabel("Lunghezza focale (max)")),fMinL(new QLabel("f/")),fMaxL(new QLabel("(max) f/")),stabL(new QLabel("Stabilizzazione")),AFL(new QLabel("Automatic focus")),angMinL(new QLabel("Angolo")),angMaxL(new QLabel("Angolo (max)")),
+        lungMinL(new QLabel("Lunghezza focale")),lungMaxL(new QLabel("Lunghezza focale (max)")),fMinL(new QLabel("f/")),fMaxL(new QLabel("f/(max)")),stabL(new QLabel("Stabilizzazione")),AFL(new QLabel("Automatic focus")),angMinL(new QLabel("Angolo")),angMaxL(new QLabel("Angolo (max)")),
         diamL(new QLabel("Diametro lente")),moltL(new QLabel("Compatibilità moltiplicatore")),marcaValue(new QLineEdit(this)),modelloValue(new QLineEdit(this)),tipoProdValue(new QComboBox(this)),compValue(new QLineEdit(this)),prezzoValue(new QLineEdit(this)),ISOminValue(new QLineEdit(this)),ISOmaxValue(new QLineEdit(this)),
         pxValue(new QLineEdit(this)),formatoValue(new QComboBox(this)),tropValue(new QCheckBox(this)),tipoAccValue(new QComboBox(this)),infoValue(new QLineEdit(this)),tipoObValue(new QComboBox(this)),lungMinValue(new QLineEdit(this)),lungMaxValue(new QLineEdit(this)),
         fMinValue(new QLineEdit(this)),fMaxValue(new QLineEdit(this)),stabValue(new QCheckBox(this)),AFValue(new QCheckBox(this)),angMinValue(new QLineEdit(this)),angMaxValue(new QLineEdit(this)),diamValue(new QLineEdit(this)),
@@ -30,7 +30,7 @@ Add::Add(QWidget* wid):QWidget(wid),qfl(new QFormLayout()),qgb(new QGroupBox("Ag
     tipoProdValue->addItem("Accessorio");
     tipoObValue->addItem("Focale fissa");
     tipoObValue->addItem("Lunghezza fissa");
-    tipoObValue->addItem("Zoom variabile");
+    tipoObValue->addItem("Zoom");
     tipoAccValue->addItem("MemoryCard");
     tipoAccValue->addItem("Zaini e borse");
     tipoAccValue->addItem("Treppiedi");
@@ -211,7 +211,7 @@ void Add::modify(QString type){
         imm=imm.scaled(imgL->size(),Qt::KeepAspectRatio);
         imgL->setPixmap(imm);
         img->addWidget(imgL);
-    }else if(type=="Zoom variabile"){
+    }else if(type=="Zoom"){
         delForm();
         qfl->addRow(tipoObL,tipoObValue);
         qfl->addRow(compL,compValue);
@@ -466,6 +466,7 @@ void Add::setPrezzo(QString s){
     prezzoValue->setText(s);
 }//setPrezzo
 
+//accessori
 float Add::getPrezzo() const{
     return prezzoValue->text().toFloat();
 }//getPrezzo

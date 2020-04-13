@@ -16,20 +16,30 @@ void Model::saveF(const QString& file) const{
 void Model::loadF(const QString& file){
     MyXml x;
     Q=x.load(file);
+    Q.sortC();
 }//load
 
 //metodi
 void Model::insert(Product* el){
     Q.pushLast(el);
+    Q.sortC();
 }//insert
 
 void Model::remove(Product* el){
     Q.deleteThis(el);
+    Q.sortC();
 }//remove
 
 void Model::remove(int i){
     Q.deletePos(Q.begin() + i);
+    Q.sortC();
 }//remove
+
+void Model::alter(int i, Product* el){
+    Q.deletePos(Q.begin() + i);
+    Q.pushLast(el);
+    Q.sortC();
+}//alter
 
 int Model::count() const{
     return Q.getSize();
