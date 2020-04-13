@@ -25,6 +25,7 @@ class MainWindow:public QWidget{
         Listino* list;
         Search* search;
         Details* det;
+        int pos;
         virtual void closeEvent(QCloseEvent*) override;
     public:
         //costruttore/distruttore
@@ -37,7 +38,9 @@ class MainWindow:public QWidget{
         void listSet() const;
         void searchSet() const;
         void searchEl() const;
-        void showDet(int,int) const;
+        void showDet(int);
+        void alterEl();
+        void removeEl();
         void save();
         void load();
 };//MainWindow
