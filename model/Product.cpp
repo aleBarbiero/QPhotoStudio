@@ -22,13 +22,15 @@ bool Product::operator>(const Product& p){
     int result=strcmp(marca.c_str(),p.marca.c_str());
     if(result<0)
         return false;
-    if(result>0)
+    else if(result>0)
         return true;
-    result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
-    if(result<0)
-        return false;
-    if(result>0)
-        return true;
+    else{
+        result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
+        if(result<0)
+            return false;
+        else if(result>0)
+            return true;
+    }//else
     return false;
 }//>
 
@@ -36,13 +38,15 @@ bool Product::operator>=(const Product& p){
     int result=strcmp(marca.c_str(),p.marca.c_str());
     if(result<0)
         return false;
-    if(result>0)
+    else if(result>0)
         return true;
-    result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
-    if(result<0)
-        return false;
-    if(result>0)
-        return true;
+    else{
+        result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
+        if(result<0)
+            return false;
+        else if(result>0)
+           return true;
+    }//else
     return true;
 }//>=
 
@@ -50,13 +54,15 @@ bool Product::operator<(const Product& p){
     int result=strcmp(marca.c_str(),p.marca.c_str());
     if(result<0)
         return true;
-    if(result>0)
+    else if(result>0)
         return false;
-    result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
-    if(result<0)
-        return true;
-    if(result>0)
-        return false;
+    else{
+        result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
+        if(result<0)
+            return true;
+        else if(result>0)
+            return false;
+    }//else
     return false;
 }//<
 
@@ -64,13 +70,15 @@ bool Product::operator<=(const Product& p){
     int result=strcmp(marca.c_str(),p.marca.c_str());
     if(result<0)
         return true;
-    if(result>0)
+    else if(result>0)
         return false;
-    result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
-    if(result<0)
-        return true;
-    if(result>0)
-        return false;
+    else{
+        result=strcmp(nomeModello.c_str(),p.nomeModello.c_str());
+        if(result<0)
+            return true;
+        if(result>0)
+            return false;
+    }//else
     return true;
 }//<=
 

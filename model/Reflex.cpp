@@ -57,7 +57,7 @@ void Reflex::setPX(unsigned int p){
 void Reflex::setFormato(string f){
     if(f=="DSLR")
         formato=DSLR;
-    else if(f=="FF")
+    else if(f=="FullFrame")
         formato=FF;
     else if(f=="Mirrorless")
         formato=ML;
@@ -118,7 +118,7 @@ void Reflex::XML(QXmlStreamWriter& x) const{
 
 //ausiliario
 tipo Reflex::fromStrToType(string s){
-    if(s=="Fullframe")
+    if(s=="FullFrame")
         return FF;
     if(s=="Mirrorless")
         return ML;
