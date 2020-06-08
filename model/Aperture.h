@@ -16,7 +16,7 @@ class Aperture:public Lens{
         float getAngoloMax() const;
         void setAngoloMax(float);
         //virtual
-        virtual Aperture* clone() const;
+        Aperture* clone() const;
         string print() const;
         string getType() const;
         //XML
