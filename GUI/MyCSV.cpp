@@ -11,6 +11,7 @@ void MyCSV::exportCSV(const Container<DeepPtr<Product>>& container) const{
     saveF.setFileName("output/QPhotoStudio.csv");
     if(saveF.open(QIODevice::WriteOnly)){
         QTextStream stream(&saveF);
+        stream.operator<<("Prodotto,Marca,Modello,Prezzo,Dettagli\n\n");
         for(auto el=container.begin();el!=container.end();++el){
             stream.operator<<(QString::fromStdString((*el)->CSV())).operator<<("\n");
         }//for
