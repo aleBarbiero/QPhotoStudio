@@ -2,6 +2,7 @@
 #include <cmath>
 #include <limits>
 #include <string.h>
+#include <iomanip>
 using namespace std;
 
 Product::Product(string newM,string newNM,float newP):marca(newM),nomeModello(newNM),prezzo(newP){
@@ -112,9 +113,19 @@ string Product::print() const{
     os<<"Modello: "<<nomeModello<<"\n";
     os<<"Prezzo: "<<prezzo<<"\n";
     return os.str();
-}
+}//print
+
+string Product::CSV() const{
+    std::ostringstream stream;
+    stream << std::fixed << std::setprecision(2)<<prezzo;
+    std::string str = stream.str();
+    return marca + "," + nomeModello + ","+ str +"€";
+}//CSV
 
 void Product::XML(QXmlStreamWriter &x) const{
+    std::ostringstream stream;
+    stream << std::fixed << std::setprecision(2)<<prezzo;
+    std::string str = stream.str();
     x.writeStartElement("Marca");
     x.writeCharacters(QString::fromStdString(Product::getMarca()));
     x.writeEndElement();
@@ -122,6 +133,6 @@ void Product::XML(QXmlStreamWriter &x) const{
     x.writeCharacters(QString::fromStdString(Product::getNomeModello()));
     x.writeEndElement();
     x.writeStartElement("Prezzo");
-    x.writeCharacters(QString::number((static_cast<double>(Product::getPrezzo()))));
+    x.writeCharacters(QString::fromStdString(str));
     x.writeEndElement();
 }//xml

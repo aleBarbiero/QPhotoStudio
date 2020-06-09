@@ -36,7 +36,8 @@ class Product{
         virtual Product* clone() const=0;
         virtual string print() const;
 		virtual string getType() const=0;
-		//XML
+        //esportazione
+        virtual string CSV() const;
         virtual void XML(QXmlStreamWriter&)const;
 };//Product
 

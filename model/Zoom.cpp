@@ -50,7 +50,11 @@ string Zoom::print() const{
     return os.str();
 }//print
 
-//XML
+//esportazione
+string Zoom::CSV() const{
+    return Lens::CSV() + ",Zoom";
+}//CSV
+
 void Zoom::XML(QXmlStreamWriter& x) const{
     x.writeStartElement(QString::fromStdString("ObiettivoZoom"));
         Aperture::XML(x);

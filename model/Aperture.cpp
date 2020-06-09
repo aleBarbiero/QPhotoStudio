@@ -61,7 +61,11 @@ string Aperture::getType() const{
     return "Focale fissa";
 }//getType
 
-//XML
+//esportazione
+string Aperture::CSV() const{
+    return Lens::CSV() + ",Focale fissa";
+}
+
 void Aperture::XML(QXmlStreamWriter& x) const{
     x.writeStartElement(QString::fromStdString("ObiettivoFocaleFissa"));
         Lens::XML(x);

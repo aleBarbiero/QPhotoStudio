@@ -73,6 +73,10 @@ string Accessory::print() const{
     return os.str();
 }//print
 
+string Accessory::CSV() const{
+    return "Accessorio," + Product::CSV() + "," + getTipologia();
+}//CSV
+
 //XML
 void Accessory::XML(QXmlStreamWriter& x) const{
     x.writeStartElement(QString::fromStdString("Accessorio"));

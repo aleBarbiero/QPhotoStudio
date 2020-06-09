@@ -32,7 +32,8 @@ class Reflex:virtual public Product{
         string getType() const;
         //ausiliari
         static tipo fromStrToType(string);
-        //XML
+        //esportazione
+        string CSV() const;
         void XML(QXmlStreamWriter&) const;
 };
 

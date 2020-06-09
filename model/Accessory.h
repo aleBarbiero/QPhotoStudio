@@ -25,7 +25,8 @@ class Accessory:virtual public Product{
         Accessory* clone() const;
         string print() const;
         string getType() const;
-        //XML
+        //esportazione
+        string CSV() const;
         void XML(QXmlStreamWriter&) const;
         //ausiliario
         static tipoA fromStrToType(string);

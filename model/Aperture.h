@@ -3,7 +3,7 @@
 #include "Lens.h"
 using namespace std;
 
-class Aperture:public Lens{
+class Aperture:virtual public Lens{
     private:
         unsigned int lungMax;
         float angoloMax;
@@ -19,7 +19,8 @@ class Aperture:public Lens{
         Aperture* clone() const;
         string print() const;
         string getType() const;
-        //XML
+        //esportazione
+        string CSV() const;
         void XML(QXmlStreamWriter&) const;
 };
 

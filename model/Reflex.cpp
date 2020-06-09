@@ -92,6 +92,10 @@ string Reflex::print() const{
     return os.str();
 }//print
 
+string Reflex::CSV() const{
+    return "Reflex," + Product::CSV() + "," + getFormato();
+}//CSV
+
 void Reflex::XML(QXmlStreamWriter& x) const{
     x.writeStartElement(QString::fromStdString("Reflex"));
         Product::XML(x);

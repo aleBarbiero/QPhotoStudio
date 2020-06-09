@@ -31,9 +31,11 @@ MainWindow::MainWindow(QWidget*):QWidget(),modello(new Model()),menu(new QMenuBa
     QAction* searchM=new QAction("Modifica/Rimuovi",menu);
     QAction* saveM=new QAction("Salva", fileM);
     QAction* loadM=new QAction("Carica", fileM);
+    QAction* exportM=new QAction("Esporta (CSV)",fileM);
     //azioni_menu_bar
     fileM->addAction(saveM);
     fileM->addAction(loadM);
+    fileM->addAction(exportM);
     menu->addMenu(fileM);
     menu->addAction(indexM);
     menu->addAction(addM);
@@ -50,6 +52,7 @@ MainWindow::MainWindow(QWidget*):QWidget(),modello(new Model()),menu(new QMenuBa
     //connect
     connect(saveM,SIGNAL(triggered()),this,SLOT(save()));
     connect(loadM,SIGNAL(triggered()),this,SLOT(load()));
+    connect(exportM,SIGNAL(triggered()),this,SLOT(exportCSV()));
     connect(indexM,SIGNAL(triggered()),this,SLOT(indexSet()));
     connect(addM,SIGNAL(triggered()),this,SLOT(addSet()));
     connect(searchM,SIGNAL(triggered()),this,SLOT(searchSet()));
@@ -101,18 +104,53 @@ void MainWindow::searchSet() const{
 
 void MainWindow::load(){
     file=(QFileDialog::getOpenFileName(this,"Carica","","Documento XML (*.xml);;All Files (*)"));
-    modello->loadF(file);
-    list->fullTab(modello);
-    list->refTab(modello);
-    list->accTab(modello);
-    list->lensTab(modello);
-    search->goBack(modello);
+    if(file!=nullptr && file!=""){
+        modello->loadF(file);
+        list->fullTab(modello);
+        list->refTab(modello);
+        list->accTab(modello);
+        list->lensTab(modello);
+        search->goBack(modello);
+        QMessageBox msg;
+        msg.setWindowIcon(QIcon(":/icon/icon.png"));
+        msg.setText("Listino caricato con successo");
+        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
+        msg.exec();
+    }else{
+        QMessageBox msg;
+        msg.critical(nullptr,"Errore","Nessun file selezionato.");
+        msg.setFixedSize(500,200);
+        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
+    }
 }//load
 
-void MainWindow::save(){
+bool MainWindow::save(){
     file=QFileDialog::getSaveFileName(this,"Seleziona un file .xml","","XML (*.xml)");
-    modello->saveF(file);
+    if(file!=nullptr && file!=""){
+        modello->saveF(file);
+        QMessageBox msg;
+        msg.setWindowIcon(QIcon(":/icon/icon.png"));
+        msg.setText("Listino salvato in formato XML");
+        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
+        msg.exec();
+        return true;
+    }else{
+        QMessageBox msg;
+        msg.critical(nullptr,"Errore","Nessun file selezionato.");
+        msg.setFixedSize(500,200);
+        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
+        return false;
+    }
 }//save
+
+void MainWindow::exportCSV(){
+    modello->exportCSV();
+    QMessageBox msg;
+    msg.setWindowIcon(QIcon(":/icon/icon.png"));
+    msg.setText("Listino esportato in: /output/QPhotoStudio.csv");
+    msg.setWindowFlags(Qt::WindowStaysOnTopHint);
+    msg.exec();
+}
 
 void MainWindow::closeEvent(QCloseEvent* x){
     QMessageBox exit;
@@ -121,14 +159,17 @@ void MainWindow::closeEvent(QCloseEvent* x){
     QAbstractButton* yes=exit.addButton("Si",QMessageBox::YesRole);
     QAbstractButton* no=exit.addButton("No",QMessageBox::NoRole);
     QAbstractButton* canc=exit.addButton("Annulla",QMessageBox::NoRole);
+    exit.setWindowFlags(Qt::WindowStaysOnTopHint);
     exit.exec();
     if(exit.clickedButton()==no)
        x->accept();
     else if(exit.clickedButton()==canc)
        x->ignore();
     else if(exit.clickedButton()==yes){
-       MainWindow::save();
-       x->accept();
+       if(MainWindow::save())
+           x->accept();
+       else
+           x->ignore();
     }//if_else
 }//close
 

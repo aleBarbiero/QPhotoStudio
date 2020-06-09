@@ -51,7 +51,11 @@ string Length::getType() const{
     return "Lunghezza fissa";
 }//getType
 
-//XML
+//esportazione
+string Length::CSV() const{
+    return Lens::CSV() + ",Lunghezza fissa";
+}
+
 void Length::XML(QXmlStreamWriter& x) const{
     x.writeStartElement(QString::fromStdString("ObiettivoLunghezzaFissa"));
         Lens::XML(x);

@@ -34,7 +34,8 @@ class Lens:virtual public Product{
        virtual Lens* clone() const;
        string print() const;
        string getType() const;
-       //XML
+       //esportazione
+       string CSV() const;
        void XML(QXmlStreamWriter&) const;
 };
 

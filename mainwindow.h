@@ -41,8 +41,9 @@ class MainWindow:public QWidget{
         void showDet(int);
         void alterEl();
         void removeEl();
-        void save();
+        bool save();
         void load();
+        void exportCSV();
 };//MainWindow
 
 #endif

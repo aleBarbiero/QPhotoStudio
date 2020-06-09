@@ -19,6 +19,11 @@ void Model::loadF(const QString& file){
     Q.sortC();
 }//load
 
+void Model::exportCSV() const{
+    MyCSV csv;
+    csv.exportCSV(Q);
+}
+
 //metodi
 void Model::insert(Product* el){
     Q.pushLast(el);

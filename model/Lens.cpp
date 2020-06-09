@@ -95,6 +95,10 @@ string Lens::print() const{
     return os.str();
 }//print
 
+string Lens::CSV() const{
+    return "Obiettivo," + Product::CSV();
+}//CSV
+
 void Lens::XML(QXmlStreamWriter& x) const{
         Product::XML(x);
         x.writeStartElement("Lunghezza");

@@ -6,8 +6,9 @@
         <file>images/image.png</file>
         <file>images/lens.png</file>
         <file>images/title.png</file>
-        <file>qphotostudio.xml</file>
         <file>GUI/style.qss</file>
         <file>GUI/font.ttf</file>
+        <file>output/QPhotoStudio.xml</file>
+        <file>output/QPhotoStudio.csv</file>
     </qresource>
 </RCC>

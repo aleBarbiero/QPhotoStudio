@@ -17,7 +17,8 @@ class Zoom:public Aperture, public Length{
         virtual Zoom* clone() const;
         string getType() const;
         string print() const;
-        //XML
+        //esportazione
+        string CSV() const;
         void XML(QXmlStreamWriter&) const;
 };
 

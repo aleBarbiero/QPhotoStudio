@@ -3,7 +3,7 @@
 #include "Lens.h"
 using namespace std;
 
-class Length:public Lens{
+class Length:virtual public Lens{
     private:
         float focaleMax;
     public:
@@ -16,7 +16,8 @@ class Length:public Lens{
         Length* clone() const;
         string print() const;
         string getType() const;
-        //XML
+        //esportazione
+        string CSV() const;
         void XML(QXmlStreamWriter&) const;
 };
 

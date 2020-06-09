@@ -10,6 +10,7 @@
 #include "model/Zoom.h"
 #include "model/Accessory.h"
 #include "MyXml.h"
+#include "MyCSV.h"
 #include <QString>
 #include <QRegExp>
 using namespace std;
@@ -24,6 +25,7 @@ class Model{
         //carica/salva
         void saveF(const QString&) const;
         void loadF(const QString&);
+        void exportCSV() const;
         //metodi
         void insert(Product*);
         void remove(Product*);

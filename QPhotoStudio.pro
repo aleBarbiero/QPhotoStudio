@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,6 +28,7 @@ CONFIG += c++11
 SOURCES += \
     GUI/Details.cpp \
     GUI/Listino.cpp \
+    GUI/MyCSV.cpp \
     GUI/Search.cpp \
         model/Product.cpp \
         model/Reflex.cpp \
@@ -47,6 +49,7 @@ SOURCES += \
 HEADERS += \
     GUI/Details.h \
     GUI/Listino.h \
+    GUI/MyCSV.h \
     GUI/Search.h \
         model/Product.h \
         model/Reflex.h \
