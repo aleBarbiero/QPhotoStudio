@@ -35,8 +35,10 @@ Add::Add(QWidget* wid):QWidget(wid),qfl(new QFormLayout()),qgb(new QGroupBox("Ag
     tipoAccValue->addItem("Zaini e borse");
     tipoAccValue->addItem("Treppiedi");
     tipoAccValue->addItem("Filtri");
+    tipoAccValue->addItem("Flash");
     tipoAccValue->addItem("Altro");
     formatoValue->addItem("DSLR");
+    formatoValue->addItem("APS-C");
     formatoValue->addItem("Fullframe");
     formatoValue->addItem("Mirrorless");
     //form_base
