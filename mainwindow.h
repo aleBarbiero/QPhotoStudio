@@ -35,6 +35,7 @@ class MainWindow:public QWidget{
         void indexSet() const;
         void addSet() const;
         void addEl();
+        void delForm() const;
         void listSet() const;
         void searchSet() const;
         void searchEl() const;

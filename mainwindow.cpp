@@ -57,6 +57,7 @@ MainWindow::MainWindow(QWidget*):QWidget(),modello(new Model()),menu(new QMenuBa
     connect(addM,SIGNAL(triggered()),this,SLOT(addSet()));
     connect(searchM,SIGNAL(triggered()),this,SLOT(searchSet()));
     connect(add->getAdd(),SIGNAL(clicked()),this,SLOT(addEl()));
+    connect(add->getDel(),SIGNAL(clicked()),this,SLOT(delForm()));
     connect(listM,SIGNAL(triggered()),this,SLOT(listSet()));
     connect(search->getDel(),SIGNAL(clicked()),this,SLOT(searchSet()));
     connect(search->getSearch(),SIGNAL(clicked()),this,SLOT(searchEl()));
@@ -467,3 +468,7 @@ void MainWindow::alterEl(){
     msg.setWindowFlags(Qt::WindowStaysOnTopHint);
     msg.exec();
 }//alterEl
+
+void MainWindow::delForm() const{
+    add->delElement();
+}
