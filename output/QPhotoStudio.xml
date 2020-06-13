@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Product>
+    <ObiettivoLunghezzaFissa>
+        <ObiettivoFisso>
+            <Marca>Canon</Marca>
+            <Modello>105mm f/2.8 L USD</Modello>
+            <Prezzo>1400.00</Prezzo>
+            <Lunghezza>105</Lunghezza>
+            <Focale>1.4</Focale>
+            <Stabilizzazione>SI</Stabilizzazione>
+            <AF>SI</AF>
+            <Angolo>75</Angolo>
+            <Diametro>82</Diametro>
+            <Compatibilita>Canon</Compatibilita>
+        </ObiettivoFisso>
+        <FocaleMax>2.8</FocaleMax>
+    </ObiettivoLunghezzaFissa>
+    <ObiettivoFisso>
+        <Marca>Canon</Marca>
+        <Modello>50mm STD</Modello>
+        <Prezzo>175.00</Prezzo>
+        <Lunghezza>50</Lunghezza>
+        <Focale>1.8</Focale>
+        <Stabilizzazione>NO</Stabilizzazione>
+        <AF>SI</AF>
+        <Angolo>75</Angolo>
+        <Diametro>62</Diametro>
+        <Compatibilita>Canon</Compatibilita>
+    </ObiettivoFisso>
     <Reflex>
         <Marca>Canon</Marca>
         <Modello>6D Mark II</Modello>
-        <Prezzo>1200</Prezzo>
+        <Prezzo>1200.00</Prezzo>
         <Formato>FullFrame</Formato>
         <ISOmin>150</ISOmin>
         <ISOmax>128000</ISOmax>
@@ -11,25 +38,50 @@
         <Tropicalizzazione>SI</Tropicalizzazione>
     </Reflex>
     <Accessorio>
+        <Marca>Joby</Marca>
+        <Modello>Gorillapod 5K</Modello>
+        <Prezzo>65.00</Prezzo>
+        <Tipo>Treppiedi</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <ObiettivoLunghezzaFissa>
+        <ObiettivoFisso>
+            <Marca>Samyang</Marca>
+            <Modello>8mm Fisheye</Modello>
+            <Prezzo>200.00</Prezzo>
+            <Lunghezza>8</Lunghezza>
+            <Focale>1.8</Focale>
+            <Stabilizzazione>NO</Stabilizzazione>
+            <AF>NO</AF>
+            <Angolo>170</Angolo>
+            <Diametro>92</Diametro>
+            <Compatibilita>Canon</Compatibilita>
+        </ObiettivoFisso>
+        <FocaleMax>3.6</FocaleMax>
+    </ObiettivoLunghezzaFissa>
+    <Accessorio>
         <Marca>SanDisk</Marca>
         <Modello>SDXC 128GB</Modello>
-        <Prezzo>55</Prezzo>
+        <Prezzo>55.00</Prezzo>
         <Tipo>MemoryCard</Tipo>
         <Compatibilita>Tutte</Compatibilita>
         <Note>Velocità di scrittura: 120Mb/s</Note>
     </Accessorio>
     <ObiettivoZoom>
         <ObiettivoFocaleFissa>
-            <Marca>Sigma</Marca>
-            <Modello>100-300mm AF</Modello>
-            <Prezzo>400</Prezzo>
-            <Lunghezza>100</Lunghezza>
-            <Apertura>4.5</Apertura>
-            <Stabilizzazione>NO</Stabilizzazione>
-            <AF>SI</AF>
-            <Angolo>45</Angolo>
-            <Diametro>68</Diametro>
-            <Compatibilita>Nikon</Compatibilita>
+            <ObiettivoFisso>
+                <Marca>Sigma</Marca>
+                <Modello>100-300mm AF</Modello>
+                <Prezzo>400.00</Prezzo>
+                <Lunghezza>100</Lunghezza>
+                <Focale>4.5</Focale>
+                <Stabilizzazione>NO</Stabilizzazione>
+                <AF>SI</AF>
+                <Angolo>45</Angolo>
+                <Diametro>68</Diametro>
+                <Compatibilita>Nikon</Compatibilita>
+            </ObiettivoFisso>
             <LunghezzaMax>300</LunghezzaMax>
             <AngoloMax>85</AngoloMax>
         </ObiettivoFocaleFissa>
@@ -37,51 +89,19 @@
         <Moltiplicatore>SI</Moltiplicatore>
     </ObiettivoZoom>
     <ObiettivoFocaleFissa>
-        <Marca>Tamron</Marca>
-        <Modello>70-200 Di Vc USD</Modello>
-        <Prezzo>950</Prezzo>
-        <Lunghezza>70</Lunghezza>
-        <Apertura>2.8</Apertura>
-        <Stabilizzazione>SI</Stabilizzazione>
-        <AF>SI</AF>
-        <Angolo>65</Angolo>
-        <Diametro>83</Diametro>
-        <Compatibilita>Canon</Compatibilita>
+        <ObiettivoFisso>
+            <Marca>Tamron</Marca>
+            <Modello>70-200 Di Vc USD</Modello>
+            <Prezzo>950.00</Prezzo>
+            <Lunghezza>70</Lunghezza>
+            <Focale>2.8</Focale>
+            <Stabilizzazione>SI</Stabilizzazione>
+            <AF>SI</AF>
+            <Angolo>65</Angolo>
+            <Diametro>83</Diametro>
+            <Compatibilita>Canon</Compatibilita>
+        </ObiettivoFisso>
         <LunghezzaMax>200</LunghezzaMax>
         <AngoloMax>87</AngoloMax>
     </ObiettivoFocaleFissa>
-    <Accessorio>
-        <Marca>Joby</Marca>
-        <Modello>Gorillapod 5K</Modello>
-        <Prezzo>65</Prezzo>
-        <Tipo>Treppiedi</Tipo>
-        <Compatibilita>Tutte</Compatibilita>
-        <Note></Note>
-    </Accessorio>
-    <ObiettivoLunghezzaFissa>
-        <Marca>Samyang</Marca>
-        <Modello>8mm Fisheye</Modello>
-        <Prezzo>200</Prezzo>
-        <Lunghezza>8</Lunghezza>
-        <Apertura>1.8</Apertura>
-        <Stabilizzazione>NO</Stabilizzazione>
-        <AF>NO</AF>
-        <Angolo>170</Angolo>
-        <Diametro>92</Diametro>
-        <Compatibilita>Canon</Compatibilita>
-        <FocaleMax>3.6</FocaleMax>
-    </ObiettivoLunghezzaFissa>
-    <ObiettivoLunghezzaFissa>
-        <Marca>Canon</Marca>
-        <Modello>105mm f/2.8 L USD</Modello>
-        <Prezzo>1400</Prezzo>
-        <Lunghezza>105</Lunghezza>
-        <Apertura>1.4</Apertura>
-        <Stabilizzazione>SI</Stabilizzazione>
-        <AF>SI</AF>
-        <Angolo>75</Angolo>
-        <Diametro>82</Diametro>
-        <Compatibilita>Canon</Compatibilita>
-        <FocaleMax>2.8</FocaleMax>
-    </ObiettivoLunghezzaFissa>
 </Product>

@@ -70,7 +70,7 @@ Lens* Lens::clone() const{
 }//clone
 
 string Lens::getType() const{
-    return "ObiettivoFisso";
+    return "Fisso";
 }
 
 string Lens::print() const{
@@ -96,15 +96,16 @@ string Lens::print() const{
 }//print
 
 string Lens::CSV() const{
-    return "Obiettivo," + Product::CSV() + ",Obiettivo fisso";
+    return "Obiettivo," + Product::CSV();
 }//CSV
 
 void Lens::XML(QXmlStreamWriter& x) const{
+    x.writeStartElement(QString::fromStdString("ObiettivoFisso"));
         Product::XML(x);
         x.writeStartElement("Lunghezza");
         x.writeCharacters(QString::number(getLung()));
         x.writeEndElement();
-        x.writeStartElement("Apertura");
+        x.writeStartElement("Focale");
         x.writeCharacters(QString::number(static_cast<double>(getFocale())));
         x.writeEndElement();
         x.writeStartElement("Stabilizzazione");
@@ -128,4 +129,5 @@ void Lens::XML(QXmlStreamWriter& x) const{
         x.writeStartElement("Compatibilita");
         x.writeCharacters(QString::fromStdString(getComp()));
         x.writeEndElement();
+    x.writeEndElement();
 }//XML

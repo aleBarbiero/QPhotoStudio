@@ -11,6 +11,7 @@
 #include <QFormLayout>
 #include <QGroupBox>
 #include <QIntValidator>
+#include <QCheckBox>
 
 class Details:public QWidget{
     private:
@@ -54,7 +55,7 @@ class Details:public QWidget{
         QLineEdit* ISOmaxValue;
         QLineEdit* pxValue;
         QLabel* formatoValue;
-        QLineEdit* tropValue;
+        QCheckBox* tropValue;
             //accessori
         QLabel* tipoAccValue;
         QLineEdit* infoValue;
@@ -64,12 +65,12 @@ class Details:public QWidget{
         QLineEdit* lungMaxValue;
         QLineEdit* fMinValue;
         QLineEdit* fMaxValue;
-        QLineEdit* stabValue;
-        QLineEdit* AFValue;
+        QCheckBox* stabValue;
+        QCheckBox* AFValue;
         QLineEdit* angMinValue;
         QLineEdit* angMaxValue;
         QLineEdit* diamValue;
-        QLineEdit* moltValue;
+        QCheckBox* moltValue;
         //pulsanti
         QPushButton* alter;
         QPushButton* remove;
@@ -90,7 +91,7 @@ class Details:public QWidget{
        unsigned int getISOMax() const;
        unsigned int getPX() const;
        string getFormato() const;
-       string getTrop() const;
+       bool getTrop() const;
        string getTipoAcc() const;
        string getInfo() const;
        string getTipoOb() const;
@@ -98,12 +99,12 @@ class Details:public QWidget{
        unsigned int getLungMax() const;
        float getFMin() const;
        float getFMax() const;
-       string getStab() const;
-       string getAF() const;
+       bool getStab() const;
+       bool getAF() const;
        float getAngMin() const;
        float getAngMax() const;
        unsigned int getDiam() const;
-       string getMolt() const;
+       bool getMolt() const;
 };
 
 #endif

@@ -45,6 +45,9 @@ class MainWindow:public QWidget{
         bool save();
         void load();
         void exportCSV();
+        //utility
+        bool checkFieldsAdd(string) const;
+        bool checkFieldsAlter(string) const;
 };//MainWindow
 
 #endif

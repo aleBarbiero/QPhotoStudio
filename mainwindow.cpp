@@ -176,83 +176,8 @@ void MainWindow::closeEvent(QCloseEvent* x){
 
 void MainWindow::addEl(){
     string type=add->getTipoProd();
-    if(add->getMarca()=="" || add->getModello()=="" || !add->getPrezzo()){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
+    if(!checkFieldsAdd(type))
         return;
-    }//if
-    if(type=="Reflex" && (add->getPX()<=0 || add->getISOMax()<=0 || add->getISOMin()<=0)){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        return;
-    }else if(type=="Reflex" && add->getISOMin()>add->getISOMax()){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        return;
-    }else if(type=="Reflex" && (!add->getISOMin() || !add->getISOMax() || !add->getPX())){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        return;
-    }
-    if(type=="Accessorio" && (add->getComp()=="")){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        return;
-    }//if
-    if(type=="Obiettivo" && (add->getFMin()<=0 || add->getAngMin()<=0 || add->getDiam()<=0 || add->getLungMin()<=0)){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        return;
-    }else if(type=="Obiettivo" && (!add->getFMin() || !add->getAngMin() || !add->getDiam() || !add->getLungMin())){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        return;
-    }
-    if(type=="Obiettivo" && add->getComp()==""){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        return;
-    }//if
-    if(type=="Obiettivo" && add->getTipoOb()!="Focale fissa" && add->getFMax()<=0){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        return;
-    }else if(type=="Obiettivo" && add->getTipoOb()!="Focale fissa" && add->getFMin()>=add->getFMax()){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        return;
-    }else if(type=="Obiettivo" && add->getTipoOb()!="Focale fissa" && !add->getFMax()){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        return;
-    }//if
-    if(type=="Obiettivo" && add->getTipoOb()=="Focale fissa" && (add->getLungMax()<=0 || add->getAngMax()<=0)){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        return;
-    }else if(type=="Obiettivo" && add->getTipoOb()=="Focale fissa" && (add->getLungMax()<=add->getLungMin() || add->getAngMax()<=add->getAngMin())){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        return;
-    }else if(type=="Obiettivo" && add->getTipoOb()=="Focale fissa" && (!add->getLungMax() || !add->getAngMax())){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        return;
-    }//if
     string marca=add->getMarca();
     string mod=add->getModello();
     float prezzo=add->getPrezzo();
@@ -274,6 +199,12 @@ void MainWindow::addEl(){
     list->accTab(modello);
     list->lensTab(modello);
     search->goBack(modello);
+    QMessageBox msg;
+    msg.setWindowIcon(QIcon(":/icon/icon.png"));
+    msg.setText("Prodotto inserito nel listino");
+    msg.setFixedSize(500,200);
+    msg.setWindowFlags(Qt::WindowStaysOnTopHint);
+    msg.exec();
 }//addEl
 
 void MainWindow::searchEl() const{
@@ -296,7 +227,7 @@ void MainWindow::removeEl(){
     QMessageBox sure;
     sure.setWindowIcon(QIcon(":/icon/icon.png"));
     sure.setText("Vuoi veramente eliminare il prodotto selezionato?");
-    QAbstractButton* si=sure.addButton("Conferma",QMessageBox::YesRole);
+    QAbstractButton* si=sure.addButton("Elimina",QMessageBox::YesRole);
     sure.addButton("Annulla",QMessageBox::NoRole);
     sure.setWindowFlags(Qt::WindowStaysOnTopHint);
     sure.exec();
@@ -317,146 +248,26 @@ void MainWindow::removeEl(){
 void MainWindow::alterEl(){
     det->hide();
     string type=det->getTipoProd();
-    if(det->getMarca()=="" || det->getModello()=="" || !det->getPrezzo()){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
+    if(!checkFieldsAlter(type))
         return;
-    }//if
-    if(type=="Reflex" && (det->getPX()<=0 || det->getISOMax()<=0 || det->getISOMin()<=0)){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }else if(type=="Reflex" && det->getISOMin()>det->getISOMax()){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }else if(type=="Reflex" && (!det->getISOMin() || !det->getISOMax() || !det->getPX())){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }
-    if(type=="Accessorio" && (det->getComp()=="")){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }//if
-    if(type=="Obiettivo" && (det->getFMin()<=0 || det->getAngMin()<=0 || det->getDiam()<=0 || det->getLungMin()<=0)){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }else if(type=="Obiettivo" && (!det->getFMin() || !det->getAngMin() || !det->getDiam() || !det->getLungMin())){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }
-    if(type=="Obiettivo" && det->getComp()==""){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }//if
-    if(type=="Obiettivo" && det->getTipoOb()!="Focale fissa" && det->getFMax()<=0){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }else if(type=="Obiettivo" && det->getTipoOb()!="Focale fissa" && det->getFMin()>=add->getFMax()){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }else if(type=="Obiettivo" && det->getTipoOb()!="Focale fissa" && !det->getFMax()){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }//if
-    if(type=="Obiettivo" && det->getTipoOb()=="Focale fissa" && (det->getLungMax()<=0 || det->getAngMax()<=0)){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }else if(type=="Obiettivo" && det->getTipoOb()=="Focale fissa" && (det->getLungMax()<=det->getLungMin() || det->getAngMax()<=det->getAngMin())){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Controlla i valori numerici");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }else if(type=="Obiettivo" && det->getTipoOb()=="Focale fissa" && (!det->getLungMax() || !det->getAngMax())){
-        QMessageBox msg;
-        msg.critical(nullptr,"Errore","Compila tutti i campi");
-        msg.setFixedSize(500,200);
-        msg.setWindowFlags(Qt::WindowStaysOnTopHint);
-        det->show();
-        return;
-    }//if
     if(type=="Reflex"){
-        bool trop=false;
-        if(det->getTrop()=="SI")
-            trop=true;
-        Reflex* el=new Reflex(det->getMarca(),det->getModello(),det->getPrezzo(),det->getISOMin(),det->getISOMax(),det->getPX(),Reflex::fromStrToType(det->getFormato()),trop);
+        Reflex* el=new Reflex(det->getMarca(),det->getModello(),det->getPrezzo(),det->getISOMin(),det->getISOMax(),det->getPX(),Reflex::fromStrToType(det->getFormato()),det->getTrop());
         modello->alter(pos,el);
     }else if(type=="Accessorio"){
         Accessory* el=new Accessory(det->getMarca(),det->getModello(),det->getPrezzo(),Accessory::fromStrToType(det->getTipoAcc()),det->getComp(),det->getInfo());
         modello->alter(pos,el);
-    }else if(type=="Obiettivo" && det->getTipoOb()=="Zoom"){
-        bool stab=false,af=false,molt=false;
-        if(det->getStab()=="SI")
-            stab=true;
-        if(det->getAF()=="SI")
-            af=true;
-        if(det->getMolt()=="SI")
-            molt=true;
-        Zoom* el=new Zoom(det->getMarca(),det->getModello(),det->getPrezzo(),det->getLungMin(),det->getLungMax(),det->getFMin(),det->getFMax(),det->getComp(),stab,af,det->getAngMin(),det->getAngMax(),det->getDiam(),molt);
+    }else if(type=="Zoom"){
+        Zoom* el=new Zoom(det->getMarca(),det->getModello(),det->getPrezzo(),det->getLungMin(),det->getLungMax(),det->getFMin(),det->getFMax(),det->getComp(),det->getStab(),det->getAF(),det->getAngMin(),det->getAngMax(),det->getDiam(),det->getMolt());
         modello->alter(pos,el);
-    }else if(type=="Obiettivo" && det->getTipoOb()=="Focale fissa"){
-        bool stab=false,af=false;
-        if(det->getStab()=="SI")
-            stab=true;
-        if(det->getAF()=="SI")
-            af=true;
-        Aperture* el=new Aperture(det->getMarca(),det->getModello(),det->getPrezzo(),det->getLungMin(),det->getLungMax(),det->getFMin(),det->getComp(),stab,af,det->getAngMin(),det->getAngMax(),det->getDiam());
+    }else if(type=="Focale fissa"){
+        Aperture* el=new Aperture(det->getMarca(),det->getModello(),det->getPrezzo(),det->getLungMin(),det->getLungMax(),det->getFMin(),det->getComp(),det->getStab(),det->getAF(),det->getAngMin(),det->getAngMax(),det->getDiam());
         modello->alter(pos,el);
-    }else if(type=="Obiettivo" && det->getTipoOb()=="Lunghezza fissa"){
-        bool stab=false,af=false;
-        if(det->getStab()=="SI")
-            stab=true;
-        if(det->getAF()=="SI")
-            af=true;
-        Length* el=new Length(det->getMarca(),det->getModello(),det->getPrezzo(),det->getLungMin(),det->getFMin(),det->getFMax(),det->getComp(),stab,af,det->getAngMin(),det->getDiam());
+    }else if(type=="Lunghezza fissa"){
+        Length* el=new Length(det->getMarca(),det->getModello(),det->getPrezzo(),det->getLungMin(),det->getFMin(),det->getFMax(),det->getComp(),det->getStab(),det->getAF(),det->getAngMin(),det->getDiam());
         modello->alter(pos,el);
+    }else if(type=="Fisso"){
+        Lens* lens=new Lens(det->getMarca(),det->getModello(),det->getPrezzo(),det->getLungMin(),det->getFMin(),det->getComp(),det->getStab(),det->getAF(),det->getAngMin(),det->getDiam());
+        modello->alter(pos,lens);
     }//modifica
     list->fullTab(modello);
     list->refTab(modello);
@@ -471,6 +282,190 @@ void MainWindow::alterEl(){
     msg.exec();
 }//alterEl
 
+bool MainWindow::checkFieldsAdd(string type) const{
+    if(!add->getPrezzo() || add->getMarca()=="" || add->getModello()==""){
+        QMessageBox msg;
+        msg.critical(nullptr,"Errore","Compila tutti i campi");
+        msg.setFixedSize(500,200);
+        return false;
+    }//if
+    if(type=="Reflex"){
+        if(add->getPX()<=0 || add->getISOMax()<=0 || add->getISOMin()<=0){
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Controlla i valori numerici");
+            msg.setFixedSize(500,200);
+            return false;
+        }else if(add->getISOMin()>add->getISOMax()){
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Controlla i valori numerici");
+            msg.setFixedSize(500,200);
+            return false;
+        }else if(!add->getISOMin() || !add->getISOMax() || !add->getPX()){
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Compila tutti i campi");
+            msg.setFixedSize(500,200);
+            return false;
+        }//if_else
+    }//reflexCheck
+    if(type=="Accessorio" && (add->getComp()=="")){
+        QMessageBox msg;
+        msg.critical(nullptr,"Errore","Compila tutti i campi");
+        msg.setFixedSize(500,200);
+        return false;
+    }//accessoryCheck
+    if(type=="Obiettivo"){
+        if(add->getFMin()<=0 || add->getAngMin()<=0 || add->getDiam()<=0 || add->getLungMin()<=0){
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Controlla i valori numerici");
+            msg.setFixedSize(500,200);
+            return false;
+        }else if((!add->getFMin() || !add->getAngMin() || !add->getDiam() || !add->getLungMin())){
+            QMessageBox msg;
+        msg.critical(nullptr,"Errore","Compila tutti i campi");
+            msg.setFixedSize(500,200);
+            return false;
+        }
+        if(add->getComp()==""){
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Compila tutti i campi");
+            msg.setFixedSize(500,200);
+            return false;
+        }//if
+        if(add->getTipoOb()!="Fisso"){
+            if(add->getTipoOb()!="Focale fissa"){
+                if(add->getFMax()<=0){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Controlla i valori numerici");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }else if(add->getFMin()>=add->getFMax()){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Controlla i valori numerici");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }else if(!add->getFMax()){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Compila tutti i campi");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }//if
+            }else{
+                if(add->getLungMax()<=0 || add->getAngMax()<=0){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Controlla i valori numerici");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }else if(add->getLungMax()<=add->getLungMin() || add->getAngMax()<=add->getAngMin()){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Controlla i valori numerici");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }else if(!add->getLungMax() || !add->getAngMax()){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Compila tutti i campi");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }//if
+            }//if_else_focale_fissa
+        }//if_fisso
+    }//lensCheck
+    return true;
+}//checkFields
+
 void MainWindow::delForm() const{
     add->delElement();
 }
+
+bool MainWindow::checkFieldsAlter(string type) const{
+    if(!det->getPrezzo() || det->getMarca()=="" || det->getModello()==""){
+        QMessageBox msg;
+        msg.critical(nullptr,"Errore","Compila tutti i campi");
+        msg.setFixedSize(500,200);
+        return false;
+    }//if
+    if(type=="Reflex"){
+        if(det->getPX()<=0 || det->getISOMax()<=0 || det->getISOMin()<=0){
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Controlla i valori numerici");
+            msg.setFixedSize(500,200);
+            return false;
+        }else if(det->getISOMin()>det->getISOMax()){
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Controlla i valori numerici");
+            msg.setFixedSize(500,200);
+            return false;
+        }else if(!det->getISOMin() || !det->getISOMax() || !det->getPX()){
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Compila tutti i campi");
+            msg.setFixedSize(500,200);
+            return false;
+        }//if_else
+    }else if(type=="Accessorio"){
+        if(det->getComp()==""){
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Compila tutti i campi");
+            msg.setFixedSize(500,200);
+            return false;
+        }//if_else
+    }else{
+        if(det->getFMin()<=0 || det->getAngMin()<=0 || det->getDiam()<=0 || det->getLungMin()<=0){
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Controlla i valori numerici");
+            msg.setFixedSize(500,200);
+            return false;
+        }else if((!det->getFMin() || !det->getAngMin() || !det->getDiam() || !det->getLungMin())){
+            QMessageBox msg;
+        msg.critical(nullptr,"Errore","Compila tutti i campi");
+            msg.setFixedSize(500,200);
+            return false;
+        }
+        if(det->getComp()==""){
+            QMessageBox msg;
+            msg.critical(nullptr,"Errore","Compila tutti i campi");
+            msg.setFixedSize(500,200);
+            return false;
+        }//if
+        if(type!="Fisso"){
+            if(type!="Focale fissa"){
+                if(det->getFMax()<=0){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Controlla i valori numerici");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }else if(det->getFMin()>=det->getFMax()){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Controlla i valori numerici");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }else if(!det->getFMax()){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Compila tutti i campi");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }//if
+            }else{
+                if(det->getLungMax()<=0 || det->getAngMax()<=0){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Controlla i valori numerici");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }else if(det->getLungMax()<=det->getLungMin() || det->getAngMax()<=det->getAngMin()){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Controlla i valori numerici");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }else if(!det->getLungMax() || !det->getAngMax()){
+                    QMessageBox msg;
+                    msg.critical(nullptr,"Errore","Compila tutti i campi");
+                    msg.setFixedSize(500,200);
+                    return false;
+                }//if
+            }//if_else_focale_fissa
+        }//if_fisso
+    }//lensCheck
+    return true;
+}//checkFields
+
+
+
+

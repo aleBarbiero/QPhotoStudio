@@ -184,12 +184,25 @@ void Listino::lensTab(Model* modello){
     QString type;
     for(int i=0;i<modello->count();++i){
         type=QString(QString::fromStdString((((*modello).getQ().begin()+i))->getT().getType()));
-        if(type=="Zoom" || type=="Focale fissa"){
+        if(dynamic_cast<Lens*>(&(((*modello).getQ().begin()+i)->getT()))){
             QTableWidgetItem* marca=new QTableWidgetItem(QString(QString::fromStdString((((*modello).getQ().begin()+i))->getT().getMarca())));
             QTableWidgetItem* mod=new QTableWidgetItem(QString(QString::fromStdString((((*modello).getQ().begin()+i))->getT().getNomeModello())));
             QTableWidgetItem* prezzo=new QTableWidgetItem(QString(QString::number((((*modello).getQ().begin()+i))->getT().getPrezzo())));
-            QTableWidgetItem* comp=new QTableWidgetItem(QString(QString::fromStdString(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->getComp())));
-            QTableWidgetItem* lmin=new QTableWidgetItem(QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->getLung())));
+            QTableWidgetItem* comp=new QTableWidgetItem(QString(QString::fromStdString(dynamic_cast<Lens*>(&(((*modello).getQ().begin()+i))->getT())->getComp())));
+            QTableWidgetItem* lmin=new QTableWidgetItem(QString(QString::number(dynamic_cast<Lens*>(&(((*modello).getQ().begin()+i))->getT())->getLung())));
+            QTableWidgetItem* fmin=new QTableWidgetItem(QString(QString::number(dynamic_cast<Lens*>(&(((*modello).getQ().begin()+i))->getT())->getFocale())));
+            QTableWidgetItem* diam=new QTableWidgetItem(QString(QString::number(dynamic_cast<Lens*>(&(((*modello).getQ().begin()+i))->getT())->getDiametro())));
+            QTableWidgetItem* angmin=new QTableWidgetItem(QString(QString::number(dynamic_cast<Lens*>(&(((*modello).getQ().begin()+i))->getT())->getAngolo())));
+            QTableWidgetItem* af;
+            QTableWidgetItem* stab;
+            if((dynamic_cast<Lens*>(&(((*modello).getQ().begin()+i))->getT())->isAF()))
+                af=new QTableWidgetItem(QString(QString::fromStdString("SI")));
+            else
+                af=new QTableWidgetItem(QString(QString::fromStdString("NO")));
+            if((dynamic_cast<Lens*>(&(((*modello).getQ().begin()+i))->getT())->isStabilizzato()))
+                stab=new QTableWidgetItem(QString(QString::fromStdString("SI")));
+            else
+                stab=new QTableWidgetItem(QString(QString::fromStdString("NO")));
             lenstab->insertRow(j);
             lenstab->setItem(j,0,marca);
             lenstab->setItem(j,1,mod);
@@ -197,96 +210,61 @@ void Listino::lensTab(Model* modello){
             lenstab->setItem(j,3,new QTableWidgetItem(type));
             lenstab->setItem(j,4,comp);
             lenstab->setItem(j,5,lmin);
-            QTableWidgetItem* lmax=new QTableWidgetItem(QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->getLungMax())));
-            lenstab->setItem(j,6,lmax);
-            QTableWidgetItem* fmin=new QTableWidgetItem(QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->getFocale())));
-            lenstab->setItem(j,7,fmin);
-            if(type=="Zoom"){
-                 QTableWidgetItem* fmax=new QTableWidgetItem(QString(QString::number(dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+i))->getT())->getAngoloMax())));
-                 lenstab->setItem(j,8,fmax);
-            }else
-            lenstab->setItem(j,8,new QTableWidgetItem(QString(QString::fromStdString("/"))));
-            QTableWidgetItem* stab;
-            if((dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->isStabilizzato()))
-                stab=new QTableWidgetItem(QString(QString::fromStdString("SI")));
-            else
-                stab=new QTableWidgetItem(QString(QString::fromStdString("NO")));
-            QTableWidgetItem* diam=new QTableWidgetItem(QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->getDiametro())));
-            QTableWidgetItem* angmin=new QTableWidgetItem(QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->getAngolo())));
-            QTableWidgetItem* af;
-            if((dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->isAF()))
-                af=new QTableWidgetItem(QString(QString::fromStdString("SI")));
-            else
-                af=new QTableWidgetItem(QString(QString::fromStdString("NO")));
-            lenstab->setItem(j,9,stab);
-            lenstab->setItem(j,10,af);
-            lenstab->setItem(j,11,diam);
-            lenstab->setItem(j,12,angmin);
-            if(type=="Zoom" || type=="Focale fissa"){
-                 QTableWidgetItem* angmax=new QTableWidgetItem(QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->getAngoloMax())));
-                 lenstab->setItem(j,13,angmax);
-            }else
+            if(type=="Fisso"){
+                lenstab->setItem(j,6,new QTableWidgetItem(QString(QString::fromStdString("/"))));
+                lenstab->setItem(j,7,fmin);
+                lenstab->setItem(j,8,new QTableWidgetItem(QString(QString::fromStdString("/"))));
+                lenstab->setItem(j,9,stab);
+                lenstab->setItem(j,10,af);
+                lenstab->setItem(j,11,diam);
+                lenstab->setItem(j,12,angmin);
                 lenstab->setItem(j,13,new QTableWidgetItem(QString(QString::fromStdString("/"))));
-            if(type=="Zoom"){
+                lenstab->setItem(j,14,new QTableWidgetItem(QString(QString::fromStdString("/"))));
+            }else if(type=="Focale fissa"){
+                QTableWidgetItem* lmax=new QTableWidgetItem(QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->getLungMax())));
+                lenstab->setItem(j,6,lmax);
+                lenstab->setItem(j,7,fmin);
+                lenstab->setItem(j,8,new QTableWidgetItem(QString(QString::fromStdString("/"))));
+                lenstab->setItem(j,9,stab);
+                lenstab->setItem(j,10,af);
+                lenstab->setItem(j,11,diam);
+                lenstab->setItem(j,12,angmin);
+                QTableWidgetItem* angmax=new QTableWidgetItem(QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->getAngoloMax())));
+                lenstab->setItem(j,13,angmax);
+                lenstab->setItem(j,14,new QTableWidgetItem(QString(QString::fromStdString("/"))));
+                ++j;
+            }else if(type=="Lunghezza fissa"){
+                lenstab->setItem(j,6,new QTableWidgetItem(QString(QString::fromStdString("/"))));
+                lenstab->setItem(j,7,fmin);
+                QTableWidgetItem* fmax=new QTableWidgetItem(QString(QString::number(dynamic_cast<Length*>(&(((*modello).getQ().begin()+i))->getT())->getFocaleMax())));
+                lenstab->setItem(j,8,fmax);
+                lenstab->setItem(j,9,stab);
+                lenstab->setItem(j,10,af);
+                lenstab->setItem(j,11,diam);
+                lenstab->setItem(j,12,angmin);
+                lenstab->setItem(j,13,new QTableWidgetItem(QString(QString::fromStdString("/"))));
+                lenstab->setItem(j,14,new QTableWidgetItem(QString(QString::fromStdString("/"))));
+                ++j;
+            }else if(type=="Zoom"){
+                QTableWidgetItem* lmax=new QTableWidgetItem(QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->getLungMax())));
+                lenstab->setItem(j,6,lmax);
+                lenstab->setItem(j,7,fmin);
+                QTableWidgetItem* fmax=new QTableWidgetItem(QString(QString::number(dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+i))->getT())->getAngoloMax())));
+                lenstab->setItem(j,8,fmax);
+                lenstab->setItem(j,9,stab);
+                lenstab->setItem(j,10,af);
+                lenstab->setItem(j,11,diam);
+                lenstab->setItem(j,12,angmin);
+                QTableWidgetItem* angmax=new QTableWidgetItem(QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+i))->getT())->getAngoloMax())));
+                lenstab->setItem(j,13,angmax);
                 QTableWidgetItem* molt;
                 if((dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+i))->getT())->hasMoltiplicatore()))
                     molt=new QTableWidgetItem(QString(QString::fromStdString("SI")));
                 else
                     molt=new QTableWidgetItem(QString(QString::fromStdString("NO")));
                 lenstab->setItem(j,14,molt);
-            }else
-                lenstab->setItem(j,14,new QTableWidgetItem(QString(QString::fromStdString("/"))));
-            ++j;
-        }else if(type=="Zoom" || type=="Lunghezza fissa"){
-            QTableWidgetItem* marca=new QTableWidgetItem(QString(QString::fromStdString((((*modello).getQ().begin()+i))->getT().getMarca())));
-            QTableWidgetItem* mod=new QTableWidgetItem(QString(QString::fromStdString((((*modello).getQ().begin()+i))->getT().getNomeModello())));
-            QTableWidgetItem* prezzo=new QTableWidgetItem(QString(QString::number((((*modello).getQ().begin()+i))->getT().getPrezzo())));
-            QTableWidgetItem* comp=new QTableWidgetItem(QString(QString::fromStdString(dynamic_cast<Length*>(&(((*modello).getQ().begin()+i))->getT())->getComp())));
-            QTableWidgetItem* lmin=new QTableWidgetItem(QString(QString::number(dynamic_cast<Length*>(&(((*modello).getQ().begin()+i))->getT())->getLung())));
-            lenstab->insertRow(j);
-            lenstab->setItem(j,0,marca);
-            lenstab->setItem(j,1,mod);
-            lenstab->setItem(j,2,prezzo);
-            lenstab->setItem(j,3,new QTableWidgetItem(type));
-            lenstab->setItem(j,4,comp);
-            lenstab->setItem(j,5,lmin);
-            lenstab->setItem(j,6,new QTableWidgetItem(QString(QString::fromStdString("/"))));
-            QTableWidgetItem* fmin=new QTableWidgetItem(QString(QString::number(dynamic_cast<Length*>(&(((*modello).getQ().begin()+i))->getT())->getFocale())));
-            lenstab->setItem(j,7,fmin);
-            QTableWidgetItem* fmax=new QTableWidgetItem(QString(QString::number(dynamic_cast<Length*>(&(((*modello).getQ().begin()+i))->getT())->getFocaleMax())));
-            lenstab->setItem(j,8,fmax);
-            QTableWidgetItem* stab;
-            if((dynamic_cast<Length*>(&(((*modello).getQ().begin()+i))->getT())->isStabilizzato()))
-                stab=new QTableWidgetItem(QString(QString::fromStdString("SI")));
-            else
-                stab=new QTableWidgetItem(QString(QString::fromStdString("NO")));
-            QTableWidgetItem* diam=new QTableWidgetItem(QString(QString::number(dynamic_cast<Length*>(&(((*modello).getQ().begin()+i))->getT())->getDiametro())));
-            QTableWidgetItem* angmin=new QTableWidgetItem(QString(QString::number(dynamic_cast<Length*>(&(((*modello).getQ().begin()+i))->getT())->getAngolo())));
-            QTableWidgetItem* af;
-            if((dynamic_cast<Length*>(&(((*modello).getQ().begin()+i))->getT())->isAF()))
-                af=new QTableWidgetItem(QString(QString::fromStdString("SI")));
-            else
-                af=new QTableWidgetItem(QString(QString::fromStdString("NO")));
-            lenstab->setItem(j,9,stab);
-            lenstab->setItem(j,10,af);
-            lenstab->setItem(j,11,diam);
-            lenstab->setItem(j,12,angmin);
-            if(type=="Zoom"){
-                 QTableWidgetItem* angmax=new QTableWidgetItem(QString(QString::number(dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+i))->getT())->getAngoloMax())));
-                 lenstab->setItem(j,13,angmax);
-            }else
-                lenstab->setItem(j,13,new QTableWidgetItem(QString(QString::fromStdString("/"))));
-            if(type=="Zoom"){
-                QTableWidgetItem* molt;
-                if((dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+i))->getT())->hasMoltiplicatore()))
-                    molt=new QTableWidgetItem(QString(QString::fromStdString("SI")));
-                else
-                    molt=new QTableWidgetItem(QString(QString::fromStdString("NO")));
-                lenstab->setItem(j,14,molt);
-            }else
-                lenstab->setItem(j,14,new QTableWidgetItem(QString(QString::fromStdString("/"))));
-            ++j;
-        }//if
+            }//if_else
+        }//if_obiettivo
     }//for
 }//lensTab
 

@@ -29,6 +29,8 @@ Container<DeepPtr<Product>> MyXml::load(const QString& file) const{
         while(read.readNextStartElement()){
           QStringRef type=read.name();
           read.readNextStartElement();
+          if(type==QString::fromStdString("ObiettivoZoom") || type==QString::fromStdString("ObiettivoFocaleFissa") || type==QString::fromStdString("ObiettivoLunghezzaFissa"))
+              read.readNextStartElement();
           if(type==QString::fromStdString("ObiettivoZoom"))
               read.readNextStartElement();
           std::string marca=read.readElementText().toStdString();
@@ -88,19 +90,25 @@ Container<DeepPtr<Product>> MyXml::load(const QString& file) const{
             unsigned int diam=static_cast<unsigned int>(read.readElementText().toInt());
             read.readNextStartElement();
             std::string compat=read.readElementText().toStdString();
-            if(type==QString::fromStdString("ObiettivoFocaleFissa")){
+            if(type==QString::fromStdString("ObiettivoFisso")){
+                Lens lens=Lens(marca,modello,prezzo,lung,focale,compat,stab,af,angolo,diam);
+                temp.pushLast(&lens);
+            }else if(type==QString::fromStdString("ObiettivoFocaleFissa")){
+                read.readNextStartElement();
                 read.readNextStartElement();
                 unsigned int lungMax=static_cast<unsigned int>(read.readElementText().toInt());
                 read.readNextStartElement();
                 float angoloMax=read.readElementText().toFloat();
-                Aperture ap(marca,modello,prezzo,lung,lungMax,focale,compat,stab,af,angolo,angoloMax,diam);
+                Aperture ap=Aperture(marca,modello,prezzo,lung,lungMax,focale,compat,stab,af,angolo,angoloMax,diam);
                 temp.pushLast(&ap);
             }else if(type==QString::fromStdString("ObiettivoLunghezzaFissa")){
+                read.readNextStartElement();
                 read.readNextStartElement();
                 float focaleMax=read.readElementText().toFloat();
                 Length len(marca,modello,prezzo,lung,focale,focaleMax,compat,stab,af,angolo,diam);
                 temp.pushLast(&len);
-            }else{
+            }else if(type==QString::fromStdString("ObiettivoZoom")){
+                read.readNextStartElement();
                 read.readNextStartElement();
                 unsigned int lungMax=static_cast<unsigned int>(read.readElementText().toInt());
                 read.readNextStartElement();
@@ -115,7 +123,7 @@ Container<DeepPtr<Product>> MyXml::load(const QString& file) const{
                     mol=true;
                 else
                     mol=false;
-                Zoom z(marca,modello,prezzo,lung,lungMax,focale,focaleMax,compat,stab,af,angolo,angoloMax,diam,mol);
+                Zoom z=Zoom(marca,modello,prezzo,lung,lungMax,focale,focaleMax,compat,stab,af,angolo,angoloMax,diam,mol);
                 temp.pushLast(&z);
             }//internal_if
           }//obiettivi_vari

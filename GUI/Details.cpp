@@ -6,9 +6,9 @@ Details::Details(QWidget* q):QWidget(q),qgb(new QGroupBox()),qfl(new QFormLayout
         prezzoL(new QLabel("Prezzo")),ISOminL(new QLabel("ISO(min)")),ISOmaxL(new QLabel("ISO(max)")),pxL(new QLabel("Pixel")),formatoL(new QLabel("Formato")),tropL(new QLabel("Tropicalizzazione")),tipoAccL(new QLabel("Tipologia accessorio")),infoL(new QLabel("Note(opzionali)")),tipoObL(new QLabel("Tipologia obiettivo")),
         lungMinL(new QLabel("Lunghezza focale")),lungMaxL(new QLabel("Lunghezza focale(max)")),fMinL(new QLabel("f/")),fMaxL(new QLabel("f/(max)")),stabL(new QLabel("Stabilizzazione")),AFL(new QLabel("Automatic focus")),angMinL(new QLabel("Angolo")),angMaxL(new QLabel("Angolo(max)")),
         diamL(new QLabel("Diametro lente(mm)")),moltL(new QLabel("Compatibilità moltiplicatore")),marcaValue(new QLabel("")),modelloValue(new QLabel("")),tipoProdValue(new QLabel("")),compValue(new QLineEdit(this)),prezzoValue(new QLineEdit(this)),ISOminValue(new QLineEdit(this)),ISOmaxValue(new QLineEdit(this)),
-        pxValue(new QLineEdit(this)),formatoValue(new QLabel("")),tropValue(new QLineEdit(this)),tipoAccValue(new QLabel("")),infoValue(new QLineEdit(this)),tipoObValue(new QLabel("")),lungMinValue(new QLineEdit(this)),lungMaxValue(new QLineEdit(this)),
-        fMinValue(new QLineEdit(this)),fMaxValue(new QLineEdit(this)),stabValue(new QLineEdit(this)),AFValue(new QLineEdit(this)),angMinValue(new QLineEdit(this)),angMaxValue(new QLineEdit(this)),diamValue(new QLineEdit(this)),
-        moltValue(new QLineEdit(this)),alter(new QPushButton("Modifica")),remove(new QPushButton("Rimuovi")){
+        pxValue(new QLineEdit(this)),formatoValue(new QLabel("")),tropValue(new QCheckBox(this)),tipoAccValue(new QLabel("")),infoValue(new QLineEdit(this)),tipoObValue(new QLabel("")),lungMinValue(new QLineEdit(this)),lungMaxValue(new QLineEdit(this)),
+        fMinValue(new QLineEdit(this)),fMaxValue(new QLineEdit(this)),stabValue(new QCheckBox(this)),AFValue(new QCheckBox(this)),angMinValue(new QLineEdit(this)),angMaxValue(new QLineEdit(this)),diamValue(new QLineEdit(this)),
+        moltValue(new QCheckBox(this)),alter(new QPushButton("Modifica")),remove(new QPushButton("Rimuovi")){
     //controlli_input
     prezzoValue->setValidator(new QDoubleValidator(1.00,15000.00,2,this));
     ISOminValue->setValidator(new QIntValidator(0,100000,this));
@@ -62,10 +62,16 @@ void Details::setDet(Model* modello,int pos,QList<int> list){
         QString ISOmax=QString(QString::number((dynamic_cast<Reflex*>(&(((*modello).getQ().begin()+row)->getT())))->getISOmax()));
         QString px=QString(QString::number((dynamic_cast<Reflex*>(&(((*modello).getQ().begin()+row)->getT())))->getPX()));
         QString formato=QString(QString::fromStdString((dynamic_cast<Reflex*>(&(((*modello).getQ().begin()+row)->getT())))->getFormato()));
+        QString trop;
+        if((dynamic_cast<Reflex*>(&(((*modello).getQ().begin()+row))->getT())->isTropicalizzato()))
+            tropValue->setChecked(true);
+        else
+            tropValue->setChecked(false);
         qfl->addRow(ISOminL,ISOminValue);
         qfl->addRow(ISOmaxL,ISOmaxValue);
         qfl->addRow(pxL,pxValue);
         qfl->addRow(formatoL,formatoValue);
+        qfl->addRow(tropL,tropValue);
         ISOminValue->setText(ISOmin);
         ISOmaxValue->setText(ISOmax);
         pxValue->setText(px);
@@ -78,6 +84,8 @@ void Details::setDet(Model* modello,int pos,QList<int> list){
         pxValue->setVisible(true);
         formatoL->setVisible(true);
         formatoValue->setVisible(true);
+        tropL->setVisible(true);
+        tropValue->setVisible(true);
     }else if(type=="Accessorio"){
         QString tipo=QString(QString::fromStdString((dynamic_cast<Accessory*>(&(((*modello).getQ().begin()+row)->getT())))->getTipologia()));
         QString comp=QString(QString::fromStdString((dynamic_cast<Accessory*>(&(((*modello).getQ().begin()+row)->getT())))->getCompatibilita()));
@@ -95,7 +103,7 @@ void Details::setDet(Model* modello,int pos,QList<int> list){
         infoL->setVisible(true);
         infoValue->setVisible(true);
     }else{
-        tipoProdValue->setText("Obiettivo - "+tipoProdValue->text());
+        //tipoProdValue->setText("Obiettivo - "+tipoProdValue->text());
         qfl->addRow(compL,compValue);
         qfl->addRow(lungMinL,lungMinValue);
         qfl->addRow(lungMaxL,lungMaxValue);
@@ -121,84 +129,72 @@ void Details::setDet(Model* modello,int pos,QList<int> list){
         angMinValue->setVisible(true);
         AFL->setVisible(true);
         AFValue->setVisible(true);
-        if(type=="Lunghezza fissa" || type=="Zoom"){
-            QString comp=QString(QString::fromStdString((dynamic_cast<Length*>(&(((*modello).getQ().begin()+row)->getT())))->getComp()));
-            QString lmin=QString(QString::number(dynamic_cast<Length*>(&(((*modello).getQ().begin()+row))->getT())->getLung()));
-            QString fmin=QString(QString::number(dynamic_cast<Length*>(&(((*modello).getQ().begin()+row))->getT())->getFocale()));
+        QString comp=QString(QString::fromStdString((dynamic_cast<Lens*>(&(((*modello).getQ().begin()+row)->getT())))->getComp()));
+        QString lmin=QString(QString::number(dynamic_cast<Lens*>(&(((*modello).getQ().begin()+row))->getT())->getLung()));
+        QString fmin=QString(QString::number(dynamic_cast<Lens*>(&(((*modello).getQ().begin()+row))->getT())->getFocale()));
+        QString diam=QString(QString::number(dynamic_cast<Lens*>(&(((*modello).getQ().begin()+row))->getT())->getDiametro()));
+        QString angmin=QString(QString::number(dynamic_cast<Lens*>(&(((*modello).getQ().begin()+row))->getT())->getAngolo()));
+        QString stab;
+        QString af;
+        if((dynamic_cast<Lens*>(&(((*modello).getQ().begin()+row))->getT())->isStabilizzato()))
+            stabValue->setChecked(true);
+        else
+            stabValue->setChecked(false);
+        if((dynamic_cast<Lens*>(&(((*modello).getQ().begin()+row))->getT())->isAF()))
+            AFValue->setChecked(true);
+        else
+            AFValue->setChecked(false);
+        compValue->setText(comp);
+        lungMinValue->setText(lmin);
+        fMinValue->setText(fmin);
+        stabValue->setText(stab);
+        diamValue->setText(diam);
+        angMinValue->setText(angmin);
+        AFValue->setText(af);
+        if(type=="Fisso"){
+            fMinL->setText("f/");
+            lungMinL->setText("Lunghezza focale");
+            angMinL->setText("Angolo");
+        }else if(type=="Lunghezza fissa"){
             QString fmax=QString(QString::number(dynamic_cast<Length*>(&(((*modello).getQ().begin()+row))->getT())->getFocaleMax()));
-            QString stab;
-            if((dynamic_cast<Length*>(&(((*modello).getQ().begin()+row))->getT())->isStabilizzato()))
-                stab=QString(QString::fromStdString("SI"));
-            else
-                stab=QString(QString::fromStdString("NO"));
-            QString diam=QString(QString::number(dynamic_cast<Length*>(&(((*modello).getQ().begin()+row))->getT())->getDiametro()));
-            QString angmin=QString(QString::number(dynamic_cast<Length*>(&(((*modello).getQ().begin()+row))->getT())->getAngolo()));
-            QString af;
-            if((dynamic_cast<Length*>(&(((*modello).getQ().begin()+row))->getT())->isAF()))
-                af=QString(QString::fromStdString("SI"));
-            else
-                af=QString(QString::fromStdString("NO"));
-            compValue->setText(comp);
-            lungMinValue->setText(lmin);
-            fMinValue->setText(fmin);
             fMaxValue->setText(fmax);
-            stabValue->setText(stab);
-            diamValue->setText(diam);
-            angMinValue->setText(angmin);
-            AFValue->setText(af);
             fMaxL->setVisible(true);
             fMaxValue->setVisible(true);
-        }//length
-        if(type=="Zoom"){
-            QString lmax=QString(QString::number(dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+row))->getT())->getLungMax()));
-            QString angmax=QString(QString::number(dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+row))->getT())->getAngoloMax()));
-            QString molt;
-            if((dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+row))->getT())->hasMoltiplicatore()))
-                molt=QString(QString::fromStdString("SI"));
-            else
-                molt=QString(QString::fromStdString("NO"));
-            angMaxValue->setText(angmax);
-            angMaxL->setVisible(true);
-            angMaxValue->setVisible(true);
-            moltValue->setText(molt);
-            moltL->setVisible(true);
-            moltValue->setVisible(true);
-            lungMaxValue->setText(lmax);
-            lungMaxL->setVisible(true);
-            lungMaxValue->setVisible(true);
-        }//zoom
-        if(type=="Focale fissa"){
-            QString comp=QString(QString::fromStdString((dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+row)->getT())))->getComp()));
-            QString lmin=QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+row))->getT())->getLung()));
-            QString fmin=QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+row))->getT())->getFocale()));
+            fMinL->setText("f/ (min)");
+        }else if(type=="Focale fissa"){
             QString lmax=QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+row))->getT())->getLungMax()));
             QString angmax=QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+row))->getT())->getAngoloMax()));
-            QString stab;
-            if((dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+row))->getT())->isStabilizzato()))
-                stab=QString(QString::fromStdString("SI"));
-            else
-                stab=QString(QString::fromStdString("NO"));
-            QString diam=QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+row))->getT())->getDiametro()));
-            QString angmin=QString(QString::number(dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+row))->getT())->getAngolo()));
-            QString af;
-            if((dynamic_cast<Aperture*>(&(((*modello).getQ().begin()+row))->getT())->isAF()))
-                af=QString(QString::fromStdString("SI"));
-            else
-                af=QString(QString::fromStdString("NO"));
-            compValue->setText(comp);
-            lungMinValue->setText(lmin);
             lungMaxValue->setText(lmax);
-            fMinValue->setText(fmin);
-            stabValue->setText(stab);
-            diamValue->setText(diam);
-            angMinValue->setText(angmin);
             angMaxValue->setText(angmax);
-            AFValue->setText(af);
             angMaxL->setVisible(true);
             angMaxValue->setVisible(true);
             lungMaxL->setVisible(true);
             lungMaxValue->setVisible(true);
-        }//aperture
+            lungMinL->setText("Lunghezza focale (min)");
+            angMinL->setText("Angolo (min)");
+        }else if(type=="Zoom"){
+            QString fmax=QString(QString::number(dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+row))->getT())->getFocaleMax()));
+            QString lmax=QString(QString::number(dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+row))->getT())->getLungMax()));
+            QString angmax=QString(QString::number(dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+row))->getT())->getAngoloMax()));
+            if((dynamic_cast<Zoom*>(&(((*modello).getQ().begin()+row))->getT())->hasMoltiplicatore()))
+                moltValue->setChecked(true);
+            else
+                moltValue->setChecked(false);
+            fMaxValue->setText(fmax);
+            fMaxL->setVisible(true);
+            fMaxValue->setVisible(true);
+            fMinL->setText("f/ (min)");
+            angMaxValue->setText(angmax);
+            angMaxL->setVisible(true);
+            angMaxValue->setVisible(true);
+            angMinL->setText("Angolo (min)");
+            lungMaxValue->setText(lmax);
+            lungMaxL->setVisible(true);
+            lungMaxValue->setVisible(true);
+            lungMinL->setText("Lunghezza focale (min)");
+            moltL->setVisible(true);
+            moltValue->setVisible(true); 
+        }//zoom
     }//if_else
 }//setDet
 
@@ -345,8 +341,8 @@ string Details::getFormato() const{
     return formatoValue->text().toStdString();
 }//getFormato
 
-string Details::getTrop() const{
-    return tropValue->text().toStdString();
+bool Details::getTrop() const{
+    return tropValue->isChecked();
 }//getTrop
 
 string Details::getTipoAcc() const{
@@ -377,12 +373,12 @@ float Details::getFMax() const{
     return fMaxValue->text().toFloat();
 }//getFMax
 
-string Details::getStab() const{
-    return stabValue->text().toStdString();
+bool Details::getStab() const{
+    return stabValue->isChecked();
 }//getStab
 
-string Details::getAF() const{
-    return AFValue->text().toStdString();
+bool Details::getAF() const{
+    return AFValue->isChecked();
 }//getAF
 
 float Details::getAngMin() const{
@@ -397,7 +393,7 @@ unsigned int Details::getDiam() const{
     return static_cast<unsigned int>(diamValue->text().toInt());
 }//getDiam
 
-string Details::getMolt() const{
-    return moltValue->text().toStdString();
+bool Details::getMolt() const{
+    return moltValue->isChecked();
 }//getMolt
 
