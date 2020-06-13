@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget*):QWidget(),modello(new Model()),menu(new QMenuBa
     //window
     setWindowTitle("QPhotoStudio");
     setWindowIcon(QIcon(":/icon/icon.png"));
-    setFixedSize(QSize(1200,700));
+    setFixedSize(QSize(1300,850));
     //elementi_menu_bar
     QMenu* fileM=new QMenu("File",menu);
     QAction* indexM=new QAction("Home", menu);
@@ -260,6 +260,8 @@ void MainWindow::addEl(){
         modello->insert(new Reflex(marca,mod,prezzo,add->getISOMin(),add->getISOMax(),add->getPX(),Reflex::fromStrToType(add->getFormato()),add->getTrop()));
     if(type=="Accessorio")
         modello->insert(new Accessory(marca,mod,prezzo,Accessory::fromStrToType(add->getTipoAcc()),add->getComp(),add->getInfo()));
+    if(type=="Obiettivo" && add->getTipoOb()=="Fisso")
+        modello->insert(new Lens(marca,mod,prezzo,add->getLungMin(),add->getFMin(),add->getComp(),add->getStab(),add->getAF(),add->getAngMin(),add->getDiam()));
     if(type=="Obiettivo" && add->getTipoOb()=="Zoom")
         modello->insert(new Zoom(marca,mod,prezzo,add->getLungMin(),add->getLungMax(),add->getFMin(),add->getFMax(),add->getComp(),add->getStab(),add->getAF(),add->getAngMin(),add->getAngMax(),add->getDiam(),add->getMolt()));
     if(type=="Obiettivo" && add->getTipoOb()=="Focale fissa")

@@ -130,6 +130,8 @@ class Add:public QWidget{
         void setAngMax(QString);
         void setDiam(QString);
         void setMolt(bool);
+        //utility
+        void buildDefaultLens() const;
     public slots:
         void modify(QString);
         void delElement() const;

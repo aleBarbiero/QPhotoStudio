@@ -31,7 +31,7 @@ class Lens:virtual public Product{
        unsigned int getDiametro() const;
        void setDiametro(unsigned int);
        //virtual
-       virtual Lens* clone() const;
+       Lens* clone() const;
        string print() const;
        string getType() const;
        //esportazione

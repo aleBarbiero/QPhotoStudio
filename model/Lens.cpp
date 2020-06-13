@@ -70,7 +70,7 @@ Lens* Lens::clone() const{
 }//clone
 
 string Lens::getType() const{
-    return "Obiettivo";
+    return "ObiettivoFisso";
 }
 
 string Lens::print() const{
@@ -96,7 +96,7 @@ string Lens::print() const{
 }//print
 
 string Lens::CSV() const{
-    return "Obiettivo," + Product::CSV();
+    return "Obiettivo," + Product::CSV() + ",Obiettivo fisso";
 }//CSV
 
 void Lens::XML(QXmlStreamWriter& x) const{

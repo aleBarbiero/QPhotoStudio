@@ -8,7 +8,7 @@
 
 Add::Add(QWidget* wid):QWidget(wid),qfl(new QFormLayout()),qgb(new QGroupBox("Aggiunta nuovo prodotto")),img(new QHBoxLayout()),marcaL(new QLabel("Marca")),modelloL(new QLabel("Modello")),tipoProdL(new QLabel("Tipologia prodotto")),compL(new QLabel("Compatibilità")),
         prezzoL(new QLabel("Prezzo (in €)")),ISOminL(new QLabel("ISO (min)")),ISOmaxL(new QLabel("ISO (max)")),pxL(new QLabel("Pixel")),formatoL(new QLabel("Formato")),tropL(new QLabel("Tropicalizzazione")),tipoAccL(new QLabel("Tipologia accessorio")),infoL(new QLabel("Note (opzionali)")),tipoObL(new QLabel("Tipologia obiettivo")),
-        lungMinL(new QLabel("Lunghezza focale")),lungMaxL(new QLabel("Lunghezza focale (max)")),fMinL(new QLabel("f/")),fMaxL(new QLabel("f/(max)")),stabL(new QLabel("Stabilizzazione")),AFL(new QLabel("Automatic focus")),angMinL(new QLabel("Angolo")),angMaxL(new QLabel("Angolo (max)")),
+        lungMinL(new QLabel("Lunghezza focale")),lungMaxL(new QLabel("Lunghezza focale (max)")),fMinL(new QLabel("f/")),fMaxL(new QLabel("f/ (max)")),stabL(new QLabel("Stabilizzazione")),AFL(new QLabel("Automatic focus")),angMinL(new QLabel("Angolo")),angMaxL(new QLabel("Angolo (max)")),
         diamL(new QLabel("Diametro lente")),moltL(new QLabel("Compatibilità moltiplicatore")),marcaValue(new QLineEdit(this)),modelloValue(new QLineEdit(this)),tipoProdValue(new QComboBox(this)),compValue(new QLineEdit(this)),prezzoValue(new QLineEdit(this)),ISOminValue(new QLineEdit(this)),ISOmaxValue(new QLineEdit(this)),
         pxValue(new QLineEdit(this)),formatoValue(new QComboBox(this)),tropValue(new QCheckBox(this)),tipoAccValue(new QComboBox(this)),infoValue(new QLineEdit(this)),tipoObValue(new QComboBox(this)),lungMinValue(new QLineEdit(this)),lungMaxValue(new QLineEdit(this)),
         fMinValue(new QLineEdit(this)),fMaxValue(new QLineEdit(this)),stabValue(new QCheckBox(this)),AFValue(new QCheckBox(this)),angMinValue(new QLineEdit(this)),angMaxValue(new QLineEdit(this)),diamValue(new QLineEdit(this)),
@@ -28,6 +28,7 @@ Add::Add(QWidget* wid):QWidget(wid),qfl(new QFormLayout()),qgb(new QGroupBox("Ag
     tipoProdValue->addItem("Reflex");
     tipoProdValue->addItem("Obiettivo");
     tipoProdValue->addItem("Accessorio");
+    tipoObValue->addItem("Fisso");
     tipoObValue->addItem("Focale fissa");
     tipoObValue->addItem("Lunghezza fissa");
     tipoObValue->addItem("Zoom");
@@ -102,28 +103,12 @@ void Add::modify(QString type){
         imgL->setPixmap(imm);
         img->addWidget(imgL);
     }else{
-        delForm();
-        qfl->addRow(tipoObL,tipoObValue);
-        qfl->addRow(compL,compValue);
-        tipoObL->setVisible(true);
-        tipoObValue->setVisible(true);
-        compL->setVisible(true);
-        compValue->setVisible(true);
-        qfl->addRow(tipoObL,tipoObValue);
-        qfl->addRow(lungMinL,lungMinValue);
-        qfl->addRow(lungMaxL,lungMaxValue);
+        buildDefaultLens();
         qfl->addRow(fMinL,fMinValue);
         qfl->addRow(stabL,stabValue);
         qfl->addRow(AFL,AFValue);
         qfl->addRow(angMinL,angMinValue);
-        qfl->addRow(angMaxL,angMaxValue);
         qfl->addRow(diamL,diamValue);
-        tipoObL->setVisible(true);
-        tipoObValue->setVisible(true);
-        lungMinL->setVisible(true);
-        lungMinValue->setVisible(true);
-        lungMaxL->setVisible(true);
-        lungMaxValue->setVisible(true);
         fMinL->setVisible(true);
         fMinValue->setVisible(true);
         stabL->setVisible(true);
@@ -132,21 +117,34 @@ void Add::modify(QString type){
         AFValue->setVisible(true);
         angMinL->setVisible(true);
         angMinValue->setVisible(true);
-        angMaxL->setVisible(true);
-        angMaxValue->setVisible(true);
         diamL->setVisible(true);
         diamValue->setVisible(true);
-        QPixmap imm=QPixmap(":/images/lens.png");
-        imgL->setFixedSize(150,150);
-        imm=imm.scaled(imgL->size(),Qt::KeepAspectRatio);
-        imgL->setPixmap(imm);
-        img->addWidget(imgL);
+        type=tipoObValue->currentText();
     }
-    if(type=="Focale fissa"){
+    if(type=="Fisso"){
         delForm();
-        qfl->addRow(tipoObL,tipoObValue);
-        qfl->addRow(compL,compValue);
-        qfl->addRow(lungMinL,lungMinValue);
+        buildDefaultLens();
+        qfl->addRow(fMinL,fMinValue);
+        qfl->addRow(stabL,stabValue);
+        qfl->addRow(AFL,AFValue);
+        qfl->addRow(angMinL,angMinValue);
+        qfl->addRow(diamL,diamValue);
+        lungMinL->setText("Lunghezza focale");
+        fMinL->setVisible(true);
+        fMinValue->setVisible(true);
+        fMinL->setText("f/");
+        stabL->setVisible(true);
+        stabValue->setVisible(true);
+        AFL->setVisible(true);
+        AFValue->setVisible(true);
+        angMinL->setVisible(true);
+        angMinValue->setVisible(true);
+        angMinL->setText("Angolo");
+        diamL->setVisible(true);
+        diamValue->setVisible(true);
+    }else if(type=="Focale fissa"){
+        delForm();
+        buildDefaultLens();
         qfl->addRow(lungMaxL,lungMaxValue);
         qfl->addRow(fMinL,fMinValue);
         qfl->addRow(stabL,stabValue);
@@ -154,22 +152,20 @@ void Add::modify(QString type){
         qfl->addRow(angMinL,angMinValue);
         qfl->addRow(angMaxL,angMaxValue);
         qfl->addRow(diamL,diamValue);
-        compL->setVisible(true);
-        compValue->setVisible(true);
-        tipoObL->setVisible(true);
-        tipoObValue->setVisible(true);
-        lungMinL->setVisible(true);
+        lungMinL->setText("Lunghezza focale (min)");
         lungMinValue->setVisible(true);
         lungMaxL->setVisible(true);
         lungMaxValue->setVisible(true);
         fMinL->setVisible(true);
         fMinValue->setVisible(true);
+        fMinL->setText("f/");
         stabL->setVisible(true);
         stabValue->setVisible(true);
         AFL->setVisible(true);
         AFValue->setVisible(true);
         angMinL->setVisible(true);
         angMinValue->setVisible(true);
+        angMinL->setText("Angolo (min)");
         angMaxL->setVisible(true);
         angMaxValue->setVisible(true);
         diamL->setVisible(true);
@@ -181,23 +177,17 @@ void Add::modify(QString type){
         img->addWidget(imgL);
     }else if(type=="Lunghezza fissa"){
         delForm();
-        qfl->addRow(tipoObL,tipoObValue);
-        qfl->addRow(compL,compValue);
-        qfl->addRow(lungMinL,lungMinValue);
+        buildDefaultLens();
         qfl->addRow(fMinL,fMinValue);
         qfl->addRow(fMaxL,fMaxValue);
         qfl->addRow(stabL,stabValue);
         qfl->addRow(AFL,AFValue);
         qfl->addRow(angMinL,angMinValue);
         qfl->addRow(diamL,diamValue);
-        compL->setVisible(true);
-        compValue->setVisible(true);
-        tipoObL->setVisible(true);
-        tipoObValue->setVisible(true);
-        lungMinL->setVisible(true);
-        lungMinValue->setVisible(true);
+        lungMinL->setText("Lunghezza focale");
         fMinL->setVisible(true);
         fMinValue->setVisible(true);
+        fMinL->setText("f/ (min)");
         fMaxL->setVisible(true);
         fMaxValue->setVisible(true);
         stabL->setVisible(true);
@@ -206,6 +196,7 @@ void Add::modify(QString type){
         AFValue->setVisible(true);
         angMinL->setVisible(true);
         angMinValue->setVisible(true);
+        angMinL->setText("Angolo");
         diamL->setVisible(true);
         diamValue->setVisible(true);
         QPixmap imm=QPixmap(":/images/lens.png");
@@ -215,9 +206,7 @@ void Add::modify(QString type){
         img->addWidget(imgL);
     }else if(type=="Zoom"){
         delForm();
-        qfl->addRow(tipoObL,tipoObValue);
-        qfl->addRow(compL,compValue);
-        qfl->addRow(lungMinL,lungMinValue);
+        buildDefaultLens();
         qfl->addRow(lungMaxL,lungMaxValue);
         qfl->addRow(fMinL,fMinValue);
         qfl->addRow(fMaxL,fMaxValue);
@@ -227,16 +216,12 @@ void Add::modify(QString type){
         qfl->addRow(angMaxL,angMaxValue);
         qfl->addRow(diamL,diamValue);
         qfl->addRow(moltL,moltValue);
-        compL->setVisible(true);
-        compValue->setVisible(true);
-        tipoObL->setVisible(true);
-        tipoObValue->setVisible(true);
-        lungMinL->setVisible(true);
-        lungMinValue->setVisible(true);
+        lungMinL->setText("Lunghezza focale (min)");
         lungMaxL->setVisible(true);
         lungMaxValue->setVisible(true);
         fMinL->setVisible(true);
         fMinValue->setVisible(true);
+        fMinL->setText("f/ (min)");
         fMaxL->setVisible(true);
         fMaxValue->setVisible(true);
         stabL->setVisible(true);
@@ -245,6 +230,7 @@ void Add::modify(QString type){
         AFValue->setVisible(true);
         angMinL->setVisible(true);
         angMinValue->setVisible(true);
+        angMinL->setText("Angolo (min)");
         angMaxL->setVisible(true);
         angMaxValue->setVisible(true);
         diamL->setVisible(true);
@@ -362,6 +348,24 @@ void Add::delForm() const{
     diamValue->setVisible(false);
     moltValue->setVisible(false);
 }//delForm
+
+void Add::buildDefaultLens() const{
+    delForm();
+    qfl->addRow(compL,compValue);
+    qfl->addRow(tipoObL,tipoObValue);
+    qfl->addRow(lungMinL,lungMinValue);
+    compL->setVisible(true);
+    compValue->setVisible(true);
+    tipoObL->setVisible(true);
+    tipoObValue->setVisible(true);
+    lungMinL->setVisible(true);
+    lungMinValue->setVisible(true);
+    QPixmap imm=QPixmap(":/images/lens.png");
+    imgL->setFixedSize(150,150);
+    imm=imm.scaled(imgL->size(),Qt::KeepAspectRatio);
+    imgL->setPixmap(imm);
+    img->addWidget(imgL);
+}//builDefaultLens
 
 //modificatori
 void Add::setAF(bool b){
