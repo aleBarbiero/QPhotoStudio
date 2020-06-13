@@ -22,6 +22,8 @@ unsigned int Reflex::getPX() const{
 
 string Reflex::getFormato() const{
     switch(formato){
+        case APSC:
+            return "APS-C";
         case DSLR:
             return "DSLR";
         case FF:
@@ -61,6 +63,8 @@ void Reflex::setFormato(string f){
         formato=FF;
     else if(f=="Mirrorless")
         formato=ML;
+    else if(f=="APS-C")
+        formato=APSC;
     else formato=UND;
 }//setFormato
 
@@ -122,6 +126,8 @@ void Reflex::XML(QXmlStreamWriter& x) const{
 
 //ausiliario
 tipo Reflex::fromStrToType(string s){
+    if(s=="APS-C")
+            return APSC;
     if(s=="FullFrame")
         return FF;
     if(s=="Mirrorless")

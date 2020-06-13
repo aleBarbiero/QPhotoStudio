@@ -16,6 +16,8 @@ string Accessory::getTipologia() const{
             return "Zaini e borse";
         case FIL:
             return "Filtri";
+        case FL:
+            return "Flash";
         case ALTRO:
             return "Altro";
     }//switch
@@ -33,6 +35,8 @@ string Accessory::getInfo() const{
 void Accessory::setTipologia(string t){
     if(t=="MemoryCard")
         tipologia=MC;
+    else if(t=="Flash")
+        tipologia=FL;
     else if(t=="Zaini e borse")
         tipologia=ZA;
     else if(t=="Treppiedi")
@@ -103,5 +107,7 @@ tipoA Accessory::fromStrToType(string s){
         return FIL;
     if(s=="Treppiedi")
         return TREP;
+    if(s=="Flash")
+        return FL;
     else return ALTRO;
 }//fromStrToType
