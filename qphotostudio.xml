@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Product>
+    <ObiettivoLunghezzaFissa>
+        <Marca>Canon</Marca>
+        <Modello>105mm f/2.8 L USD</Modello>
+        <Prezzo>1400.00</Prezzo>
+        <Lunghezza>105</Lunghezza>
+        <Apertura>1.4</Apertura>
+        <Stabilizzazione>SI</Stabilizzazione>
+        <AF>SI</AF>
+        <Angolo>75</Angolo>
+        <Diametro>82</Diametro>
+        <Compatibilita>Canon</Compatibilita>
+        <FocaleMax>2.8</FocaleMax>
+    </ObiettivoLunghezzaFissa>
+    <Reflex>
+        <Marca>Canon</Marca>
+        <Modello>5Ds R </Modello>
+        <Prezzo>3000.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>12800</ISOmax>
+        <Pixel>503</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Canon</Marca>
+        <Modello>6D Mark II</Modello>
+        <Prezzo>1200.00</Prezzo>
+        <Formato>FullFrame</Formato>
+        <ISOmin>150</ISOmin>
+        <ISOmax>128000</ISOmax>
+        <Pixel>24</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Canon</Marca>
+        <Modello>77D</Modello>
+        <Prezzo>700.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>51200</ISOmax>
+        <Pixel>24</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Canon</Marca>
+        <Modello>EOS M50</Modello>
+        <Prezzo>600.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>51200</ISOmax>
+        <Pixel>241</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Canon</Marca>
+        <Modello>EOS M6 Mark II</Modello>
+        <Prezzo>850.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>51200</ISOmax>
+        <Pixel>325</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Canon</Marca>
+        <Modello>EOS RP</Modello>
+        <Prezzo>1100.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>102400</ISOmax>
+        <Pixel>26</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Accessorio>
+        <Marca>Canon</Marca>
+        <Modello>Speedlite EL-100</Modello>
+        <Prezzo>170.00</Prezzo>
+        <Tipo>Flash</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Accessorio>
+        <Marca>Fujifilm</Marca>
+        <Modello>EF-42</Modello>
+        <Prezzo>200.00</Prezzo>
+        <Tipo>Flash</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Accessorio>
+        <Marca>Fujifilm</Marca>
+        <Modello>EF-X500</Modello>
+        <Prezzo>400.00</Prezzo>
+        <Tipo>Flash</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Reflex>
+        <Marca>Fujifilm</Marca>
+        <Modello>X-T200</Modello>
+        <Prezzo>800.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>51200</ISOmax>
+        <Pixel>24</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Fujifilm</Marca>
+        <Modello>X-T4</Modello>
+        <Prezzo>1600.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>80</ISOmin>
+        <ISOmax>51200</ISOmax>
+        <Pixel>261</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Fujifilm </Marca>
+        <Modello>X-H1</Modello>
+        <Prezzo>1250.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>51200</ISOmax>
+        <Pixel>243</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Accessorio>
+        <Marca>Hoya </Marca>
+        <Modello>Fusion Circular Polarizer</Modello>
+        <Prezzo>80.00</Prezzo>
+        <Tipo>Filtri</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Accessorio>
+        <Marca>Joby</Marca>
+        <Modello>Gorillapod 5K</Modello>
+        <Prezzo>65.00</Prezzo>
+        <Tipo>Treppiedi</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Reflex>
+        <Marca>Leica</Marca>
+        <Modello>M-E (Typ 240)</Modello>
+        <Prezzo>4000.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>200</ISOmin>
+        <ISOmax>6400</ISOmax>
+        <Pixel>24</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Leica</Marca>
+        <Modello>M10</Modello>
+        <Prezzo>6500.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>50000</ISOmax>
+        <Pixel>24</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Leica </Marca>
+        <Modello>CL</Modello>
+        <Prezzo>3600.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>51200</ISOmax>
+        <Pixel>242</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
+    <Accessorio>
+        <Marca>Lexar</Marca>
+        <Modello>Professional CFexpress 64GB</Modello>
+        <Prezzo>200.00</Prezzo>
+        <Tipo>MemoryCard</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Accessorio>
+        <Marca>Lexar</Marca>
+        <Modello>SDXC 512 GB 633x (95MB/s)</Modello>
+        <Prezzo>80.00</Prezzo>
+        <Tipo>MemoryCard</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Accessorio>
+        <Marca>Manfrotto</Marca>
+        <Modello>Bug PL-203</Modello>
+        <Prezzo>100.00</Prezzo>
+        <Tipo>Zaini e borse</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Accessorio>
+        <Marca>Manfrotto </Marca>
+        <Modello>Zaino Travel Advanced</Modello>
+        <Prezzo>80.00</Prezzo>
+        <Tipo>Zaini e borse</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Reflex>
+        <Marca>Nikon</Marca>
+        <Modello>D3500</Modello>
+        <Prezzo>450.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>25600</ISOmax>
+        <Pixel>24</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Nikon</Marca>
+        <Modello>D6</Modello>
+        <Prezzo>6500.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>328000</ISOmax>
+        <Pixel>21</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Nikon</Marca>
+        <Modello>D7500 </Modello>
+        <Prezzo>900.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>160000</ISOmax>
+        <Pixel>20</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Nikon</Marca>
+        <Modello>Df</Modello>
+        <Prezzo>3200.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>12800</ISOmax>
+        <Pixel>16</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Nikon</Marca>
+        <Modello>Z6</Modello>
+        <Prezzo>1700.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>204800</ISOmax>
+        <Pixel>243</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Olympus</Marca>
+        <Modello>OM-D E-M1 III</Modello>
+        <Prezzo>1600.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>64</ISOmin>
+        <ISOmax>25600</ISOmax>
+        <Pixel>20</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Panasonic </Marca>
+        <Modello>S1</Modello>
+        <Prezzo>3900.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>204800</ISOmax>
+        <Pixel>242</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Panasonic </Marca>
+        <Modello>S1R</Modello>
+        <Prezzo>3500.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>51200</ISOmax>
+        <Pixel>473</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Pentax </Marca>
+        <Modello> K-1 Mark II </Modello>
+        <Prezzo>1900.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>819200</ISOmax>
+        <Pixel>364</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Pentax </Marca>
+        <Modello>K-70</Modello>
+        <Prezzo>650.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>102400</ISOmax>
+        <Pixel>24</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <ObiettivoLunghezzaFissa>
+        <Marca>Samyang</Marca>
+        <Modello>8mm Fisheye</Modello>
+        <Prezzo>200.00</Prezzo>
+        <Lunghezza>8</Lunghezza>
+        <Apertura>1.8</Apertura>
+        <Stabilizzazione>NO</Stabilizzazione>
+        <AF>NO</AF>
+        <Angolo>170</Angolo>
+        <Diametro>92</Diametro>
+        <Compatibilita>Canon</Compatibilita>
+        <FocaleMax>3.6</FocaleMax>
+    </ObiettivoLunghezzaFissa>
+    <Accessorio>
+        <Marca>SanDisk</Marca>
+        <Modello>SDXC 128GB</Modello>
+        <Prezzo>55.00</Prezzo>
+        <Tipo>MemoryCard</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note>Velocità di scrittura: 120Mb/s</Note>
+    </Accessorio>
+    <Accessorio>
+        <Marca>Sandisk</Marca>
+        <Modello>Extreme Pro CFExpress 128 GB</Modello>
+        <Prezzo>300.00</Prezzo>
+        <Tipo>MemoryCard</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Accessorio>
+        <Marca>Sandisk</Marca>
+        <Modello>Extreme Pro SDXC 64 GB (300 MB/s)</Modello>
+        <Prezzo>120.00</Prezzo>
+        <Tipo>MemoryCard</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Accessorio>
+        <Marca>Sandisk</Marca>
+        <Modello>Ultra SDHC 32 GB (80 MB/s)</Modello>
+        <Prezzo>20.00</Prezzo>
+        <Tipo>MemoryCard</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <ObiettivoZoom>
+        <ObiettivoFocaleFissa>
+            <Marca>Sigma</Marca>
+            <Modello>100-300mm AF</Modello>
+            <Prezzo>400.00</Prezzo>
+            <Lunghezza>0</Lunghezza>
+            <Apertura>0</Apertura>
+            <Stabilizzazione>NO</Stabilizzazione>
+            <AF>NO</AF>
+            <Angolo>0</Angolo>
+            <Diametro>0</Diametro>
+            <Compatibilita>No data</Compatibilita>
+            <LunghezzaMax>300</LunghezzaMax>
+            <AngoloMax>85</AngoloMax>
+        </ObiettivoFocaleFissa>
+        <FocaleMax>5.6</FocaleMax>
+        <Moltiplicatore>SI</Moltiplicatore>
+    </ObiettivoZoom>
+    <Reflex>
+        <Marca>Sony</Marca>
+        <Modello>A6100</Modello>
+        <Prezzo>750.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>51200</ISOmax>
+        <Pixel>242</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Sony</Marca>
+        <Modello>A7r IV</Modello>
+        <Prezzo>3500.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>102400</ISOmax>
+        <Pixel>61</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Sony</Marca>
+        <Modello>A99 II</Modello>
+        <Prezzo>3600.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>102400</ISOmax>
+        <Pixel>424</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <ObiettivoFocaleFissa>
+        <Marca>Tamron</Marca>
+        <Modello>70-200 Di Vc USD</Modello>
+        <Prezzo>950.00</Prezzo>
+        <Lunghezza>70</Lunghezza>
+        <Apertura>2.8</Apertura>
+        <Stabilizzazione>SI</Stabilizzazione>
+        <AF>SI</AF>
+        <Angolo>65</Angolo>
+        <Diametro>83</Diametro>
+        <Compatibilita>Canon</Compatibilita>
+        <LunghezzaMax>200</LunghezzaMax>
+        <AngoloMax>87</AngoloMax>
+    </ObiettivoFocaleFissa>
+</Product>
