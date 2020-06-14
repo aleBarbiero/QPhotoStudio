@@ -35,7 +35,7 @@ Listino::Listino(QWidget* q):QWidget(q),ref(new QPushButton("Reflex",this)),lens
         datiRef.append("Prezzo(€)");
         datiRef.append("ISOmin");
         datiRef.append("ISOmax");
-        datiRef.append("Pixel");
+        datiRef.append("Megapixels");
         datiRef.append("Formato");
         datiRef.append("Trop.");
         reftab->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);

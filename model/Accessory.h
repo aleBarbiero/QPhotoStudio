@@ -3,7 +3,7 @@
 #include "Product.h"
 using namespace std;
 
-enum tipoA{MC,TREP,ZA,FIL,ALTRO,FL};
+enum tipoA{MC,TREP,ZA,FIL,FL,ALTRO};
 
 class Accessory:virtual public Product{
     private:

@@ -1,7 +1,7 @@
 #ifndef REFLEX_H
 #define REFLEX_H
 #include "Product.h"
-enum tipo{FF,DSLR,ML,UND,APSC};
+enum tipo{FF,DSLR,ML,APSC,UND};
 using namespace std;
 
 class Reflex:virtual public Product{
