@@ -4,10 +4,10 @@ using namespace std;
 //costruttore
 Length::Length(string newM,string newNM,float newP,unsigned int newLung,float newFMin,float newFMax,string newComp,bool newStab,bool newAF,float newAng,unsigned int newDiam):Product(newM,newNM,newP),Lens(newM,newNM,newP,newLung,newFMin,newComp,newStab,newAF,newAng,newDiam),
     focaleMax(newFMax){
-    if(newFMax<newFMin){
-        focaleMax=newFMin;
-        Lens::setFocale(newFMax);
-    }//controllo_focale
+    if(newFMax<=0 || newFMin<=0)
+        throw ErrValue("Valore non valido");
+    if(newFMax<=newFMin)
+        throw ErrBond("Errore: focale minima maggiore di focale massima");
 }//Length
 
 //accessori_e_modifcatori
@@ -16,7 +16,10 @@ float Length::getFocaleMax() const{
 }//getFocelMax
 
 void Length::setFocaleMax(float fm){
-    focaleMax=fm;
+    if(fm<=0)
+        throw ErrValue("Valore non valido");
+    else
+        focaleMax=fm;
 }//setFocaleMax
 
 //virtual

@@ -3,6 +3,7 @@
 
 #include<sstream>
 #include<QXmlStreamWriter>
+#include "exception/Exception.h"
 using namespace std;
 
 class Product{

@@ -6,8 +6,8 @@
 using namespace std;
 
 Product::Product(string newM,string newNM,float newP):marca(newM),nomeModello(newNM),prezzo(newP){
-    if(prezzo<0.0f) setPrezzo(0.0f);
-    else setPrezzo(roundf(prezzo*100)/100);
+    if(newP<=0)
+        throw ErrValue("Valore non valido");
 };
 
 //operatori
@@ -96,15 +96,24 @@ float Product::getPrezzo() const{
 }//getPrezzo
 
 void Product::setMarca(string newM){
-    marca=newM;
+    if(newM=="")
+        throw ErrValue("Valore non valido");
+    else
+        marca=newM;
 }//setMarca
 
 void Product::setNomeModello(string newNM){
-    nomeModello=newNM;
+    if(newNM=="")
+        throw ErrValue("Valore non valido");
+    else
+        nomeModello=newNM;
 }//setNomeModello
 
 void Product::setPrezzo(float newP){
-    prezzo=newP;
+    if(newP<=0)
+        throw ErrValue("Valore non valido");
+    else
+        prezzo=newP;
 }//setPrezzo
 
 string Product::print() const{

@@ -3,8 +3,8 @@ using namespace std;
 
 //costruttore
 Lens::Lens(string newM,string newNM,float newP,unsigned int newLung,float newF,string newComp,bool newStab,bool newAF,float newAng,unsigned int newDiam):Product(newM,newNM,newP),lung(newLung),focale(newF),compatibilita(newComp),stabilizzato(newStab),AF(newAF),angolo(newAng),diametro(newDiam){
-    if(focale<0) setFocale(0.0);
-    if(newAng<0) setAngolo(0.0);
+    if(newF<=0 || newLung==0 || newAng<=0 || newDiam==0)
+        throw ErrValue("Valore non valido");
 }//Lens
 
 //accessori_e_modificatori
@@ -37,15 +37,24 @@ unsigned int Lens::getDiametro() const{
 }//getDiametro
 
 void Lens::setLung(unsigned int newL){
-    lung=newL;
+    if(newL==0)
+            throw ErrValue("Valore non valido");
+    else
+        lung=newL;
 }//setLung
 
 void Lens::setFocale(float newF){
-    focale=newF;
+    if(newF<=0)
+            throw ErrValue("Valore non valido");
+    else
+        focale=newF;
 }//setFocale
 
 void Lens::setComp(string newComp){
-    compatibilita=newComp;
+    if(newComp=="")
+        throw ErrValue("Valore non valido");
+    else
+        compatibilita=newComp;
 }//setComp
 
 void Lens::setStabilizzazione(bool newS){
@@ -57,11 +66,17 @@ void Lens::setAF(bool newAF){
 }//setAF
 
 void Lens::setAngolo(float newAng){
-    angolo=newAng;
+    if(newAng<=0)
+            throw ErrValue("Valore non valido");
+    else
+        angolo=newAng;
 }//setAngolo
 
 void Lens::setDiametro(unsigned int newDiam){
-    diametro=newDiam;
+    if(newDiam==0)
+            throw ErrValue("Valore non valido");
+    else
+        diametro=newDiam;
 }//setDiametro
 
 //virtuali

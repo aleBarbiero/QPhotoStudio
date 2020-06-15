@@ -3,15 +3,13 @@ using namespace std;
 
 Aperture::Aperture(string newM,string newNM,float newP,unsigned int newLungMin,unsigned int newLungMax,float newF,string newComp,bool newStab,bool newAF,float newAngMin,float newAngMax,unsigned int newDiam):Product(newM,newNM,newP),Lens(newM,newNM,newP,newLungMin,newF,newComp,newStab,newAF,newAngMin,newDiam),
             lungMax(newLungMax),angoloMax(newAngMax){
-    if(newLungMax<newLungMin){
-        lungMax=newLungMin;
-        Lens::setLung(newLungMax);
-    }//controllo_lunghezza
-    if(newAngMax<newAngMin){
-        angoloMax=newAngMin;
-        Lens::setAngolo(newAngMax);
-    }//controllo_angolo
-}
+    if(newLungMin==0 || newLungMax==0 || newAngMax<=0 || newAngMin<=0 || newDiam==0 || newF<=0)
+        throw ErrValue("Valore errato");
+    if(newLungMax<=newLungMin)
+        throw ErrBond("Errore: lunghezza minima maggiore di lunghezza massima");
+    if(newAngMax<=newAngMin)
+        throw ErrBond("Errore: angolo minimo maggiore di angolo massimo");
+}//Aperture
 
 //accessori_e_modificatori
 unsigned int Aperture::getLungMax() const{
@@ -23,11 +21,21 @@ float Aperture::getAngoloMax() const{
 }//getAngoloMax
 
 void Aperture::setLungMax(unsigned int newL){
-    lungMax=newL;
+    if(newL==0)
+        throw ErrValue("Valore non valido");
+    else if(newL<=getLung())
+        throw ErrBond("Errore: lunghezza minima maggiore di lunghezza massima");
+    else
+        lungMax=newL;
 }//setLungMax
 
 void Aperture::setAngoloMax(float newA){
-    angoloMax=newA;
+    if(newA<=0)
+        throw ErrValue("Valore non valido");
+    if(newA<=getAngolo())
+        throw ErrBond("Errore: angolo minimo maggiore di angolo massimo");
+    else
+        angoloMax=newA;
 }//setAngoloMax
 
 //virtual

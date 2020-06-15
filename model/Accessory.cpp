@@ -3,6 +3,8 @@ using namespace std;
 
 //costruttore
 Accessory::Accessory(string newM,string newNM,float newP,tipoA newT,string newComp,string newInfo):Product(newM,newNM,newP),tipologia(newT),compatibilita(newComp),info(newInfo){
+    if(newComp=="")
+        throw ErrValue("Valore non valido");
 }//Accessory
 
 //accessori_e_modificatori
@@ -51,7 +53,10 @@ void Accessory::setTipologia(tipoA t){
 }//setTipologia
 
 void Accessory::setCompatibilita(string c){
-    compatibilita=c;
+    if(c=="")
+        throw ErrValue("Valore non valido");
+    else
+        compatibilita=c;
 }//set
 
 void Accessory::setInfo(string i){

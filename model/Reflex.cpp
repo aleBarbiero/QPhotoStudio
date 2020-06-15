@@ -2,9 +2,10 @@
 using namespace std;
 
 Reflex::Reflex(string newM,string newNM,float newP,unsigned int min,unsigned int max,unsigned int pixel,tipo newType,bool newTrop):Product(newM,newNM,newP),ISOmin(min),ISOmax(max),px(pixel),formato(newType),tropicalizzazione(newTrop){
-    if(ISOmax<ISOmin){
-        setISOmax(min);
-        setISOmin(max);}
+    if(min==0 || max==0)
+        throw ErrValue("Valore non valido");
+    if(min>=max)
+        throw ErrBond("Errore: ISOmin maggiore di ISOmax");
 }//Reflex
 
 //accessori_e_modificatori
@@ -45,15 +46,28 @@ string Reflex::getType() const{
 }//getType
 
 void Reflex::setISOmin(unsigned int min){
-    ISOmin=min;
+    if(min==0)
+        throw ErrValue("Valore non valido");
+    else if(min>=ISOmax)
+        throw ErrBond("ISOmin maggiore di ISOmax");
+    else
+        ISOmin=min;
 }//setISOmin
 
 void Reflex::setISOmax(unsigned int max){
-    ISOmax=max;
+    if(max==0)
+        throw ErrValue("Valore non valido");
+    else if(ISOmin>=max)
+        throw ErrBond("ISOmin maggiore di ISOmax");
+    else
+        ISOmax=max;
 }//setISOmax
 
 void Reflex::setPX(unsigned int p){
-    px=p;
+    if(p==0)
+        throw ErrValue("Valore non valido");
+    else
+        px=p;
 }//setPX
 
 void Reflex::setFormato(string f){

@@ -45,6 +45,7 @@ SOURCES += \
         GUI/MyXml.cpp \
         main.cpp \
         mainwindow.cpp \
+    model/exception/Exception.cpp
 
 HEADERS += \
     GUI/Details.h \
@@ -65,6 +66,7 @@ HEADERS += \
         GUI/Model.h \
         GUI/MyXml.h \
         mainwindow.h \
+    model/exception/Exception.h
 
 FORMS +=
 
@@ -74,6 +76,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    ../../Scaricati/Telegram Desktop/QPhotoStudio-master.zip \
     GUI/font.ttf \
     GUI/style.qss \
     icon/icon.png \
