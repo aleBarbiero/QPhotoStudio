@@ -1,10 +1,94 @@
 Prodotto,Marca,Modello,Prezzo,Dettagli
 
-Obiettivo,Canon,105mm f/2.8 L USD,1400.00€,Lunghezza fissa
-Obiettivo,Canon,50mm STD,175.00€
+Reflex,Canon,400D,350.00€,APS-C
+Reflex,Canon,5D Mark IV,2200.00€,FullFrame
+Reflex,Canon,5Ds R ,3000.00€,FullFrame
 Reflex,Canon,6D Mark II,1200.00€,FullFrame
+Reflex,Canon,77D,700.00€,APS-C
+Obiettivo,Canon,EF 135mm f/2.0 L USM,900.00€
+Obiettivo,Canon,EF 35mm f/2 IS USM,550.00€
+Obiettivo,Canon,EF 40mm f/2.8 STM,200.00€
+Obiettivo,Canon,EF 85mm f/1.2 L II USM,2000.00€
+Obiettivo,Canon,EF-M 11-22mm f/4-5.6 IS STM,350.00€,Zoom
+Obiettivo,Canon,EF-S 10-22mm f/3.5-4.5 USM,550.00€,Zoom
+Reflex,Canon,EOS M50,600.00€,APS-C
+Reflex,Canon,EOS M6 Mark II,850.00€,APS-C
+Reflex,Canon,EOS RP,1100.00€,DSLR
+Reflex,Canon,EOS Ra,2500.00€,Mirrorless
+Obiettivo,Canon,RF 15-35mm f/2.8 L IS USM,700.00€,Zoom
+Accessorio,Canon,Speedlite EL-100,170.00€,Flash
+Obiettivo,Canon,TS-E 24mm f/3.5 L II ,2100.00€
+Accessorio,Fujifilm,EF-42,200.00€,Flash
+Accessorio,Fujifilm,EF-X500,400.00€,Flash
+Reflex,Fujifilm,X-T200,800.00€,APS-C
+Reflex,Fujifilm,X-T4,1600.00€,APS-C
+Obiettivo,Fujifilm,XF 16-55mm f/2.8 R LM WR,1000.00€,Focale fissa
+Obiettivo,Fujifilm,XF 18mm f/2 R,500.00€
+Reflex,Fujifilm ,X-H1,1250.00€,APS-C
+Accessorio,Hoya ,Fusion Circular Polarizer,80.00€,Filtri
 Accessorio,Joby,Gorillapod 5K,65.00€,Treppiedi
-Obiettivo,Samyang,8mm Fisheye,200.00€,Lunghezza fissa
+Obiettivo,Leica,Elmar-M 24mm f/3.8 ASPH,2400.00€,Lunghezza fissa
+Reflex,Leica,M-E (Typ 240),4000.00€,Mirrorless
+Reflex,Leica,M-P,7000.00€,DSLR
+Reflex,Leica,M10,6500.00€,Mirrorless
+Obiettivo,Leica,Summaron-M 28mm f/5.6,2200.00€
+Obiettivo,Leica,Super-Elmar-M 18mm f/3.8 ASPH,3200.00€
+Obiettivo,Leica,Super-Vario-Elmar-TL 11-23 mm f/3.5-4.5 ASPH,1600.00€,Zoom
+Reflex,Leica,TL2,2000.00€,APS-C
+Obiettivo,Leica,Thambar-M 90mm f/2.2,6000.00€,Lunghezza fissa
+Reflex,Leica ,CL,3600.00€,APS-C
+Accessorio,Lexar,Professional CFexpress 64GB,200.00€,MemoryCard
+Accessorio,Lexar,SDXC 512 GB 633x (95MB/s),80.00€,MemoryCard
+Accessorio,Manfrotto,Bug PL-203,100.00€,Zaini e borse
+Accessorio,Manfrotto ,Zaino Travel Advanced,80.00€,Zaini e borse
+Obiettivo,Nikon,AF-S 60mm f/2.8 G ED Micro,550.00€,Lunghezza fissa
+Obiettivo,Nikon,AF-S 85mm f/1.8 G,500.00€,Lunghezza fissa
+Reflex,Nikon,D3500,450.00€,APS-C
+Reflex,Nikon,D5600,600.00€,APS-C
+Reflex,Nikon,D6,6500.00€,FullFrame
+Reflex,Nikon,D7500 ,900.00€,APS-C
+Reflex,Nikon,D780,2300.00€,APS-C
+Reflex,Nikon,Df,3200.00€,Mirrorless
+Obiettivo,Nikon,Z 14-30mm f/4 S,1400.00€,Focale fissa
+Obiettivo,Nikon,Z 50mm f/1.8 S,600.00€,Lunghezza fissa
+Reflex,Nikon,Z6,1700.00€,DSLR
+Accessorio,Olympus,FL-700WR,330.00€,Flash
+Reflex,Olympus,OM-D E-M1 III,1600.00€,DSLR
+Reflex,Panasonic ,S1,3900.00€,Mirrorless
+Reflex,Panasonic ,S1R,3500.00€,Mirrorless
+Obiettivo,Pentax,FA * 70-200mm f/2.8 ED DC AW,2000.00€,Focale fissa
+Obiettivo,Pentax,HD DA 35mm f/2.8 Macro Limited ,600.00€
+Reflex,Pentax,KP,800.00€,APS-C
+Obiettivo,Pentax,SMC DA 12-24mm f/4 ED AL,900.00€,Focale fissa
+Obiettivo,Pentax,SMC DA 18-135mm f/3.5-5.6 ED AL (IF) DC WR,500.00€,Zoom
+Reflex,Pentax , K-1 Mark II ,1900.00€,APS-C
+Reflex,Pentax ,K-70,650.00€,APS-C
+Obiettivo,Samyang,35mm f/1.2 ED AS UMC CS,300.00€
+Obiettivo,Samyang,AF 18mm f/2.8 FE,250.00€,Lunghezza fissa
 Accessorio,SanDisk,SDXC 128GB,55.00€,MemoryCard
-Obiettivo,Sigma,100-300mm AF,400.00€,Zoom
-Obiettivo,Tamron,70-200 Di Vc USD,950.00€,Focale fissa
+Accessorio,Sandisk,Extreme Pro CFExpress 128 GB,300.00€,MemoryCard
+Accessorio,Sandisk,Extreme Pro SDXC 64 GB (300 MB/s),120.00€,MemoryCard
+Accessorio,Sandisk,Ultra SDHC 32 GB (80 MB/s),20.00€,MemoryCard
+Obiettivo,Sigma,15mm f/2.8 EX DG Diagonal Fisheye,700.00€
+Obiettivo,Sigma,17-50mm f/2.8 EX DC OS HSM,250.00€,Focale fissa
+Obiettivo,Sigma,200-500mm f/2.8 EX DG,22000.00€,Focale fissa
+Obiettivo,Sigma,85mm f/1.4 DG HSM Art,1000.00€
+Reflex,Sony,A6100,750.00€,APS-C
+Reflex,Sony,A7r IV,3500.00€,Mirrorless
+Reflex,Sony,A99 II,3600.00€,Mirrorless
+Obiettivo,Sony,Carl Zeiss Sonnar T* E 24mm f/1.8,900.00€
+Obiettivo,Sony,E PZ 16-50mm f/3.5-5.6 OSS,150.00€,Zoom
+Obiettivo,Sony,FE 12-24mm f/4 G,1700.00€,Focale fissa
+Accessorio,Sony,G Tough 64 GB SDXC,120.00€,MemoryCard
+Accessorio,Sony,G XQD 256 GB,600.00€,MemoryCard
+Obiettivo,Tamron,35mm f/2.8 Di III OSD M1:2,400.00€,Lunghezza fissa
+Obiettivo,Tamron,8-300mm f/3.5-6.3 Di VC PZD,700.00€,Zoom
+Obiettivo,Tamron,SP 35mm f/1.8 Di VC USD,550.00€
+Obiettivo,Tokina,AF 17-35mm f/4 AT-X Pro FX,500.00€,Focale fissa
+Obiettivo,Tokina,Opera 16-28mm f/2.8 FF,750.00€,Focale fissa
+Accessorio,Yongnuo,YN-560 IV,75.00€,Flash
+Obiettivo,Zeiss,M C Biogon T* 35mm f/2.8,800.00€,Lunghezza fissa
+Obiettivo,Zeiss,Otus 85mm f/1.4,4000.00€,Lunghezza fissa
+Obiettivo,Zeiss,Touit 12mm f/2.8,850.00€
+Obiettivo,Zeiss,Touit 32mm f/1.8,600.00€
+Obiettivo,Zeiss,ZM Distagon T* 15mm f/2.8,2500.00€
