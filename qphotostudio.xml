@@ -2,6 +2,26 @@
 <Product>
     <Reflex>
         <Marca>Canon</Marca>
+        <Modello>400D</Modello>
+        <Prezzo>350.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>12800</ISOmax>
+        <Pixel>18</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Canon</Marca>
+        <Modello>5D Mark IV</Modello>
+        <Prezzo>2200.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>102400</ISOmax>
+        <Pixel>304</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Canon</Marca>
         <Modello>5Ds R </Modello>
         <Prezzo>3000.00</Prezzo>
         <Formato>No data</Formato>
@@ -146,6 +166,16 @@
         <ISOmin>50</ISOmin>
         <ISOmax>102400</ISOmax>
         <Pixel>26</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Canon</Marca>
+        <Modello>EOS Ra</Modello>
+        <Prezzo>2500.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>102400</ISOmax>
+        <Pixel>303</Pixel>
         <Tropicalizzazione>SI</Tropicalizzazione>
     </Reflex>
     <ObiettivoZoom>
@@ -305,6 +335,16 @@
     </Reflex>
     <Reflex>
         <Marca>Leica</Marca>
+        <Modello>M-P</Modello>
+        <Prezzo>7000.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>6400</ISOmax>
+        <Pixel>243</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Leica</Marca>
         <Modello>M10</Modello>
         <Prezzo>6500.00</Prezzo>
         <Formato>No data</Formato>
@@ -357,6 +397,16 @@
         <FocaleMax>4.5</FocaleMax>
         <Moltiplicatore>NO</Moltiplicatore>
     </ObiettivoZoom>
+    <Reflex>
+        <Marca>Leica</Marca>
+        <Modello>TL2</Modello>
+        <Prezzo>2000.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>51200</ISOmax>
+        <Pixel>24</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
     <ObiettivoLunghezzaFissa>
         <ObiettivoFisso>
             <Marca>Leica</Marca>
@@ -456,6 +506,16 @@
     </Reflex>
     <Reflex>
         <Marca>Nikon</Marca>
+        <Modello>D5600</Modello>
+        <Prezzo>600.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>25600</ISOmax>
+        <Pixel>24</Pixel>
+        <Tropicalizzazione>NO</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Nikon</Marca>
         <Modello>D6</Modello>
         <Prezzo>6500.00</Prezzo>
         <Formato>No data</Formato>
@@ -472,6 +532,16 @@
         <ISOmin>50</ISOmin>
         <ISOmax>160000</ISOmax>
         <Pixel>20</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
+    <Reflex>
+        <Marca>Nikon</Marca>
+        <Modello>D780</Modello>
+        <Prezzo>2300.00</Prezzo>
+        <Formato>No data</Formato>
+        <ISOmin>50</ISOmin>
+        <ISOmax>204800</ISOmax>
+        <Pixel>241</Pixel>
         <Tropicalizzazione>SI</Tropicalizzazione>
     </Reflex>
     <Reflex>
@@ -525,6 +595,14 @@
         <Pixel>243</Pixel>
         <Tropicalizzazione>SI</Tropicalizzazione>
     </Reflex>
+    <Accessorio>
+        <Marca>Olympus</Marca>
+        <Modello>FL-700WR</Modello>
+        <Prezzo>330.00</Prezzo>
+        <Tipo>Flash</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
     <Reflex>
         <Marca>Olympus</Marca>
         <Modello>OM-D E-M1 III</Modello>
@@ -583,6 +661,16 @@
         <Diametro>49</Diametro>
         <Compatibilita>APS-C</Compatibilita>
     </ObiettivoFisso>
+    <Reflex>
+        <Marca>Pentax</Marca>
+        <Modello>KP</Modello>
+        <Prezzo>800.00</Prezzo>
+        <Formato>APS-C</Formato>
+        <ISOmin>100</ISOmin>
+        <ISOmax>819200</ISOmax>
+        <Pixel>24</Pixel>
+        <Tropicalizzazione>SI</Tropicalizzazione>
+    </Reflex>
     <ObiettivoFocaleFissa>
         <ObiettivoFisso>
             <Marca>Pentax</Marca>
@@ -639,6 +727,33 @@
         <Pixel>24</Pixel>
         <Tropicalizzazione>SI</Tropicalizzazione>
     </Reflex>
+    <ObiettivoFisso>
+        <Marca>Samyang</Marca>
+        <Modello>35mm f/1.2 ED AS UMC CS</Modello>
+        <Prezzo>300.00</Prezzo>
+        <Lunghezza>35</Lunghezza>
+        <Focale>1.2</Focale>
+        <Stabilizzazione>NO</Stabilizzazione>
+        <AF>NO</AF>
+        <Angolo>44.7</Angolo>
+        <Diametro>62</Diametro>
+        <Compatibilita>APS-C</Compatibilita>
+    </ObiettivoFisso>
+    <ObiettivoLunghezzaFissa>
+        <ObiettivoFisso>
+            <Marca>Samyang</Marca>
+            <Modello>AF 18mm f/2.8 FE</Modello>
+            <Prezzo>250.00</Prezzo>
+            <Lunghezza>18</Lunghezza>
+            <Focale>2.8</Focale>
+            <Stabilizzazione>NO</Stabilizzazione>
+            <AF>SI</AF>
+            <Angolo>100.4</Angolo>
+            <Diametro>58</Diametro>
+            <Compatibilita>FF, APS-C</Compatibilita>
+        </ObiettivoFisso>
+        <FocaleMax>3.5</FocaleMax>
+    </ObiettivoLunghezzaFissa>
     <Accessorio>
         <Marca>SanDisk</Marca>
         <Modello>SDXC 128GB</Modello>
@@ -805,6 +920,22 @@
         <LunghezzaMax>24</LunghezzaMax>
         <AngoloMax>122</AngoloMax>
     </ObiettivoFocaleFissa>
+    <Accessorio>
+        <Marca>Sony</Marca>
+        <Modello>G Tough 64 GB SDXC</Modello>
+        <Prezzo>120.00</Prezzo>
+        <Tipo>MemoryCard</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <Accessorio>
+        <Marca>Sony</Marca>
+        <Modello>G XQD 256 GB</Modello>
+        <Prezzo>600.00</Prezzo>
+        <Tipo>MemoryCard</Tipo>
+        <Compatibilita>Tutte</Compatibilita>
+        <Note></Note>
+    </Accessorio>
     <ObiettivoLunghezzaFissa>
         <ObiettivoFisso>
             <Marca>Tamron</Marca>
@@ -851,5 +982,111 @@
         <Angolo>63.5</Angolo>
         <Diametro>67</Diametro>
         <Compatibilita>FF, APS_C</Compatibilita>
+    </ObiettivoFisso>
+    <ObiettivoFocaleFissa>
+        <ObiettivoFisso>
+            <Marca>Tokina</Marca>
+            <Modello>AF 17-35mm f/4 AT-X Pro FX</Modello>
+            <Prezzo>500.00</Prezzo>
+            <Lunghezza>17</Lunghezza>
+            <Focale>4</Focale>
+            <Stabilizzazione>NO</Stabilizzazione>
+            <AF>SI</AF>
+            <Angolo>63.5</Angolo>
+            <Diametro>82</Diametro>
+            <Compatibilita>FF, APS-C</Compatibilita>
+        </ObiettivoFisso>
+        <LunghezzaMax>35</LunghezzaMax>
+        <AngoloMax>103.7</AngoloMax>
+    </ObiettivoFocaleFissa>
+    <ObiettivoFocaleFissa>
+        <ObiettivoFisso>
+            <Marca>Tokina</Marca>
+            <Modello>Opera 16-28mm f/2.8 FF</Modello>
+            <Prezzo>750.00</Prezzo>
+            <Lunghezza>16</Lunghezza>
+            <Focale>2.8</Focale>
+            <Stabilizzazione>NO</Stabilizzazione>
+            <AF>SI</AF>
+            <Angolo>75.3</Angolo>
+            <Diametro>62</Diametro>
+            <Compatibilita>FF, APS-C</Compatibilita>
+        </ObiettivoFisso>
+        <LunghezzaMax>28</LunghezzaMax>
+        <AngoloMax>106.9</AngoloMax>
+    </ObiettivoFocaleFissa>
+    <Accessorio>
+        <Marca>Yongnuo</Marca>
+        <Modello>YN-560 IV</Modello>
+        <Prezzo>75.00</Prezzo>
+        <Tipo>Flash</Tipo>
+        <Compatibilita>Canon, Nikon, Pentax</Compatibilita>
+        <Note></Note>
+    </Accessorio>
+    <ObiettivoLunghezzaFissa>
+        <ObiettivoFisso>
+            <Marca>Zeiss</Marca>
+            <Modello>M C Biogon T* 35mm f/2.8</Modello>
+            <Prezzo>800.00</Prezzo>
+            <Lunghezza>35</Lunghezza>
+            <Focale>2.8</Focale>
+            <Stabilizzazione>NO</Stabilizzazione>
+            <AF>NO</AF>
+            <Angolo>63.5</Angolo>
+            <Diametro>43</Diametro>
+            <Compatibilita>FF, APS-C</Compatibilita>
+        </ObiettivoFisso>
+        <FocaleMax>3.8</FocaleMax>
+    </ObiettivoLunghezzaFissa>
+    <ObiettivoLunghezzaFissa>
+        <ObiettivoFisso>
+            <Marca>Zeiss</Marca>
+            <Modello>Otus 85mm f/1.4</Modello>
+            <Prezzo>4000.00</Prezzo>
+            <Lunghezza>85</Lunghezza>
+            <Focale>1.4</Focale>
+            <Stabilizzazione>NO</Stabilizzazione>
+            <AF>NO</AF>
+            <Angolo>28.6</Angolo>
+            <Diametro>86</Diametro>
+            <Compatibilita>FF, APS-C</Compatibilita>
+        </ObiettivoFisso>
+        <FocaleMax>1.8</FocaleMax>
+    </ObiettivoLunghezzaFissa>
+    <ObiettivoFisso>
+        <Marca>Zeiss</Marca>
+        <Modello>Touit 12mm f/2.8</Modello>
+        <Prezzo>850.00</Prezzo>
+        <Lunghezza>12</Lunghezza>
+        <Focale>2.8</Focale>
+        <Stabilizzazione>NO</Stabilizzazione>
+        <AF>SI</AF>
+        <Angolo>100.4</Angolo>
+        <Diametro>67</Diametro>
+        <Compatibilita>APS-C</Compatibilita>
+    </ObiettivoFisso>
+    <ObiettivoFisso>
+        <Marca>Zeiss</Marca>
+        <Modello>Touit 32mm f/1.8</Modello>
+        <Prezzo>600.00</Prezzo>
+        <Lunghezza>32</Lunghezza>
+        <Focale>1.8</Focale>
+        <Stabilizzazione>NO</Stabilizzazione>
+        <AF>SI</AF>
+        <Angolo>48.5</Angolo>
+        <Diametro>52</Diametro>
+        <Compatibilita>APS-C</Compatibilita>
+    </ObiettivoFisso>
+    <ObiettivoFisso>
+        <Marca>Zeiss</Marca>
+        <Modello>ZM Distagon T* 15mm f/2.8</Modello>
+        <Prezzo>2500.00</Prezzo>
+        <Lunghezza>15</Lunghezza>
+        <Focale>2.8</Focale>
+        <Stabilizzazione>NO</Stabilizzazione>
+        <AF>NO</AF>
+        <Angolo>110.6</Angolo>
+        <Diametro>72</Diametro>
+        <Compatibilita>FF, APS-C</Compatibilita>
     </ObiettivoFisso>
 </Product>
