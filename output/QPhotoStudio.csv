@@ -1,5 +1,6 @@
 Prodotto,Marca,Modello,Prezzo,Dettagli
 
+Accessorio,Benro,FGP18C,300.00€,Treppiedi
 Reflex,Canon,400D,350.00€,APS-C
 Reflex,Canon,5D Mark IV,2200.00€,FullFrame
 Reflex,Canon,5Ds R ,3000.00€,FullFrame
@@ -20,12 +21,13 @@ Accessorio,Canon,Speedlite EL-100,170.00€,Flash
 Obiettivo,Canon,TS-E 24mm f/3.5 L II ,2100.00€
 Accessorio,Fujifilm,EF-42,200.00€,Flash
 Accessorio,Fujifilm,EF-X500,400.00€,Flash
+Reflex,Fujifilm,X-H1,1250.00€,APS-C
 Reflex,Fujifilm,X-T200,800.00€,APS-C
 Reflex,Fujifilm,X-T4,1600.00€,APS-C
 Obiettivo,Fujifilm,XF 16-55mm f/2.8 R LM WR,1000.00€,Focale fissa
 Obiettivo,Fujifilm,XF 18mm f/2 R,500.00€
-Reflex,Fujifilm ,X-H1,1250.00€,APS-C
-Accessorio,Hoya ,Fusion Circular Polarizer,80.00€,Filtri
+Accessorio,Hoya,Fusion Circular Polarizer,80.00€,Filtri
+Accessorio,Joby,GorillaPod Focus,180.00€,Treppiedi
 Accessorio,Joby,Gorillapod 5K,65.00€,Treppiedi
 Obiettivo,Leica,Elmar-M 24mm f/3.8 ASPH,2400.00€,Lunghezza fissa
 Reflex,Leica,M-E (Typ 240),4000.00€,Mirrorless
@@ -38,8 +40,14 @@ Reflex,Leica,TL2,2000.00€,APS-C
 Obiettivo,Leica,Thambar-M 90mm f/2.2,6000.00€,Lunghezza fissa
 Reflex,Leica ,CL,3600.00€,APS-C
 Accessorio,Lexar,Professional CFexpress 64GB,200.00€,MemoryCard
-Accessorio,Lexar,SDXC 512 GB 633x (95MB/s),80.00€,MemoryCard
+Accessorio,Lexar,SDXC 512 GB 633x,80.00€,MemoryCard
+Accessorio,Lowepro,DryZone BP40L,150.00€,Zaini e borse
+Accessorio,Lowepro,Magnum 650 AW,700.00€,Zaini e borse
+Accessorio,Lowepro,Photo Sport 300AW II,200.00€,Zaini e borse
+Accessorio,Lowepro,ProTrekker 650 AW,400.00€,Zaini e borse
+Accessorio,Lowepro,Whistler BP 350 AW,250.00€,Zaini e borse
 Accessorio,Manfrotto,Bug PL-203,100.00€,Zaini e borse
+Accessorio,Manfrotto,MT 055 X PRO3,150.00€,Treppiedi
 Accessorio,Manfrotto ,Zaino Travel Advanced,80.00€,Zaini e borse
 Obiettivo,Nikon,AF-S 60mm f/2.8 G ED Micro,550.00€,Lunghezza fissa
 Obiettivo,Nikon,AF-S 85mm f/1.8 G,500.00€,Lunghezza fissa
@@ -67,12 +75,15 @@ Obiettivo,Samyang,35mm f/1.2 ED AS UMC CS,300.00€
 Obiettivo,Samyang,AF 18mm f/2.8 FE,250.00€,Lunghezza fissa
 Accessorio,SanDisk,SDXC 128GB,55.00€,MemoryCard
 Accessorio,Sandisk,Extreme Pro CFExpress 128 GB,300.00€,MemoryCard
-Accessorio,Sandisk,Extreme Pro SDXC 64 GB (300 MB/s),120.00€,MemoryCard
-Accessorio,Sandisk,Ultra SDHC 32 GB (80 MB/s),20.00€,MemoryCard
+Accessorio,Sandisk,Extreme Pro SDXC 64 GB,120.00€,MemoryCard
+Accessorio,Sandisk,Ultra SDHC 32 GB,20.00€,MemoryCard
 Obiettivo,Sigma,15mm f/2.8 EX DG Diagonal Fisheye,700.00€
 Obiettivo,Sigma,17-50mm f/2.8 EX DC OS HSM,250.00€,Focale fissa
 Obiettivo,Sigma,200-500mm f/2.8 EX DG,22000.00€,Focale fissa
 Obiettivo,Sigma,85mm f/1.4 DG HSM Art,1000.00€
+Accessorio,Sirui,BCT-2003,650.00€,Treppiedi
+Accessorio,Sirui,ET-1204,350.00€,Treppiedi
+Accessorio,Sirui,W-2204,400.00€,Treppiedi
 Reflex,Sony,A6100,750.00€,APS-C
 Reflex,Sony,A7r IV,3500.00€,Mirrorless
 Reflex,Sony,A99 II,3600.00€,Mirrorless
@@ -80,6 +91,8 @@ Obiettivo,Sony,Carl Zeiss Sonnar T* E 24mm f/1.8,900.00€
 Obiettivo,Sony,E PZ 16-50mm f/3.5-5.6 OSS,150.00€,Zoom
 Obiettivo,Sony,FE 12-24mm f/4 G,1700.00€,Focale fissa
 Accessorio,Sony,G Tough 64 GB SDXC,120.00€,MemoryCard
+Accessorio,Sony,G Tough 64 GB SDXC,120.00€,MemoryCard
+Accessorio,Sony,G XQD 256 GB,600.00€,MemoryCard
 Accessorio,Sony,G XQD 256 GB,600.00€,MemoryCard
 Obiettivo,Tamron,35mm f/2.8 Di III OSD M1:2,400.00€,Lunghezza fissa
 Obiettivo,Tamron,8-300mm f/3.5-6.3 Di VC PZD,700.00€,Zoom

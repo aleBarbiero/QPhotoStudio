@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Product>
+	<Accessorio>
+		<Marca>Benro</Marca>
+		<Modello>FGP18C</Modello>
+		<Prezzo>300.00</Prezzo>
+		<Tipo>Treppiedi</Tipo>
+		<Compatibilita>Tutte</Compatibilita>
+		<Note>Altezza minima: 37cm, altezza massima: 154cm</Note>
+	</Accessorio>
     <Reflex>
         <Marca>Canon</Marca>
         <Modello>400D</Modello>
@@ -283,7 +291,7 @@
         <Compatibilita>APS-C</Compatibilita>
     </ObiettivoFisso>
     <Reflex>
-        <Marca>Fujifilm </Marca>
+        <Marca>Fujifilm</Marca>
         <Modello>X-H1</Modello>
         <Prezzo>1250.00</Prezzo>
         <Formato>APS-C</Formato>
@@ -293,12 +301,12 @@
         <Tropicalizzazione>SI</Tropicalizzazione>
     </Reflex>
     <Accessorio>
-        <Marca>Hoya </Marca>
+        <Marca>Hoya</Marca>
         <Modello>Fusion Circular Polarizer</Modello>
         <Prezzo>80.00</Prezzo>
         <Tipo>Filtri</Tipo>
         <Compatibilita>Tutte</Compatibilita>
-        <Note></Note>
+        <Note>Polarizzatore circolare</Note>
     </Accessorio>
     <Accessorio>
         <Marca>Joby</Marca>
@@ -306,7 +314,15 @@
         <Prezzo>65.00</Prezzo>
         <Tipo>Treppiedi</Tipo>
         <Compatibilita>Tutte</Compatibilita>
-        <Note></Note>
+        <Note>Peso massimo supportato: 5kg</Note>
+    </Accessorio>
+    <Accessorio>
+	<Marca>Joby</Marca>
+	<Modello>GorillaPod Focus</Modello>
+	<Prezzo>180.00</Prezzo>
+	<Tipo>Treppiedi</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Altezza minima: 10cm, altezza massima: 25cm</Note>
     </Accessorio>
     <ObiettivoLunghezzaFissa>
         <ObiettivoFisso>
@@ -438,15 +454,15 @@
         <Prezzo>200.00</Prezzo>
         <Tipo>MemoryCard</Tipo>
         <Compatibilita>Tutte</Compatibilita>
-        <Note></Note>
+        <Note>Velocità lettura: 300MB/S, velocità scrittura:80 MB/S</Note>
     </Accessorio>
     <Accessorio>
         <Marca>Lexar</Marca>
-        <Modello>SDXC 512 GB 633x (95MB/s)</Modello>
+        <Modello>SDXC 512 GB 633x</Modello>
         <Prezzo>80.00</Prezzo>
         <Tipo>MemoryCard</Tipo>
         <Compatibilita>Tutte</Compatibilita>
-        <Note></Note>
+        <Note>Velocità lettura 95 MB/s, velocità scrittura 45 MB/s</Note>
     </Accessorio>
     <Accessorio>
         <Marca>Manfrotto</Marca>
@@ -463,6 +479,46 @@
         <Tipo>Zaini e borse</Tipo>
         <Compatibilita>Tutte</Compatibilita>
         <Note></Note>
+    </Accessorio>
+    <Accessorio>
+	<Marca>Lowepro</Marca>
+	<Modello>DryZone BP40L</Modello>
+	<Prezzo>150.00</Prezzo>
+	<Tipo>Zaini e borse</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Dimensioni32 x 22 x 44, impermeabile</Note>
+    </Accessorio>
+    <Accessorio>
+	<Marca>Lowepro</Marca>
+	<Modello>Magnum 650 AW</Modello>
+	<Prezzo>700.00</Prezzo>
+	<Tipo>Zaini e borse</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Dimensioni: 49 x 36 x 33</Note>
+    </Accessorio>
+    <Accessorio>
+	<Marca>Lowepro</Marca>
+	<Modello>Photo Sport 300AW II</Modello>
+	<Prezzo>200.00</Prezzo>
+	<Tipo>Zaini e borse</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Dimensioni: 27 x 24 x 56</Note>
+    </Accessorio>
+    <Accessorio>
+	<Marca>Lowepro</Marca>
+	<Modello>ProTrekker 650 AW</Modello>
+	<Prezzo>400.00</Prezzo>
+	<Tipo>Zaini e borse</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Dimensioni:55 x 36 x 63</Note>
+	</Accessorio>
+	<Accessorio>
+	<Marca>Lowepro</Marca>
+	<Modello>Whistler BP 350 AW</Modello>
+	<Prezzo>250.00</Prezzo>
+	<Tipo>Zaini e borse</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Dimensioni: 29 x 30 x 53</Note>
     </Accessorio>
     <ObiettivoLunghezzaFissa>
         <ObiettivoFisso>
@@ -585,6 +641,14 @@
         </ObiettivoFisso>
         <FocaleMax>2.1</FocaleMax>
     </ObiettivoLunghezzaFissa>
+    <Accessorio>
+	<Marca>Manfrotto</Marca>
+	<Modello>MT 055 X PRO3</Modello>
+	<Prezzo>150.00</Prezzo>
+	<Tipo>Treppiedi</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Altezza minima: 9cm, altezza massima: 170cm</Note>
+    </Accessorio>
     <Reflex>
         <Marca>Nikon</Marca>
         <Modello>Z6</Modello>
@@ -772,19 +836,19 @@
     </Accessorio>
     <Accessorio>
         <Marca>Sandisk</Marca>
-        <Modello>Extreme Pro SDXC 64 GB (300 MB/s)</Modello>
+        <Modello>Extreme Pro SDXC 64 GB</Modello>
         <Prezzo>120.00</Prezzo>
         <Tipo>MemoryCard</Tipo>
         <Compatibilita>Tutte</Compatibilita>
-        <Note></Note>
+        <Note>Velocità di scrittura: 300Mb/s</Note>
     </Accessorio>
     <Accessorio>
         <Marca>Sandisk</Marca>
-        <Modello>Ultra SDHC 32 GB (80 MB/s)</Modello>
+        <Modello>Ultra SDHC 32 GB</Modello>
         <Prezzo>20.00</Prezzo>
         <Tipo>MemoryCard</Tipo>
         <Compatibilita>Tutte</Compatibilita>
-        <Note></Note>
+        <Note>Velocità di scrittura: 80Mb/s</Note>
     </Accessorio>
     <ObiettivoFisso>
         <Marca>Sigma</Marca>
@@ -1089,4 +1153,44 @@
         <Diametro>72</Diametro>
         <Compatibilita>FF, APS-C</Compatibilita>
     </ObiettivoFisso>
+    <Accessorio>
+	<Marca>Sirui</Marca>
+	<Modello>BCT-2003</Modello>
+	<Prezzo>650.00</Prezzo>
+	<Tipo>Treppiedi</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Altezza minima: 43cm, altezza massima: 160cm</Note>
+    </Accessorio>
+    <Accessorio>
+	<Marca>Sirui</Marca>
+	<Modello>ET-1204</Modello>
+	<Prezzo>350.00</Prezzo>
+	<Tipo>Treppiedi</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Altezza minima: 13cm, altezza massima:139cm</Note>
+    </Accessorio>
+    <Accessorio>
+	<Marca>Sirui</Marca>
+	<Modello>W-2204</Modello>
+	<Prezzo>400.00</Prezzo>
+	<Tipo>Treppiedi</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Altezza minima: 15cm, altezza massima: 178cm</Note>
+    </Accessorio>
+    <Accessorio>
+	<Marca>Sony</Marca>
+	<Modello>G Tough 64 GB SDXC</Modello>
+	<Prezzo>120.00</Prezzo>
+	<Tipo>MemoryCard</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Velocità lettura 300 MB/s, velocità scrittura 299 MB/s</Note>
+    </Accessorio>
+    <Accessorio>
+	<Marca>Sony</Marca>
+	<Modello>G XQD 256 GB</Modello>
+	<Prezzo>600.00</Prezzo>
+	<Tipo>MemoryCard</Tipo>
+	<Compatibilita>Tutte</Compatibilita>
+	<Note>Velocità lettura 400 MB/s, velocità scrittura 400 MB/S</Note>
+    </Accessorio>
 </Product>
