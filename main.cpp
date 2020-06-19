@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "GUI/Model.h"
+#include "GUI/model.h"
 #include <QApplication>
 #include <QFile>
 #include <QFont>

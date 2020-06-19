@@ -26,47 +26,47 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += \
-    GUI/Details.cpp \
-    GUI/Listino.cpp \
-    GUI/MyCSV.cpp \
-    GUI/Search.cpp \
-        model/Product.cpp \
-        model/Reflex.cpp \
-        model/Accessory.cpp \
-        model/Lens.cpp \
-        model/Length.cpp \
-        model/Aperture.cpp \
-        model/Zoom.cpp \
-        container/DeepPtr.cpp \
-        container/Container.cpp \
-        GUI/Add.cpp \
-        GUI/Index.cpp \
-        GUI/Model.cpp \
-        GUI/MyXml.cpp \
+    GUI/add.cpp \
+    GUI/details.cpp \
+    GUI/index.cpp \
+    GUI/listino.cpp \
+    GUI/model.cpp \
+    GUI/myCSV.cpp \
+    GUI/myXml.cpp \
+    GUI/search.cpp \
+    container/container.cpp \
+    container/deepPtr.cpp \
         main.cpp \
         mainwindow.cpp \
-    model/exception/Exception.cpp
+    model/accessory.cpp \
+    model/aperture.cpp \
+    model/exception/exception.cpp \
+    model/length.cpp \
+    model/lens.cpp \
+    model/product.cpp \
+    model/reflex.cpp \
+    model/zoom.cpp
 
 HEADERS += \
-    GUI/Details.h \
-    GUI/Listino.h \
-    GUI/MyCSV.h \
-    GUI/Search.h \
-        model/Product.h \
-        model/Reflex.h \
-        model/Accessory.h \
-        model/Lens.h \
-        model/Length.h \
-        model/Aperture.h \
-        model/Zoom.h \
-        container/DeepPtr.h \
-        container/Container.h \
-        GUI/Add.h \
-        GUI/Index.h \
-        GUI/Model.h \
-        GUI/MyXml.h \
+    GUI/add.h \
+    GUI/details.h \
+    GUI/index.h \
+    GUI/listino.h \
+    GUI/model.h \
+    GUI/myCSV.h \
+    GUI/myXml.h \
+    GUI/search.h \
+    container/container.h \
+    container/deepPtr.h \
         mainwindow.h \
-    model/exception/Exception.h
+    model/accessory.h \
+    model/aperture.h \
+    model/exception/exception.h \
+    model/length.h \
+    model/lens.h \
+    model/product.h \
+    model/reflex.h \
+    model/zoom.h
 
 FORMS +=
 
@@ -76,7 +76,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    GUI/font.ttf \
     GUI/style.qss \
     icon/icon.png \
     images/accessory.png \

@@ -1,12 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "GUI/Add.h"
-#include "GUI/Index.h"
-#include "GUI/Listino.h"
-#include "GUI/Search.h"
-#include "GUI/Details.h"
-#include "GUI/Model.h"
+#include "GUI/add.h"
+#include "GUI/index.h"
+#include "GUI/listino.h"
+#include "GUI/search.h"
+#include "GUI/details.h"
+#include "GUI/model.h"
 #include <QMainWindow>
 #include <QWidget>
 #include <QMenuBar>
